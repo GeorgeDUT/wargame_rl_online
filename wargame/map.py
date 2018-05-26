@@ -4,22 +4,82 @@ import numpy as np
 #import tensorflow as tf
 import random
 import time
-import sys
-#def bulid_map(self):
 
 UNIT = 20
 MAZE_H = 50
 MAZE_W = 50
 WATER_BLOCK=4
-WATER_SIZE_H=7
-WATER_SIZE_W=2
+WATER_SIZE_H=2
+WATER_SIZE_W=7
 WOODS_BLOCK=9
 WOODS_SIZE_H=3
 WOODS_SIZE_W=3
 RED_ARMY = 10
+
+class Warmap(tk.Tk, object):
+    def __init__(self):
+        super(Warmap, self).__init__()
+        self.title('wargame')
+        self.geometry('{0}x{1}'.format(MAZE_H * UNIT, MAZE_H * UNIT))
+        self._build_map()
+
+    def _build_map(self):
+        self.canvas = tk.Canvas(self, bg='white',height=MAZE_H*UNIT,width=MAZE_W*UNIT)
+        # grids
+        for c in range(0, MAZE_W * UNIT, UNIT):
+            x0, y0, x1, y1 = c, 0, c, MAZE_H * UNIT
+            self.canvas.create_line(x0, y0, x1, y1)
+        for r in range(0, MAZE_H * UNIT, UNIT):
+            x0, y0, x1, y1 = 0, r, MAZE_H * UNIT, r
+            self.canvas.create_line(x0, y0, x1, y1)
+        # env_map[][] = id, id 1 is water, id 2 is woods
+        env_map = []
+        for i in range(MAZE_H):
+            app = []
+            for j in range(MAZE_W):
+                app.append(0)
+            env_map.append(app)
+        # water
+        for i in range(WATER_BLOCK):
+            x = random.randint(2, MAZE_W-WATER_SIZE_W-2)
+            y = random.randint(2, MAZE_H-WATER_SIZE_H-2)
+            x = int(x)
+            y = int(y)
+            for k in range(WATER_SIZE_W):
+                for m in range(WATER_SIZE_H):
+                    env_map[x+k][y+m]=1
+        # woods
+        for i in range(WOODS_BLOCK):
+            x = random.randint(2, MAZE_W - WOODS_SIZE_W - 2)
+            y = random.randint(2, MAZE_H - WOODS_SIZE_H - 2)
+            x = int(x)
+            y = int(y)
+            for k in range(WOODS_SIZE_W):
+                for m in range(WOODS_SIZE_H):
+                    env_map[x + k][y + m] = 2
+        # draw
+        for i in range(MAZE_H):
+            for j in range(MAZE_W):
+                if env_map[i][j] == 1:
+                    self.canvas.create_rectangle(i * UNIT, j * UNIT,
+                        (i + 1) * UNIT, (j + 1) * UNIT, fill='blue')
+                elif env_map[i][j] == 2:
+                    self.canvas.create_rectangle(i * UNIT, j * UNIT,
+                         (i + 1) * UNIT, (j + 1) * UNIT, fill='green')
+        # agent team
+        red_army = []
+        for i in range(RED_ARMY):
+            red_army.append(self.canvas.create_rectangle((i) * UNIT,
+                        0 * UNIT, (i + 1) * UNIT, 1 * UNIT, fill='red'))
+        self.canvas.pack()
+
+
+
+
+'''
 top=tk.Tk()
 top.geometry('{0}x{1}'.format(MAZE_H*UNIT,MAZE_H*UNIT))
-top.title('war-game')
+top.title('wargame')
 top.canvas=tk.Canvas(top, bg='white',height=MAZE_H*UNIT,width=MAZE_W*UNIT)
 for c in range(0,MAZE_W*UNIT,UNIT):
     x0,y0,x1,y1=c,0,c,MAZE_H*UNIT
@@ -101,3 +161,4 @@ for i in range(0,1000):
     time.sleep(0.1)
 agent2 = top.canvas.create_rectangle(0*UNIT,0*UNIT,1*UNIT,1*UNIT,fill='black')
 top.mainloop()
+'''
