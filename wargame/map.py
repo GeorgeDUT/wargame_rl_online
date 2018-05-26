@@ -66,7 +66,8 @@ agent=[]
 for i in range(RED_ARMY):
     agent.append(top.canvas.create_rectangle((i)*UNIT,0*UNIT,(i+1)*UNIT,1*UNIT,fill='red'))
 top.canvas.pack()
-agent_loc=[0,0,1,1]
+agent_loc=[0,0]
+agent_loc2=[9,0]
 for i in range(0,1000):
     x=random.randint(-1,1)
     y=random.randint(-1,1)
@@ -81,6 +82,21 @@ for i in range(0,1000):
     top.canvas.move(agent[0],UNIT*x,UNIT*y)
     agent_loc[0]=agent_loc[0]+x
     agent_loc[1]=agent_loc[1]+y
+    # agent 9
+    x = random.randint(-1, 1)
+    y = random.randint(-1, 1)
+    if agent_loc2[0] + x < 0:
+        x = 0
+    if agent_loc2[1] + y < 0:
+        y = 0
+    if agent_loc2[0] + x > MAZE_W:
+        x = 0
+    if agent_loc2[1] + y > MAZE_H:
+        y = 0
+    top.canvas.move(agent[9], UNIT * x, UNIT * y)
+    agent_loc2[0] = agent_loc2[0] + x
+    agent_loc2[1] = agent_loc2[1] + y
+
     top.update()
     time.sleep(0.1)
 agent2 = top.canvas.create_rectangle(0*UNIT,0*UNIT,1*UNIT,1*UNIT,fill='black')
