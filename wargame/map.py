@@ -32,7 +32,7 @@ class Warmap(tk.Tk, object):
         for r in range(0, MAZE_H * UNIT, UNIT):
             x0, y0, x1, y1 = 0, r, MAZE_H * UNIT, r
             self.canvas.create_line(x0, y0, x1, y1)
-        # env_map[][] = id, id 1 is water, id 2 is woods
+        # env_map[][] = id, id 1 is water, id 2 is woods, id 9 is treasure
         env_map = []
         for i in range(MAZE_H):
             app = []
@@ -57,6 +57,8 @@ class Warmap(tk.Tk, object):
             for k in range(WOODS_SIZE_W):
                 for m in range(WOODS_SIZE_H):
                     env_map[x + k][y + m] = 2
+        # treasure
+        env_map[int(MAZE_W/2)][MAZE_H-1] = 9
         # draw
         for i in range(MAZE_H):
             for j in range(MAZE_W):
@@ -66,6 +68,9 @@ class Warmap(tk.Tk, object):
                 elif env_map[i][j] == 2:
                     self.canvas.create_rectangle(i * UNIT, j * UNIT,
                          (i + 1) * UNIT, (j + 1) * UNIT, fill='green')
+                elif env_map[i][j] == 9:
+                    self.canvas.create_rectangle(i * UNIT, j * UNIT,
+                                                 (i + 1) * UNIT, (j + 1) * UNIT, fill='yellow')
         # agent team
         red_army = []
         for i in range(RED_ARMY):
@@ -73,8 +78,20 @@ class Warmap(tk.Tk, object):
                         0 * UNIT, (i + 1) * UNIT, 1 * UNIT, fill='red'))
         self.canvas.pack()
 
+    def step(self,action):
+        if action == 'u':
+            pass
+        elif action == 'd':
+            pass
+        elif action == 'r':
+            pass
+        elif action == 'l':
+            pass
 
 
+    def reload(self):
+        time.sleep(0.1)
+        self.update()
 
 '''
 top=tk.Tk()
