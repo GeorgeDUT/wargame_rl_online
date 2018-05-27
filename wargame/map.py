@@ -1,10 +1,14 @@
-from tkinter import *
-import tkinter as tk
 import numpy as np
 #import tensorflow as tf
 import random
 import time
+import sys
 
+if sys.version_info.major == 2:
+    import Tkinter as tk
+else:
+    import tkinter as tk
+    pass
 UNIT = 20
 MAZE_H = 50
 MAZE_W = 50
