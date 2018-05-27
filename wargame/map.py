@@ -1,5 +1,5 @@
-from Tkinter import *
-import Tkinter as tk
+from tkinter import *
+import tkinter as tk
 import numpy as np
 #import tensorflow as tf
 import random
