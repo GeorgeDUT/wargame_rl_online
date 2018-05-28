@@ -112,9 +112,9 @@ class Warmap(tk.Tk, object):
             add_x = 0
         if self.red_army_loc[agentid][1] + add_y < 0:
             add_y = 0
-        if self.red_army_loc[agentid][0] + add_x > MAZE_W:
+        if self.red_army_loc[agentid][0] + add_x > (MAZE_W-1):
             add_x = 0
-        if self.red_army_loc[agentid][1] + add_y > MAZE_H:
+        if self.red_army_loc[agentid][1] + add_y > (MAZE_H-1):
             add_y = 0
         self.red_army_loc[agentid][0]+=add_x
         self.red_army_loc[agentid][1]+=add_y
