@@ -5,13 +5,16 @@ import time
 import sys
 
 if sys.version_info.major == 2:
+    from Tkinter import *
     import Tkinter as tk
+
 else:
+    from tkinter import *
     import tkinter as tk
-    pass
+
 UNIT = 20
-MAZE_H = 50
-MAZE_W = 50
+MAZE_H = 25
+MAZE_W = 25
 WATER_BLOCK=4
 WATER_SIZE_H=2
 WATER_SIZE_W=7
@@ -76,22 +79,48 @@ class Warmap(tk.Tk, object):
                     self.canvas.create_rectangle(i * UNIT, j * UNIT,
                                                  (i + 1) * UNIT, (j + 1) * UNIT, fill='yellow')
         # agent team
-        red_army = []
+        self.red_army_loc = []
         for i in range(RED_ARMY):
-            red_army.append(self.canvas.create_rectangle((i) * UNIT,
-                        0 * UNIT, (i + 1) * UNIT, 1 * UNIT, fill='red'))
+            location = []
+            location.append(i)
+            location.append(0)
+            self.red_army_loc.append(location)
+        self.red_army = []
+        for i in range(RED_ARMY):
+            self.red_army.append(self.canvas.create_rectangle(self.red_army_loc[i][0]* UNIT,
+                            self.red_army_loc[i][1] * UNIT, (self.red_army_loc[i][0]+ 1) * UNIT,
+                            (self.red_army_loc[i][1]+1) * UNIT, fill='red'))
+
         self.canvas.pack()
 
-    def step(self,action):
+    def step(self, action, agentid):
+        add_x = 0
+        add_y = 0
         if action == 'u':
-            pass
+            add_x = 0
+            add_y = -1
         elif action == 'd':
-            pass
+            add_x = 0
+            add_y = 1
         elif action == 'r':
-            pass
+            add_x = 1
+            add_y = 0
         elif action == 'l':
-            pass
-
+            add_x = -1
+            add_y = 0
+        if self.red_army_loc[agentid][0] + add_x < 0:
+            add_x = 0
+        if self.red_army_loc[agentid][1] + add_y < 0:
+            add_y = 0
+        if self.red_army_loc[agentid][0] + add_x > MAZE_W:
+            add_x = 0
+        if self.red_army_loc[agentid][1] + add_y > MAZE_H:
+            add_y = 0
+        self.red_army_loc[agentid][0]+=add_x
+        self.red_army_loc[agentid][1]+=add_y
+        print(self.red_army_loc[agentid][0], self.red_army_loc[agentid][1])
+        self.canvas.move(self.red_army[agentid],
+                         UNIT * add_x, UNIT * add_y)
 
     def reload(self):
         time.sleep(0.1)

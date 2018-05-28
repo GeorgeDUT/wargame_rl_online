@@ -5,4 +5,5 @@ def update():
 
 if __name__ == "__main__":
     env = Warmap()
+    update()
     env.mainloop()
