@@ -40,12 +40,12 @@ class Warmap(tk.Tk, object):
             x0, y0, x1, y1 = 0, r, MAZE_H * UNIT, r
             self.canvas.create_line(x0, y0, x1, y1)
         # env_map[][] = id, id 1 is water, id 2 is woods, id 9 is treasure
-        env_map = []
+        self.env_map = []
         for i in range(MAZE_H):
             app = []
             for j in range(MAZE_W):
                 app.append(0)
-            env_map.append(app)
+            self.env_map.append(app)
         # water
         for i in range(WATER_BLOCK):
             x = random.randint(2, MAZE_W-WATER_SIZE_W-2)
@@ -54,7 +54,7 @@ class Warmap(tk.Tk, object):
             y = int(y)
             for k in range(WATER_SIZE_W):
                 for m in range(WATER_SIZE_H):
-                    env_map[x+k][y+m]=1
+                    self.env_map[x+k][y+m]=1
         # woods
         for i in range(WOODS_BLOCK):
             x = random.randint(2, MAZE_W - WOODS_SIZE_W - 2)
@@ -63,19 +63,19 @@ class Warmap(tk.Tk, object):
             y = int(y)
             for k in range(WOODS_SIZE_W):
                 for m in range(WOODS_SIZE_H):
-                    env_map[x + k][y + m] = 2
+                    self.env_map[x + k][y + m] = 2
         # treasure
-        env_map[int(MAZE_W/2)][MAZE_H-1] = 9
+        self.env_map[int(MAZE_W/2)][MAZE_H-1] = 9
         # draw
         for i in range(MAZE_H):
             for j in range(MAZE_W):
-                if env_map[i][j] == 1:
+                if self.env_map[i][j] == 1:
                     self.canvas.create_rectangle(i * UNIT, j * UNIT,
                         (i + 1) * UNIT, (j + 1) * UNIT, fill='blue')
-                elif env_map[i][j] == 2:
+                elif self.env_map[i][j] == 2:
                     self.canvas.create_rectangle(i * UNIT, j * UNIT,
                          (i + 1) * UNIT, (j + 1) * UNIT, fill='green')
-                elif env_map[i][j] == 9:
+                elif self.env_map[i][j] == 9:
                     self.canvas.create_rectangle(i * UNIT, j * UNIT,
                                                  (i + 1) * UNIT, (j + 1) * UNIT, fill='yellow')
         # agent team
@@ -115,6 +115,11 @@ class Warmap(tk.Tk, object):
         if self.red_army_loc[agentid][0] + add_x > (MAZE_W-1):
             add_x = 0
         if self.red_army_loc[agentid][1] + add_y > (MAZE_H-1):
+            add_y = 0
+        check_loc_x = self.red_army_loc[agentid][0] + add_x
+        check_loc_y = self.red_army_loc[agentid][1] + add_y
+        if self.env_map[check_loc_x][check_loc_y] == 1:
+            add_x = 0
             add_y = 0
         self.red_army_loc[agentid][0]+=add_x
         self.red_army_loc[agentid][1]+=add_y
