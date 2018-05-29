@@ -22,6 +22,7 @@ WOODS_BLOCK=9
 WOODS_SIZE_H=3
 WOODS_SIZE_W=3
 RED_ARMY = 10
+GRAY_ARMY = 10
 
 class Warmap(tk.Tk, object):
     def __init__(self):
@@ -78,22 +79,39 @@ class Warmap(tk.Tk, object):
                 elif self.env_map[i][j] == 9:
                     self.canvas.create_rectangle(i * UNIT, j * UNIT,
                                                  (i + 1) * UNIT, (j + 1) * UNIT, fill='yellow')
-        # agent team
+        self.army_loc = []
+        self.army = []
+        # agent red team
         self.red_army_loc = []
         for i in range(RED_ARMY):
             location = []
             location.append(i)
             location.append(0)
             self.red_army_loc.append(location)
+        self.army_loc.append(self.red_army_loc)
         self.red_army = []
         for i in range(RED_ARMY):
             self.red_army.append(self.canvas.create_rectangle(self.red_army_loc[i][0]* UNIT,
                             self.red_army_loc[i][1] * UNIT, (self.red_army_loc[i][0]+ 1) * UNIT,
                             (self.red_army_loc[i][1]+1) * UNIT, fill='red'))
-
+        self.army.append(self.red_army)
+        # agent gray team
+        self.gray_army_loc = []
+        for i in range(GRAY_ARMY):
+            location = []
+            location.append(i)
+            location.append(MAZE_H-1)
+            self.gray_army_loc.append(location)
+        self.army_loc.append(self.gray_army_loc)
+        self.gray_army = []
+        for i in range(GRAY_ARMY):
+            self.gray_army.append(self.canvas.create_rectangle(self.gray_army_loc[i][0]* UNIT,
+                            self.gray_army_loc[i][1] * UNIT, (self.gray_army_loc[i][0]+ 1) * UNIT,
+                            (self.gray_army_loc[i][1]+1) * UNIT, fill='gray'))
+        self.army.append(self.gray_army)
         self.canvas.pack()
 
-    def step(self, action, agentid):
+    def step(self, action, teamid, agentid):
         add_x = 0
         add_y = 0
         if action == 'u':
@@ -108,23 +126,23 @@ class Warmap(tk.Tk, object):
         elif action == 'l':
             add_x = -1
             add_y = 0
-        if self.red_army_loc[agentid][0] + add_x < 0:
+        if self.army_loc[teamid][agentid][0] + add_x < 0:
             add_x = 0
-        if self.red_army_loc[agentid][1] + add_y < 0:
+        if self.army_loc[teamid][agentid][1] + add_y < 0:
             add_y = 0
-        if self.red_army_loc[agentid][0] + add_x > (MAZE_W-1):
+        if self.army_loc[teamid][agentid][0] + add_x > (MAZE_W-1):
             add_x = 0
-        if self.red_army_loc[agentid][1] + add_y > (MAZE_H-1):
+        if self.army_loc[teamid][agentid][1] + add_y > (MAZE_H-1):
             add_y = 0
-        check_loc_x = self.red_army_loc[agentid][0] + add_x
-        check_loc_y = self.red_army_loc[agentid][1] + add_y
+        check_loc_x = self.army_loc[teamid][agentid][0] + add_x
+        check_loc_y = self.army_loc[teamid][agentid][1] + add_y
         if self.env_map[check_loc_x][check_loc_y] == 1:
             add_x = 0
             add_y = 0
-        self.red_army_loc[agentid][0]+=add_x
-        self.red_army_loc[agentid][1]+=add_y
-        print(self.red_army_loc[agentid][0], self.red_army_loc[agentid][1])
-        self.canvas.move(self.red_army[agentid],
+        self.army_loc[teamid][agentid][0]+=add_x
+        self.army_loc[teamid][agentid][1]+=add_y
+        print(self.army_loc[teamid][agentid][0], self.army_loc[teamid][agentid][1])
+        self.canvas.move(self.army[teamid][agentid],
                          UNIT * add_x, UNIT * add_y)
 
     def reload(self):
