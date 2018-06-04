@@ -146,7 +146,7 @@ class Warmap(tk.Tk, object):
                          UNIT * add_x, UNIT * add_y)
 
     def reload(self):
-        time.sleep(0.1)
+        time.sleep(0.3)
         self.update()
 
 '''
