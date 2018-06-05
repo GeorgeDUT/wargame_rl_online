@@ -22,7 +22,17 @@ class Sarsa(RL):
 
 
 def update():
-    for turn in range(500):
+    for turn in range(5):
+        env.reload()
+        for agentid in range(RED_ARMY):
+            num = random.randint(0,3)
+            action=['u','d','l','r']
+            env.step(action[num], 0, agentid)
+            env.step(action[num], 1, agentid)
+    for teamid in range(2):
+        for agentid in range(RED_ARMY):
+            env.reset(teamid, int(agentid/2))
+    for turn in range(50):
         env.reload()
         for agentid in range(RED_ARMY):
             num = random.randint(0,3)

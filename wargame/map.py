@@ -149,6 +149,25 @@ class Warmap(tk.Tk, object):
         time.sleep(0.1)
         self.update()
 
+    def reset(self, teamid, agentid):
+        time.sleep(0.9)
+        self.update()
+        self.canvas.delete(self.army[teamid][agentid])
+        self.army_loc[teamid][agentid][0] = agentid
+        if teamid == 0:
+            self.army_loc[teamid][agentid][1] = 0
+        else:
+            self.army_loc[teamid][agentid][1] = MAZE_H-1
+        if teamid == 0:
+            self.army[teamid][agentid] = self.canvas.create_rectangle(self.army_loc[teamid][agentid][0]* UNIT,
+                            self.army_loc[teamid][agentid][1] * UNIT, (self.army_loc[teamid][agentid][0]+ 1) * UNIT,
+                            (self.army_loc[teamid][agentid][1]+1) * UNIT, fill='red')
+        else:
+            self.army[teamid][agentid] = self.canvas.create_rectangle(self.army_loc[teamid][agentid][0]* UNIT,
+                            self.army_loc[teamid][agentid][1] * UNIT, (self.army_loc[teamid][agentid][0]+ 1) * UNIT,
+                            (self.army_loc[teamid][agentid][1]+1) * UNIT, fill='gray')
+
+
 '''
 top=tk.Tk()
 top.geometry('{0}x{1}'.format(MAZE_H*UNIT,MAZE_H*UNIT))
