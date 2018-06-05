@@ -32,7 +32,7 @@ def update():
     for teamid in range(2):
         for agentid in range(RED_ARMY):
             env.reset(teamid, int(agentid/2))
-    for turn in range(50):
+    for turn in range(5):
         env.reload()
         for agentid in range(RED_ARMY):
             num = random.randint(0,3)
@@ -44,5 +44,14 @@ if __name__ == "__main__":
     env = Warmap()
     update()
     test = Sarsa(actions=['u','d','l','r'])
-
     env.mainloop()
+    a = [1, 2, 3]
+    b = [4, 5]
+    c = []
+    c.append(a)
+    c.append(b)
+    a[0]=9
+    c[0][0]=99
+    print(a)
+    print(b)
+    print(c)

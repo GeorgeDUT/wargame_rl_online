@@ -150,7 +150,7 @@ class Warmap(tk.Tk, object):
         self.update()
 
     def reset(self, teamid, agentid):
-        time.sleep(0.9)
+        time.sleep(0.1)
         self.update()
         self.canvas.delete(self.army[teamid][agentid])
         self.army_loc[teamid][agentid][0] = agentid
