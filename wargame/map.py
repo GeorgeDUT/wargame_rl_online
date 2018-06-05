@@ -144,6 +144,8 @@ class Warmap(tk.Tk, object):
         print(self.army_loc[teamid][agentid][0], self.army_loc[teamid][agentid][1])
         self.canvas.move(self.army[teamid][agentid],
                          UNIT * add_x, UNIT * add_y)
+        # reward function
+
 
     def reload(self):
         time.sleep(0.1)
