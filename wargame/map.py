@@ -13,8 +13,8 @@ else:
     import tkinter as tk
 
 UNIT = 20
-MAZE_H = 25
-MAZE_W = 25
+MAZE_H = 15
+MAZE_W = 15
 WATER_BLOCK=4
 WATER_SIZE_H=2
 WATER_SIZE_W=7
@@ -141,14 +141,28 @@ class Warmap(tk.Tk, object):
             add_y = 0
         self.army_loc[teamid][agentid][0]+=add_x
         self.army_loc[teamid][agentid][1]+=add_y
-        print(self.army_loc[teamid][agentid][0], self.army_loc[teamid][agentid][1])
         self.canvas.move(self.army[teamid][agentid],
                          UNIT * add_x, UNIT * add_y)
         # reward function
+        s_ = self.canvas.coords(self.army[teamid][agentid])
+        gray_state = []
+        for agentid in range(GRAY_ARMY):
+            gray_state.append(self.canvas.coords(self.army[1][agentid]))
+        if s_ in gray_state:
+            reward = 1000
+            done = True
+            s_ = 'terminal'
+        else:
+            reward = -1
+            done = False
+        return  s_, reward, done
 
 
-    def reload(self):
-        time.sleep(0.1)
+    def reload(self,turn):
+        if turn > 390:
+            time.sleep(0.1)
+        else:
+            pass
         self.update()
 
     def reset(self, teamid, agentid):
@@ -168,6 +182,7 @@ class Warmap(tk.Tk, object):
             self.army[teamid][agentid] = self.canvas.create_rectangle(self.army_loc[teamid][agentid][0]* UNIT,
                             self.army_loc[teamid][agentid][1] * UNIT, (self.army_loc[teamid][agentid][0]+ 1) * UNIT,
                             (self.army_loc[teamid][agentid][1]+1) * UNIT, fill='gray')
+        return self.canvas.coords(self.army[teamid][agentid])
 
 
 '''

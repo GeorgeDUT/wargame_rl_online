@@ -6,13 +6,13 @@ RED_ARMY = 10
 GRAY_ARMY = 10
 
 class RL(object):
-    def __init__(self, action_space, learning_rate=0.01,reward_decay=0.9,e_greedy=0.9):
+    def __init__(self, action_space, learning_rate=0.01,reward_decay=0.9,e_greedy=0.99):
         self.actions = action_space
         self.lr = learning_rate
         self.gamma = reward_decay
         self.epsilon = e_greedy
         self.q_table = pd.DataFrame(columns=self.actions, dtype=np.float64)
-        print(self.q_table.index)
+        #print(self.q_table.index)
 
     def check_state_exist(self, state):
         if state not in self.q_table.index:
@@ -44,7 +44,7 @@ class RL(object):
 
 class SarsaTable(RL):
 
-    def __init__(self, actions, learning_rate=0.01, reward_decay=0.9, e_greedy=0.9):
+    def __init__(self, actions, learning_rate=0.01, reward_decay=0.9, e_greedy=0.99):
         super(SarsaTable, self).__init__(actions, learning_rate, reward_decay, e_greedy)
 
     def learn(self, s, a, r, s_, a_):
@@ -58,9 +58,24 @@ class SarsaTable(RL):
 
 
 def update():
+
+    for turn in range(400):
+        obs = env.reset(0,9)
+        action = RL.choose_action(str(obs))
+        while True:
+            env.reload(turn)
+            obs_, reward, done = env.step(action,0,9)
+            action_ =RL.choose_action(str(obs_))
+            RL.learn(str(obs),action,reward,str(obs_),action_)
+            obs = obs_
+            action = action_
+            if done:
+                break
+        print(turn)
+    env.destroy()
+
     '''
-    for turn in range(5):
-        env.reload()
+
         for agentid in range(RED_ARMY):
             num = random.randint(0,3)
             action=['u','d','l','r']
@@ -68,20 +83,15 @@ def update():
             env.step(action[num], 1, agentid)
     for teamid in range(2):
         for agentid in range(RED_ARMY):
-            env.reset(teamid, int(agentid/2))
-    for turn in range(5):
-        env.reload()
+            env.reset(teamid, int(agentid))
+    for teamid in range(2):
         for agentid in range(RED_ARMY):
-            num = random.randint(0,3)
-            action=['u','d','l','r']
-            env.step(action[num], 0, agentid)
-            env.step(action[num], 1, agentid)
+            print(env.canvas.coords(env.army[teamid][agentid]))
     '''
-    for turn in range(500):
-        pass
+
 
 if __name__ == "__main__":
     env = Warmap()
-    update()
-    test = SarsaTable(actions=['u','d','l','r'])
+    RL = SarsaTable(actions=['u','d','l','r'])
+    env.after(400,update)
     env.mainloop()
