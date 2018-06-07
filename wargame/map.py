@@ -13,11 +13,11 @@ else:
     import tkinter as tk
 
 UNIT = 20
-MAZE_H = 15
-MAZE_W = 15
+MAZE_H = 20
+MAZE_W = 20
 WATER_BLOCK=4
 WATER_SIZE_H=2
-WATER_SIZE_W=7
+WATER_SIZE_W=15
 WOODS_BLOCK=9
 WOODS_SIZE_H=3
 WOODS_SIZE_W=3
@@ -153,13 +153,13 @@ class Warmap(tk.Tk, object):
             done = True
             s_ = 'terminal'
         else:
-            reward = -1
+            reward = 0
             done = False
         return  s_, reward, done
 
 
     def reload(self,turn):
-        if turn > 390:
+        if turn > 170:
             time.sleep(0.1)
         else:
             pass

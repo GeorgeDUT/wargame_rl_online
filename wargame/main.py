@@ -59,7 +59,7 @@ class SarsaTable(RL):
 
 def update():
 
-    for turn in range(400):
+    for turn in range(200):
         obs = env.reset(0,9)
         action = RL.choose_action(str(obs))
         while True:
