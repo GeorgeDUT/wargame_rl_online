@@ -153,10 +153,42 @@ class Warmap(tk.Tk, object):
             done = True
             s_ = 'terminal'
         else:
-            reward = 0
+            reward = -1
             done = False
         return  s_, reward, done
 
+    def rand_step(self, action, teamid, agentid):
+        add_x = 0
+        add_y = 0
+        if action == 'u':
+            add_x = 0
+            add_y = -1
+        elif action == 'd':
+            add_x = 0
+            add_y = 1
+        elif action == 'r':
+            add_x = 1
+            add_y = 0
+        elif action == 'l':
+            add_x = -1
+            add_y = 0
+        if self.army_loc[teamid][agentid][0] + add_x < 0:
+            add_x = 0
+        if self.army_loc[teamid][agentid][1] + add_y < 0:
+            add_y = 0
+        if self.army_loc[teamid][agentid][0] + add_x > (MAZE_W - 1):
+            add_x = 0
+        if self.army_loc[teamid][agentid][1] + add_y > (MAZE_H - 1):
+            add_y = 0
+        check_loc_x = self.army_loc[teamid][agentid][0] + add_x
+        check_loc_y = self.army_loc[teamid][agentid][1] + add_y
+        if self.env_map[check_loc_x][check_loc_y] == 1:
+            add_x = 0
+            add_y = 0
+        self.army_loc[teamid][agentid][0] += add_x
+        self.army_loc[teamid][agentid][1] += add_y
+        self.canvas.move(self.army[teamid][agentid],
+                         UNIT * add_x, UNIT * add_y)
 
     def reload(self,turn):
         if turn > 170:

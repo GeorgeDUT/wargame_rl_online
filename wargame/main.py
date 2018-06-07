@@ -6,7 +6,7 @@ RED_ARMY = 10
 GRAY_ARMY = 10
 
 class RL(object):
-    def __init__(self, action_space, learning_rate=0.01,reward_decay=0.9,e_greedy=0.99):
+    def __init__(self, action_space, learning_rate=0.01,reward_decay=0.9,e_greedy=0.9):
         self.actions = action_space
         self.lr = learning_rate
         self.gamma = reward_decay
@@ -44,7 +44,7 @@ class RL(object):
 
 class SarsaTable(RL):
 
-    def __init__(self, actions, learning_rate=0.01, reward_decay=0.9, e_greedy=0.99):
+    def __init__(self, actions, learning_rate=0.01, reward_decay=0.9, e_greedy=0.9):
         super(SarsaTable, self).__init__(actions, learning_rate, reward_decay, e_greedy)
 
     def learn(self, s, a, r, s_, a_):
@@ -71,8 +71,14 @@ def update():
             action = action_
             if done:
                 break
+            for agentid in range(GRAY_ARMY):
+                num = random.randint(0,3)
+                ac = ['u','d','l','r']
+                env.rand_step(ac[num],1,agentid)
+        for agentid in range(GRAY_ARMY):
+            env.reset(1,agentid)
         print(turn)
-    env.destroy()
+    #env.destroy()
 
     '''
 
