@@ -17,7 +17,7 @@ MAZE_H = 20
 MAZE_W = 20
 WATER_BLOCK=4
 WATER_SIZE_H=2
-WATER_SIZE_W=15
+WATER_SIZE_W=10
 WOODS_BLOCK=9
 WOODS_SIZE_H=3
 WOODS_SIZE_W=3
@@ -146,14 +146,14 @@ class Warmap(tk.Tk, object):
         # reward function
         s_ = self.canvas.coords(self.army[teamid][agentid])
         gray_state = []
-        for agentid in range(GRAY_ARMY):
-            gray_state.append(self.canvas.coords(self.army[1][agentid]))
+        for agent_id in range(GRAY_ARMY):
+            gray_state.append(self.canvas.coords(self.army[1][agent_id]))
         if s_ in gray_state:
-            reward = 1000
+            reward = 100
             done = True
             s_ = 'terminal'
         else:
-            reward = -1
+            reward = 0
             done = False
         return  s_, reward, done
 

@@ -4,6 +4,8 @@ import numpy as np
 import pandas as pd
 RED_ARMY = 10
 GRAY_ARMY = 10
+T = 10
+gate = 1
 
 class RL(object):
     def __init__(self, action_space, learning_rate=0.01,reward_decay=0.9,e_greedy=0.9):
@@ -60,40 +62,53 @@ class SarsaTable(RL):
 def update():
 
     for turn in range(200):
-        obs = env.reset(0,9)
-        action = RL.choose_action(str(obs))
+        # reset all agent
+        obs=[]
+        action=[]
+        for agentid in range(T):
+            obs.append(env.reset(0, agentid))
+        for agentid in range(T):
+            action.append(RL.choose_action(str(obs[agentid])))
         while True:
             env.reload(turn)
-            obs_, reward, done = env.step(action,0,9)
-            action_ =RL.choose_action(str(obs_))
-            RL.learn(str(obs),action,reward,str(obs_),action_)
-            obs = obs_
-            action = action_
-            if done:
+            obs_=[]
+            reward = []
+            action_ = []
+            done = []
+            for i in range(T):
+                obs_.append(0)
+                reward.append(0)
+                done.append(False)
+            for agentid in range(T):
+                obs_[agentid], reward[agentid], done[agentid] = env.step(action[agentid],0,agentid)
+            for agenteid in range(T):
+                action_.append(RL.choose_action(str(obs_[agenteid])))
+
+            for agentid in range(T):
+                RL.learn(str(obs[agenteid]), action[agentid], reward[agentid], str(obs_[agentid]), action_[agentid])
+            for agentid in range(T):
+                obs[agentid]=obs_[agentid]
+                action[agentid]= action_[agentid]
+            flag = 0
+            for agentid in range(T):
+                if done[agentid]:
+                    flag = 1
+            if flag == 1:
                 break
+
+            if gate ==1:
+                for agentid in range(GRAY_ARMY):
+                    num = random.randint(0, 3)
+                    ac = ['u', 'd', 'l', 'r']
+                    env.rand_step(ac[num], 1, agentid)
+            # end while
+
+        if gate == 1:
             for agentid in range(GRAY_ARMY):
-                num = random.randint(0,3)
-                ac = ['u','d','l','r']
-                env.rand_step(ac[num],1,agentid)
-        for agentid in range(GRAY_ARMY):
-            env.reset(1,agentid)
+                env.reset(1, agentid)
         print(turn)
     #env.destroy()
 
-    '''
-
-        for agentid in range(RED_ARMY):
-            num = random.randint(0,3)
-            action=['u','d','l','r']
-            env.step(action[num], 0, agentid)
-            env.step(action[num], 1, agentid)
-    for teamid in range(2):
-        for agentid in range(RED_ARMY):
-            env.reset(teamid, int(agentid))
-    for teamid in range(2):
-        for agentid in range(RED_ARMY):
-            print(env.canvas.coords(env.army[teamid][agentid]))
-    '''
 
 
 if __name__ == "__main__":
