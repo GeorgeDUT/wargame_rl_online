@@ -6,7 +6,9 @@ RED_ARMY = 5
 GRAY_ARMY = 5
 T = 5
 # gate =1 gray army random go gate =0 gray army do not go
-gate = 0
+gate = 1
+# if RUN=1, gray army will escape from red army
+RUN = 1
 
 class RL(object):
     def __init__(self, action_space, learning_rate=0.01,reward_decay=0.9,e_greedy=0.9):
@@ -62,7 +64,7 @@ class SarsaTable(RL):
 
 def update():
 
-    for turn in range(200):
+    for turn in range(100):
         # reset all agent
         obs=[]
         action=[]
@@ -101,7 +103,7 @@ def update():
                 for agentid in range(GRAY_ARMY):
                     num = random.randint(0, 3)
                     ac = ['u', 'd', 'l', 'r']
-                    env.rand_step(ac[num], 1, agentid)
+                    env.rand_step(ac[num], 1, agentid, RUN)
             # end while
 
         if gate == 1:
@@ -115,5 +117,8 @@ def update():
 if __name__ == "__main__":
     env = Warmap()
     RL = SarsaTable(actions=['u','d','l','r'])
-    env.after(400,update)
+    env.after(400, update)
     env.mainloop()
+    for i in range(RED_ARMY):
+        print(env.army_loc[0][i][0], env.army_loc[0][i][1])
+        print(env.army_loc[1][i][0], env.army_loc[1][i][1])

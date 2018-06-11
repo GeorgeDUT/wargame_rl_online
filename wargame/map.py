@@ -13,12 +13,12 @@ else:
     import tkinter as tk
 
 UNIT = 20
-MAZE_H = 11
-MAZE_W = 11
-WATER_BLOCK=4
-WATER_SIZE_H=2
-WATER_SIZE_W=5
-WOODS_BLOCK=9
+MAZE_H = 9
+MAZE_W = 9
+WATER_BLOCK=5
+WATER_SIZE_H=1
+WATER_SIZE_W=4
+WOODS_BLOCK=4
 WOODS_SIZE_H=2
 WOODS_SIZE_W=2
 RED_ARMY = 5
@@ -143,6 +143,7 @@ class Warmap(tk.Tk, object):
         self.army_loc[teamid][agentid][1]+=add_y
         self.canvas.move(self.army[teamid][agentid],
                          UNIT * add_x, UNIT * add_y)
+
         # reward function
         s_ = self.canvas.coords(self.army[teamid][agentid])
         gray_state = []
@@ -155,9 +156,10 @@ class Warmap(tk.Tk, object):
         else:
             reward = 0
             done = False
+
         return  s_, reward, done
 
-    def rand_step(self, action, teamid, agentid):
+    def rand_step(self, action, teamid, agentid, run):
         add_x = 0
         add_y = 0
         if action == 'u':
@@ -185,14 +187,21 @@ class Warmap(tk.Tk, object):
         if self.env_map[check_loc_x][check_loc_y] == 1:
             add_x = 0
             add_y = 0
+        # escape from red army
+        if run == 1:
+            for i in range(RED_ARMY):
+                if check_loc_x == self.army_loc[0][i][0] and check_loc_y == self.army_loc[0][i][1]:
+                    add_x = 0
+                    add_y = 0
+                    break
         self.army_loc[teamid][agentid][0] += add_x
         self.army_loc[teamid][agentid][1] += add_y
         self.canvas.move(self.army[teamid][agentid],
                          UNIT * add_x, UNIT * add_y)
 
     def reload(self,turn):
-        if turn > 170:
-            time.sleep(0.1)
+        if turn > 60:
+            time.sleep(0.2)
         else:
             pass
         self.update()
