@@ -2,10 +2,11 @@ from map import Warmap
 import random
 import numpy as np
 import pandas as pd
-RED_ARMY = 10
-GRAY_ARMY = 10
-T = 10
-gate = 1
+RED_ARMY = 5
+GRAY_ARMY = 5
+T = 5
+# gate =1 gray army random go gate =0 gray army do not go
+gate = 0
 
 class RL(object):
     def __init__(self, action_space, learning_rate=0.01,reward_decay=0.9,e_greedy=0.9):
