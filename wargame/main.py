@@ -3,7 +3,7 @@ import random
 import numpy as np
 import pandas as pd
 RED_ARMY = 5
-GRAY_ARMY = 5
+GRAY_ARMY = 2
 T = 5
 # gate =1 gray army random go gate =0 gray army do not go
 gate = 1
@@ -63,8 +63,8 @@ class SarsaTable(RL):
 
 
 def update():
-
-    for turn in range(100):
+    aver_step = 0
+    for turn in range(200):
         # reset all agent
         obs=[]
         action=[]
@@ -72,6 +72,7 @@ def update():
             obs.append(env.reset(0, agentid))
         for agentid in range(T):
             action.append(RL.choose_action(str(obs[agentid])))
+        all_step = 0
         while True:
             env.reload(turn)
             obs_=[]
@@ -104,12 +105,14 @@ def update():
                     num = random.randint(0, 3)
                     ac = ['u', 'd', 'l', 'r']
                     env.rand_step(ac[num], 1, agentid, RUN)
+            all_step=all_step+1
             # end while
 
         if gate == 1:
             for agentid in range(GRAY_ARMY):
                 env.reset(1, agentid)
-        print(turn)
+        aver_step = aver_step+all_step
+        print(turn,all_step,aver_step/(turn+1))
     #env.destroy()
 
 

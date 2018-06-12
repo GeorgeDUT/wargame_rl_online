@@ -22,7 +22,7 @@ WOODS_BLOCK=4
 WOODS_SIZE_H=2
 WOODS_SIZE_W=2
 RED_ARMY = 5
-GRAY_ARMY = 5
+GRAY_ARMY = 2
 
 class Warmap(tk.Tk, object):
     def __init__(self):
@@ -154,7 +154,7 @@ class Warmap(tk.Tk, object):
             done = True
             s_ = 'terminal'
         else:
-            reward = 0
+            reward = -1
             done = False
 
         return  s_, reward, done
@@ -200,7 +200,7 @@ class Warmap(tk.Tk, object):
                          UNIT * add_x, UNIT * add_y)
 
     def reload(self,turn):
-        if turn > 60:
+        if turn > 180:
             time.sleep(0.2)
         else:
             pass
