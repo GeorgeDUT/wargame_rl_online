@@ -13,16 +13,16 @@ else:
     import tkinter as tk
 
 UNIT = 20
-MAZE_H = 9
-MAZE_W = 9
+MAZE_H = 5
+MAZE_W = 5
 WATER_BLOCK=5
 WATER_SIZE_H=1
-WATER_SIZE_W=4
-WOODS_BLOCK=4
-WOODS_SIZE_H=2
-WOODS_SIZE_W=2
-RED_ARMY = 5
-GRAY_ARMY = 2
+WATER_SIZE_W=1
+WOODS_BLOCK=2
+WOODS_SIZE_H=1
+WOODS_SIZE_W=1
+RED_ARMY = 3
+GRAY_ARMY = 1
 
 class Warmap(tk.Tk, object):
     def __init__(self):
@@ -145,17 +145,37 @@ class Warmap(tk.Tk, object):
                          UNIT * add_x, UNIT * add_y)
 
         # reward function
-        s_ = self.canvas.coords(self.army[teamid][agentid])
+        '''
+        s_ = []
+        for i in range(RED_ARMY):
+            s_.append(self.canvas.coords(self.army[teamid][i]))
+        gray_state = []
+        reward = 0
+        done = False
+        for agent_id in range(GRAY_ARMY):
+            gray_state.append(self.canvas.coords(self.army[1][agent_id]))
+        for i in range(RED_ARMY):
+            if s_[i] in gray_state:
+                reward = 0
+                done = True
+                break
+            else:
+                reward = -1
+                done = False
+        '''
+        #'''
         gray_state = []
         for agent_id in range(GRAY_ARMY):
             gray_state.append(self.canvas.coords(self.army[1][agent_id]))
+        s_ = self.canvas.coords(self.army[teamid][agentid])
         if s_ in gray_state:
             reward = 100
             done = True
             s_ = 'terminal'
         else:
-            reward = -1
+            reward = 0
             done = False
+        #'''
 
         return  s_, reward, done
 
@@ -200,8 +220,8 @@ class Warmap(tk.Tk, object):
                          UNIT * add_x, UNIT * add_y)
 
     def reload(self,turn):
-        if turn > 180:
-            time.sleep(0.2)
+        if turn > 510:
+            time.sleep(0.20)
         else:
             pass
         self.update()
@@ -223,6 +243,16 @@ class Warmap(tk.Tk, object):
             self.army[teamid][agentid] = self.canvas.create_rectangle(self.army_loc[teamid][agentid][0]* UNIT,
                             self.army_loc[teamid][agentid][1] * UNIT, (self.army_loc[teamid][agentid][0]+ 1) * UNIT,
                             (self.army_loc[teamid][agentid][1]+1) * UNIT, fill='gray')
+        '''
+        obs = []
+        if teamid == 0:
+            for i in range(RED_ARMY):
+                obs.append(self.canvas.coords(self.army[teamid][i]))
+        else:
+            for i in range(GRAY_ARMY):
+                obs.append(self.canvas.coords(self.army[teamid][i]))
+        return obs
+        '''
         return self.canvas.coords(self.army[teamid][agentid])
 
 
