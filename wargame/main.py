@@ -2,13 +2,13 @@ from map import Warmap
 import random
 import numpy as np
 import pandas as pd
-RED_ARMY = 5
-GRAY_ARMY = 3
-T = 5
+RED_ARMY = 2
+GRAY_ARMY = 1
+T = 2
 # gate =1 gray army random go gate =0 gray army do not go
-gate = 1
+gate = 0
 # if RUN=1, gray army will escape from red army
-RUN = 1
+RUN = 0
 
 class RL(object):
     def __init__(self, action_space, learning_rate=0.01,reward_decay=0.9,e_greedy=0.9):
@@ -64,7 +64,7 @@ class SarsaTable(RL):
 
 def update():
     aver_step = 0
-    for turn in range(600):
+    for turn in range(1000):
         # reset all agent
         obs=[]
         action=[]
@@ -107,6 +107,28 @@ def update():
                     env.rand_step(ac[num], 1, agentid, RUN)
             all_step=all_step+1
             # end while
+        if turn == 2:
+            print(RL.q_table)
+        if turn == 4:
+            print(RL.q_table)
+        if turn == 10:
+            print(RL.q_table)
+        if turn == 50:
+            print(RL.q_table)
+        if turn == 100:
+            print(RL.q_table)
+        if turn == 200:
+            print(RL.q_table)
+        if turn == 300:
+            print(RL.q_table)
+        if turn == 400:
+            print(RL.q_table)
+        if turn == 510:
+            print(RL.q_table)
+        if turn == 610:
+            print(RL.q_table)
+        if turn == 710:
+            print(RL.q_table)
 
         if gate == 1:
             for agentid in range(GRAY_ARMY):
