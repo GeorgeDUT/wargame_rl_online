@@ -78,7 +78,7 @@ class Qlearning(RL):
 
 def update():
     aver_step = 0
-    for turn in range(3000):
+    for turn in range(4000):
         # reset all agent
         obs=[]
         action=[]

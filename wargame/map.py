@@ -149,6 +149,7 @@ class Warmap(tk.Tk, object):
         s_ = []
         for i in range(RED_ARMY):
             s_.append(self.canvas.coords(self.army[teamid][i]))
+        s_.append(self.canvas.coords(self.army[1][0]))
         gray_state = []
         reward = 0
         done = False
@@ -195,6 +196,7 @@ class Warmap(tk.Tk, object):
         elif action == 'l':
             add_x = -1
             add_y = 0
+        # check boarder
         if self.army_loc[teamid][agentid][0] + add_x < 0:
             add_x = 0
         if self.army_loc[teamid][agentid][1] + add_y < 0:
@@ -212,17 +214,26 @@ class Warmap(tk.Tk, object):
         if run == 1:
             for i in range(RED_ARMY):
                 if check_loc_x == self.army_loc[0][i][0] and check_loc_y == self.army_loc[0][i][1]:
-                    add_x = 0
-                    add_y = 0
+                    add_x = add_x*(-1)
+                    add_y = add_y*(-1)
                     break
+        #check boarder
+        if self.army_loc[teamid][agentid][0] + add_x < 0:
+            add_x = 0
+        if self.army_loc[teamid][agentid][1] + add_y < 0:
+            add_y = 0
+        if self.army_loc[teamid][agentid][0] + add_x > (MAZE_W - 1):
+            add_x = 0
+        if self.army_loc[teamid][agentid][1] + add_y > (MAZE_H - 1):
+            add_y = 0
         self.army_loc[teamid][agentid][0] += add_x
         self.army_loc[teamid][agentid][1] += add_y
         self.canvas.move(self.army[teamid][agentid],
                          UNIT * add_x, UNIT * add_y)
 
     def reload(self,turn):
-        if turn > 2900:
-            time.sleep(0.1)
+        if turn > 3900:
+            time.sleep(0.2)
         else:
             pass
         self.update()
