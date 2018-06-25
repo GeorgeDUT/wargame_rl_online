@@ -13,15 +13,15 @@ else:
     import tkinter as tk
 
 UNIT = 20
-MAZE_H = 6
-MAZE_W = 6
+MAZE_H = 5
+MAZE_W = 5
 WATER_BLOCK=5
 WATER_SIZE_H=1
 WATER_SIZE_W=1
 WOODS_BLOCK=2
 WOODS_SIZE_H=1
 WOODS_SIZE_W=1
-RED_ARMY = 3
+RED_ARMY = 2
 GRAY_ARMY = 1
 
 class Warmap(tk.Tk, object):
@@ -30,6 +30,9 @@ class Warmap(tk.Tk, object):
         self.title('wargame')
         self.geometry('{0}x{1}'.format(MAZE_H * UNIT, MAZE_H * UNIT))
         self._build_map()
+        self.last_state = []
+        self.last_dis = 0
+        self.new_dis = 0
 
     def _build_map(self):
         self.canvas = tk.Canvas(self, bg='white',height=MAZE_H*UNIT,width=MAZE_W*UNIT)
@@ -112,6 +115,15 @@ class Warmap(tk.Tk, object):
         self.canvas.pack()
 
     def step(self, action, teamid, agentid):
+        for i in range(RED_ARMY):
+            self.last_state.append(self.army_loc[0][i])
+        self.last_dis=0
+        self.new_dis=0
+        for i in range(RED_ARMY):
+            for j in range(GRAY_ARMY):
+                x=abs(self.last_state[i][0]-self.army_loc[1][j][0])
+                y=abs(self.last_state[i][1]-self.army_loc[1][j][1])
+                self.last_dis=self.last_dis+x+y
         add_x = 0
         add_y = 0
         if action == 'u':
@@ -157,7 +169,7 @@ class Warmap(tk.Tk, object):
             gray_state.append(self.canvas.coords(self.army[1][agent_id]))
         for i in range(RED_ARMY):
             if s_[i] in gray_state:
-                reward = 100
+                reward = 0
                 done = True
                 s_ = 'terminal'
                 break
@@ -165,6 +177,16 @@ class Warmap(tk.Tk, object):
                 reward = 0
                 done = False
         #'''
+        for i in range(RED_ARMY):
+            for j in range(GRAY_ARMY):
+                x=abs(self.army_loc[0][i][0]-self.army_loc[1][j][0])
+                y=abs(self.army_loc[0][i][1]-self.army_loc[1][j][1])
+                self.new_dis=self.new_dis+x+y
+        # distance function
+        if self.new_dis<self.last_dis:
+            reward=abs(self.new_dis-self.last_dis)*abs(self.new_dis-self.last_dis)
+        else:
+            reward = -1
         '''
         gray_state = []
         for agent_id in range(GRAY_ARMY):
@@ -211,12 +233,24 @@ class Warmap(tk.Tk, object):
             add_x = 0
             add_y = 0
         # escape from red army
+        for direction in range(4):
+            if run ==1:
+                for i in range(RED_ARMY):
+                    if check_loc_x == self.army_loc[0][i][0] and check_loc_y == self.army_loc[0][i][1]:
+                        add_x = add_x * (-1)
+                        add_y = add_y * (-1)
+                        break
+                check_loc_x = self.army_loc[teamid][agentid][0] + add_x
+                check_loc_y = self.army_loc[teamid][agentid][1] + add_y
+
+        '''  
         if run == 1:
             for i in range(RED_ARMY):
                 if check_loc_x == self.army_loc[0][i][0] and check_loc_y == self.army_loc[0][i][1]:
                     add_x = add_x*(-1)
                     add_y = add_y*(-1)
                     break
+        '''
         #check boarder
         if self.army_loc[teamid][agentid][0] + add_x < 0:
             add_x = 0
@@ -232,8 +266,8 @@ class Warmap(tk.Tk, object):
                          UNIT * add_x, UNIT * add_y)
 
     def reload(self,turn):
-        if turn > 3900:
-            time.sleep(0.2)
+        if turn > 200:
+            time.sleep(0.28)
         else:
             pass
         self.update()
