@@ -2,13 +2,13 @@ from map import Warmap
 import random
 import numpy as np
 import pandas as pd
-RED_ARMY = 2
+RED_ARMY = 4
 GRAY_ARMY = 1
-T = 2
+T = 4
 # gate =1 gray army random go gate =0 gray army do not go
-gate = 0
+gate = 1
 # if RUN=1, gray army will escape from red army
-RUN = 0
+RUN = 1
 
 class RL(object):
     def __init__(self, action_space, learning_rate=0.01,reward_decay=0.9,e_greedy=0.9, agent_num = 1):
@@ -79,7 +79,7 @@ class Qlearning(RL):
 
 def update():
     aver_step = 0
-    for turn in range(300):
+    for turn in range(500):
         # reset all agent
         obs=[]
         action=[]

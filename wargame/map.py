@@ -13,15 +13,15 @@ else:
     import tkinter as tk
 
 UNIT = 20
-MAZE_H = 5
-MAZE_W = 5
+MAZE_H = 7
+MAZE_W = 7
 WATER_BLOCK=5
-WATER_SIZE_H=1
-WATER_SIZE_W=1
+WATER_SIZE_H=2
+WATER_SIZE_W=4
 WOODS_BLOCK=2
-WOODS_SIZE_H=1
-WOODS_SIZE_W=1
-RED_ARMY = 2
+WOODS_SIZE_H=2
+WOODS_SIZE_W=2
+RED_ARMY = 4
 GRAY_ARMY = 1
 
 class Warmap(tk.Tk, object):
@@ -52,8 +52,8 @@ class Warmap(tk.Tk, object):
             self.env_map.append(app)
         # water
         for i in range(WATER_BLOCK):
-            x = random.randint(2, MAZE_W-WATER_SIZE_W-2)
-            y = random.randint(2, MAZE_H-WATER_SIZE_H-2)
+            x = random.randint(1, MAZE_W-WATER_SIZE_W-1)
+            y = random.randint(1, MAZE_H-WATER_SIZE_H-1)
             x = int(x)
             y = int(y)
             for k in range(WATER_SIZE_W):
@@ -260,13 +260,18 @@ class Warmap(tk.Tk, object):
             add_x = 0
         if self.army_loc[teamid][agentid][1] + add_y > (MAZE_H - 1):
             add_y = 0
+        check_loc_x=self.army_loc[teamid][agentid][0] + add_x
+        check_loc_y=self.army_loc[teamid][agentid][1] + add_y
+        if self.env_map[check_loc_x][check_loc_y]==1:
+            add_y=0
+            add_x=0
         self.army_loc[teamid][agentid][0] += add_x
         self.army_loc[teamid][agentid][1] += add_y
         self.canvas.move(self.army[teamid][agentid],
                          UNIT * add_x, UNIT * add_y)
 
     def reload(self,turn):
-        if turn > 200:
+        if turn > 290:
             time.sleep(0.28)
         else:
             pass
