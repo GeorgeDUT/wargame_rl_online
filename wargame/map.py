@@ -16,8 +16,8 @@ UNIT = 20
 MAZE_H = 7
 MAZE_W = 7
 WATER_BLOCK=5
-WATER_SIZE_H=2
-WATER_SIZE_W=4
+WATER_SIZE_H=1
+WATER_SIZE_W=2
 WOODS_BLOCK=2
 WOODS_SIZE_H=2
 WOODS_SIZE_W=2
@@ -271,7 +271,7 @@ class Warmap(tk.Tk, object):
                          UNIT * add_x, UNIT * add_y)
 
     def reload(self,turn):
-        if turn > 290:
+        if turn > 1:
             time.sleep(0.28)
         else:
             pass
@@ -293,7 +293,7 @@ class Warmap(tk.Tk, object):
         else:
             self.army[teamid][agentid] = self.canvas.create_rectangle(self.army_loc[teamid][agentid][0]* UNIT,
                             self.army_loc[teamid][agentid][1] * UNIT, (self.army_loc[teamid][agentid][0]+ 1) * UNIT,
-                            (self.army_loc[teamid][agentid][1]+1) * UNIT, fill='gray')
+                            (self.army_loc[teamid][agentid][1]+1) * UNIT, fill='black')
         #'''
         obs = []
         if teamid == 0:
