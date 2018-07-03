@@ -21,8 +21,8 @@ WATER_SIZE_W=2
 WOODS_BLOCK=0
 WOODS_SIZE_H=2
 WOODS_SIZE_W=2
-RED_ARMY = 0
-GRAY_ARMY = 0
+RED_ARMY = 1
+GRAY_ARMY = 1
 
 class Warmap(tk.Tk, object):
     def __init__(self):
@@ -110,7 +110,7 @@ class Warmap(tk.Tk, object):
         for i in range(GRAY_ARMY):
             self.gray_army.append(self.canvas.create_rectangle(self.gray_army_loc[i][0]* UNIT,
                             self.gray_army_loc[i][1] * UNIT, (self.gray_army_loc[i][0]+ 1) * UNIT,
-                            (self.gray_army_loc[i][1]+1) * UNIT, fill='gray'))
+                            (self.gray_army_loc[i][1]+1) * UNIT, fill='black'))
         self.army.append(self.gray_army)
         self.canvas.pack()
 

@@ -2,9 +2,9 @@ from map import Warmap
 import random
 import numpy as np
 import pandas as pd
-RED_ARMY = 0
-GRAY_ARMY = 0
-T = 0
+RED_ARMY = 1
+GRAY_ARMY = 1
+T = 1
 # gate =1 gray army random go gate =0 gray army do not go
 gate = 1
 # if RUN=1, gray army will escape from red army
@@ -89,6 +89,11 @@ class Contorl(object):
         self.red_loc.append(env.step(action[self.red_num-1],teamid,agentid))
 
 def Contorl_update():
+    our_contorl=Contorl()
+    for turn in range(500):
+        our_contorl.get_env_inf('d',0,1)
+        obs=our_contorl.red_loc
+        print obs
     pass
 
 
@@ -154,7 +159,7 @@ if __name__ == "__main__":
     env = Warmap()
     RL = SarsaTable(actions=['u','d','l','r'],agent_num=RED_ARMY)
     #RL = Qlearning(actions=['u', 'd', 'l', 'r'])
-    env.after(400, update)
+    env.after(400, Contorl_update)
     env.mainloop()
 
     #env=Warmap()
