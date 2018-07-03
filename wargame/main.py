@@ -2,9 +2,11 @@ from map import Warmap
 import random
 import numpy as np
 import pandas as pd
-RED_ARMY = 1
+import time
+import sys
+RED_ARMY = 3
 GRAY_ARMY = 1
-T = 1
+T = 3
 # gate =1 gray army random go gate =0 gray army do not go
 gate = 1
 # if RUN=1, gray army will escape from red army
@@ -77,23 +79,31 @@ class Qlearning(RL):
         self.q_table[agent_id].loc[s, a] += self.lr * (q_target - q_predict)  # update
 
 class Contorl(object):
-    def __int__(self,red_num=1,gray_num=1):
-        self.red_num=1
-        self.gray_num=1
+    def __init__(self):
+        self.red_num=RED_ARMY
+        self.gray_num=GRAY_ARMY
         self.red_loc=[]
         self.gray_loc=[]
 
-    def get_env_inf(self, action, teamid, agentid):
-        for i in range(self.red_num-1):
-            env.step(action[i],teamid,agentid)
-        self.red_loc.append(env.step(action[self.red_num-1],teamid,agentid))
+    def get_env_inf(self, action, teamid):
+        for i in range(self.red_num):
+            env.step(action[i],teamid,i)
+        state=[]
+        for i in range(self.red_num):
+            state.append(env.army_loc[0][i])
+        self.red_loc =state
 
 def Contorl_update():
     our_contorl=Contorl()
-    for turn in range(500):
-        our_contorl.get_env_inf('d',0,1)
-        obs=our_contorl.red_loc
-        print obs
+    ac=['d','l','d','r']
+    for turn in range(10):
+        our_contorl.get_env_inf(ac,0)
+        env.reload(turn)
+        #this is contorl move function
+        for i in range(RED_ARMY):
+            for j in range(GRAY_ARMY):
+                x = abs(env.army_loc[0][i][0] - env.army_loc[1][j][0])
+                y = abs(env.army_loc[0][i][1] - env.army_loc[1][j][1])
     pass
 
 

@@ -21,7 +21,7 @@ WATER_SIZE_W=2
 WOODS_BLOCK=0
 WOODS_SIZE_H=2
 WOODS_SIZE_W=2
-RED_ARMY = 1
+RED_ARMY = 3
 GRAY_ARMY = 1
 
 class Warmap(tk.Tk, object):
@@ -271,7 +271,7 @@ class Warmap(tk.Tk, object):
                          UNIT * add_x, UNIT * add_y)
 
     def reload(self,turn):
-        if turn > 1:
+        if turn > 0:
             time.sleep(0.28)
         else:
             pass
