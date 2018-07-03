@@ -13,16 +13,16 @@ else:
     import tkinter as tk
 
 UNIT = 20
-MAZE_H = 7
-MAZE_W = 7
-WATER_BLOCK=5
+MAZE_H = 20
+MAZE_W = 20
+WATER_BLOCK=0
 WATER_SIZE_H=1
 WATER_SIZE_W=2
-WOODS_BLOCK=2
+WOODS_BLOCK=0
 WOODS_SIZE_H=2
 WOODS_SIZE_W=2
-RED_ARMY = 4
-GRAY_ARMY = 1
+RED_ARMY = 0
+GRAY_ARMY = 0
 
 class Warmap(tk.Tk, object):
     def __init__(self):

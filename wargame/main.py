@@ -2,9 +2,9 @@ from map import Warmap
 import random
 import numpy as np
 import pandas as pd
-RED_ARMY = 4
-GRAY_ARMY = 1
-T = 4
+RED_ARMY = 0
+GRAY_ARMY = 0
+T = 0
 # gate =1 gray army random go gate =0 gray army do not go
 gate = 1
 # if RUN=1, gray army will escape from red army
@@ -76,6 +76,22 @@ class Qlearning(RL):
             q_target = r  # next state is terminal
         self.q_table[agent_id].loc[s, a] += self.lr * (q_target - q_predict)  # update
 
+class Contorl(object):
+    def __int__(self,red_num=1,gray_num=1):
+        self.red_num=1
+        self.gray_num=1
+        self.red_loc=[]
+        self.gray_loc=[]
+
+    def get_env_inf(self, action, teamid, agentid):
+        for i in range(self.red_num-1):
+            env.step(action[i],teamid,agentid)
+        self.red_loc.append(env.step(action[self.red_num-1],teamid,agentid))
+
+def Contorl_update():
+    pass
+
+
 
 def update():
     aver_step = 0
@@ -122,30 +138,6 @@ def update():
                     env.rand_step(ac[num], 1, agentid, RUN)
             all_step=all_step+1
             # end while
-        '''
-        if turn == 2:
-            print(RL.q_table)
-        if turn == 4:
-            print(RL.q_table)
-        if turn == 10:
-            print(RL.q_table)
-        if turn == 50:
-            print(RL.q_table)
-        if turn == 100:
-            print(RL.q_table)
-        if turn == 200:
-            print(RL.q_table)
-        if turn == 300:
-            print(RL.q_table)
-        if turn == 400:
-            print(RL.q_table)
-        if turn == 510:
-            print(RL.q_table)
-        if turn == 610:
-            print(RL.q_table)
-        if turn == 710:
-            print(RL.q_table)
-        '''
 
         if gate == 1:
             for agentid in range(GRAY_ARMY):
@@ -157,15 +149,14 @@ def update():
     #env.destroy()
 
 
-
 if __name__ == "__main__":
+
     env = Warmap()
     RL = SarsaTable(actions=['u','d','l','r'],agent_num=RED_ARMY)
     #RL = Qlearning(actions=['u', 'd', 'l', 'r'])
     env.after(400, update)
     env.mainloop()
-    #for i in range(RED_ARMY):
-        #print(env.army_loc[0][i][0], env.army_loc[0][i][1])
-        #print(env.army_loc[1][i][0], env.army_loc[1][i][1])
-    #print(RL.q_table[0][1])
-    #print(RL.q_table[1][1])
+
+    #env=Warmap()
+    #env.mainloop()
+    #my_control=Contorl()
