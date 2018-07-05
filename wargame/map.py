@@ -13,12 +13,12 @@ else:
     import tkinter as tk
 
 UNIT = 20
-MAZE_H = 20
-MAZE_W = 20
-WATER_BLOCK=0
+MAZE_H = 6
+MAZE_W = 6
+WATER_BLOCK=5
 WATER_SIZE_H=1
 WATER_SIZE_W=2
-WOODS_BLOCK=0
+WOODS_BLOCK=5
 WOODS_SIZE_H=2
 WOODS_SIZE_W=2
 RED_ARMY = 3
@@ -187,6 +187,15 @@ class Warmap(tk.Tk, object):
             reward=abs(self.new_dis-self.last_dis)*abs(self.new_dis-self.last_dis)
         else:
             reward = -1
+        # divide function
+        dis = 0
+        for i in range(RED_ARMY):
+            for j in range(RED_ARMY):
+                x = abs(self.army_loc[0][i][0] - self.army_loc[0][j][0])
+                y = abs(self.army_loc[0][i][1] - self.army_loc[0][j][1])
+                dis = dis + x + y
+        reward=reward
+
         '''
         gray_state = []
         for agent_id in range(GRAY_ARMY):
@@ -271,7 +280,7 @@ class Warmap(tk.Tk, object):
                          UNIT * add_x, UNIT * add_y)
 
     def reload(self,turn):
-        if turn > 0:
+        if turn > 100:
             time.sleep(0.28)
         else:
             pass

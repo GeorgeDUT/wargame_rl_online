@@ -8,9 +8,9 @@ RED_ARMY = 3
 GRAY_ARMY = 1
 T = 3
 # gate =1 gray army random go gate =0 gray army do not go
-gate = 1
+gate = 0
 # if RUN=1, gray army will escape from red army
-RUN = 1
+RUN = 0
 
 class RL(object):
     def __init__(self, action_space, learning_rate=0.01,reward_decay=0.9,e_greedy=0.9, agent_num = 1):
@@ -169,7 +169,7 @@ if __name__ == "__main__":
     env = Warmap()
     RL = SarsaTable(actions=['u','d','l','r'],agent_num=RED_ARMY)
     #RL = Qlearning(actions=['u', 'd', 'l', 'r'])
-    env.after(400, Contorl_update)
+    env.after(400, update)
     env.mainloop()
 
     #env=Warmap()
