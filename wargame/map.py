@@ -194,7 +194,7 @@ class Warmap(tk.Tk, object):
                 x = abs(self.army_loc[0][i][0] - self.army_loc[0][j][0])
                 y = abs(self.army_loc[0][i][1] - self.army_loc[0][j][1])
                 dis = dis + x + y
-        reward=reward
+        reward=reward+dis*0.01
 
         '''
         gray_state = []
@@ -280,7 +280,7 @@ class Warmap(tk.Tk, object):
                          UNIT * add_x, UNIT * add_y)
 
     def reload(self,turn):
-        if turn > 100:
+        if turn > 300:
             time.sleep(0.28)
         else:
             pass
