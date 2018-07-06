@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import time
 import sys
+import matplotlib.pyplot as plt
 RED_ARMY = 3
 GRAY_ARMY = 1
 T = 3
@@ -110,7 +111,8 @@ def Contorl_update():
 
 def update():
     aver_step = 0
-    for turn in range(500):
+    point = []
+    for turn in range(155):
         # reset all agent
         obs=[]
         action=[]
@@ -160,7 +162,10 @@ def update():
         aver_step = aver_step+all_step
         #print(turn,all_step,aver_step/(turn+1))
         print(turn, all_step)
+        point.append(all_step)
     print(RL.q_table)
+    plt.plot(point)
+    plt.show()
     #env.destroy()
 
 
