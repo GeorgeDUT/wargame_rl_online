@@ -64,7 +64,7 @@ class ROBOT_MAP(tk.Tk, object):
     def display_window(self):
         fram1=Frame()
         line = tk.Canvas(self, bg='black', height=MAP_H*UNIT_PIX, width=2)
-        line.place(x=(self.map_start_x-1)*UNIT_PIX,y=0)
+        line.place(x=(self.map_start_x-1)*UNIT_PIX,y=self.map_start_y)
         display = Label(fram1, text='information', bg='white', width=13, height=2, font=("Arial", 16))
         display.pack(side=TOP)
         a='agent 1'
