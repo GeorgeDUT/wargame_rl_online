@@ -7,7 +7,6 @@ import sys
 if sys.version_info.major == 2:
     from Tkinter import *
     import Tkinter as tk
-
 else:
     from tkinter import *
     import tkinter as tk
@@ -28,7 +27,7 @@ class Warmap(tk.Tk, object):
     def __init__(self):
         super(Warmap, self).__init__()
         self.title('wargame')
-        self.geometry('{0}x{1}'.format(MAZE_H * UNIT, MAZE_H * UNIT))
+        self.geometry('{0}x{1}'.format(MAZE_H * UNIT, MAZE_W * UNIT))
         self._build_map()
         self.last_state = []
         self.last_dis = 0
