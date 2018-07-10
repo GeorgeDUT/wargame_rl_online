@@ -30,19 +30,24 @@ class ROBOT(object):
             return self.x, self.y - 1
         def move_right(self):
             return self.x, self.y + 1
-        dic = {'u':move_up(self), 'd':move_down(self), 'l': move_left(self), 'r': move_right(self)}
+        def move_stay(self):
+            return self.x, self.y
+        dic = {'u':move_up(self), 'd':move_down(self), 'l': move_left(self), 'r': move_right(self),'s':move_stay(self)}
         chang_x, chang_y = dic[action]
         #check border
-        if chang_x<ROBOT_MAP.map_start_x:
-            chang_x = ROBOT_MAP.map_start_x
-        if chang_x>=ROBOT_MAP.map_w:
-            chang_x=ROBOT_MAP.map_w
-        if chang_y<ROBOT_MAP.map_start_y:
-            chang_y=ROBOT_MAP.map_start_y
-        if chang_y>=ROBOT_MAP.map_h:
-            chang_y=ROBOT_MAP.map_h
+        if chang_x<0:
+            chang_x = 0
+        if chang_x>=ROBOT_MAP.map_w-ROBOT_MAP.map_start_x-1:
+            chang_x=ROBOT_MAP.map_w-ROBOT_MAP.map_start_x-1
+        if chang_y<0:
+            chang_y=0
+        if chang_y>=ROBOT_MAP.map_h-ROBOT_MAP.map_start_y-1:
+            chang_y=ROBOT_MAP.map_h-ROBOT_MAP.map_start_y-1
         self.x = chang_x
         self.y = chang_y
+
+class TRUCK(object):
+    pass
 
 
 class ROBOT_MAP(tk.Tk, object):
@@ -55,7 +60,7 @@ class ROBOT_MAP(tk.Tk, object):
         self.map_start_y = 0
         self.map_w = MAP_W
         self.map_h = MAP_H
-        self.robot_loc = []
+        #self.robot_loc = []
         self.env_map = []
 
         self.display_window()
@@ -83,14 +88,12 @@ class ROBOT_MAP(tk.Tk, object):
             x0, y0, x1, y1 = 0, r, MAP_W * UNIT_PIX, r
             self.map.create_line(x0, y0, x1, y1)
 
-    def hello(self):
+    def draw_robot(self, ROBOT):
+        self.map.create_rectangle(ROBOT.x* UNIT_PIX,
+                    ROBOT.y * UNIT_PIX, (ROBOT.x+ 1) * UNIT_PIX,
+                    (ROBOT.y+1) * UNIT_PIX, fill='red')
+        print(ROBOT.x,ROBOT.y)
         print('hi')
 
 
 
-
-
-map=ROBOT_MAP()
-robot=ROBOT(x_loc=1000,y_loc=100)
-robot.move('r', map)
-map.mainloop()
