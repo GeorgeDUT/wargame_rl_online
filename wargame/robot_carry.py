@@ -14,6 +14,9 @@ UNIT_PIX = 25
 ROBOT_NUM = 10
 
 
+def updat():
+    print('ok')
+
 class ROBOT(object):
     def __init__(self,x_loc=0,y_loc=0,robot_id=0):
         super(ROBOT,self).__init__()
@@ -49,6 +52,12 @@ class ROBOT(object):
 class TRUCK(object):
     pass
 
+class WAll(object):
+    pass
+
+class PEOPLE(object):
+    pass
+
 
 class ROBOT_MAP(tk.Tk, object):
     def __init__(self):
@@ -62,6 +71,9 @@ class ROBOT_MAP(tk.Tk, object):
         self.map_h = MAP_H
         #self.robot_loc = []
         self.env_map = []
+        self.robot=[]
+        self.truck=[]
+        self.people=[]
 
         self.display_window()
         self._build_map()
@@ -87,13 +99,25 @@ class ROBOT_MAP(tk.Tk, object):
         for r in range(0, MAP_H * UNIT_PIX, UNIT_PIX):
             x0, y0, x1, y1 = 0, r, MAP_W * UNIT_PIX, r
             self.map.create_line(x0, y0, x1, y1)
+        # init env_map,env_map[]=1,wall;env_map[]=2
+        for i in range(self.map_h):
+            a=[]
+            for j in range(self.map_w-self.map_start_x):
+                a.append(0)
+            self.env_map.append(a)
 
-    def draw_robot(self, ROBOT):
-        self.map.create_rectangle(ROBOT.x* UNIT_PIX,
+    def init_robot(self, ROBOT):
+        self.robot.append(self.map.create_rectangle(ROBOT.x* UNIT_PIX,
                     ROBOT.y * UNIT_PIX, (ROBOT.x+ 1) * UNIT_PIX,
-                    (ROBOT.y+1) * UNIT_PIX, fill='red')
+                    (ROBOT.y+1) * UNIT_PIX, fill='red'))
         print(ROBOT.x,ROBOT.y)
-        print('hi')
+
+
+
+    def flash(self):
+        pass
+
+
 
 
 
