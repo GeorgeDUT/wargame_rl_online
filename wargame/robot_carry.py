@@ -45,14 +45,14 @@ class ROBOT(object):
         if chang_x<0:
             chang_x = 0
             add_x = 0
-        if chang_x>=ROBOT_MAP.map_w-ROBOT_MAP.map_start_x-1:
-            chang_x=ROBOT_MAP.map_w-ROBOT_MAP.map_start_x-1
+        if chang_x>=ROBOT_MAP.map_w-ROBOT_MAP.map_start_x:
+            chang_x=ROBOT_MAP.map_w-ROBOT_MAP.map_start_x
             add_x = 0
         if chang_y<0:
             chang_y = 0
             add_y = 0
-        if chang_y>=ROBOT_MAP.map_h-ROBOT_MAP.map_start_y-1:
-            chang_y=ROBOT_MAP.map_h-ROBOT_MAP.map_start_y-1
+        if chang_y>=ROBOT_MAP.map_h-ROBOT_MAP.map_start_y:
+            chang_y=ROBOT_MAP.map_h-ROBOT_MAP.map_start_y
             add_y = 0
         self.x = chang_x
         self.y = chang_y
