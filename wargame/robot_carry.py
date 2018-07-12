@@ -1,5 +1,6 @@
 from __future__ import division
 import sys
+import time
 
 if sys.version_info.major == 2:
     from Tkinter import *
@@ -27,28 +28,35 @@ class ROBOT(object):
 
     def move(self, action, ROBOT_MAP):
         def move_up(self):
-            return self.x - 1, self.y
+            return  0, -1
         def move_down(self):
-            return self.x + 1, self.y
+            return  0, 1
         def move_left(self):
-            return self.x, self.y - 1
+            return -1,  0
         def move_right(self):
-            return self.x, self.y + 1
+            return 1, 0
         def move_stay(self):
-            return self.x, self.y
+            return 0, 0
         dic = {'u':move_up(self), 'd':move_down(self), 'l': move_left(self), 'r': move_right(self),'s':move_stay(self)}
-        chang_x, chang_y = dic[action]
+        add_x,add_y = dic[action]
+        chang_x = self.x+add_x
+        chang_y = self.y+add_y
         #check border
         if chang_x<0:
             chang_x = 0
+            add_x = 0
         if chang_x>=ROBOT_MAP.map_w-ROBOT_MAP.map_start_x-1:
             chang_x=ROBOT_MAP.map_w-ROBOT_MAP.map_start_x-1
+            add_x = 0
         if chang_y<0:
-            chang_y=0
+            chang_y = 0
+            add_y = 0
         if chang_y>=ROBOT_MAP.map_h-ROBOT_MAP.map_start_y-1:
             chang_y=ROBOT_MAP.map_h-ROBOT_MAP.map_start_y-1
+            add_y = 0
         self.x = chang_x
         self.y = chang_y
+        return add_x,add_y
 
 class TRUCK(object):
     pass
@@ -114,10 +122,15 @@ class ROBOT_MAP(tk.Tk, object):
                     (ROBOT[i].y+1) * UNIT_PIX, fill='red'))
             print(ROBOT[i].x,ROBOT[i].y)
 
-
-
-    def flash(self):
-        pass
+    def flash(self,num,action):
+        # move robot
+        time.sleep(0.25)
+        for i in range(num):
+            add_x = action[i][0]
+            add_y = action[i][1]
+            self.map.move(self.robot[i],
+                             UNIT_PIX * add_x, UNIT_PIX * add_y)
+        self.update()
 
 
 
