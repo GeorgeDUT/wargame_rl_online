@@ -18,11 +18,12 @@ def updat():
     print('ok')
 
 class ROBOT(object):
-    def __init__(self,x_loc=0,y_loc=0,robot_id=0):
+    def __init__(self,x_loc=0,y_loc=0,robot_id=0,num=1):
         super(ROBOT,self).__init__()
         self.x = x_loc
         self.y = y_loc
         self.id = robot_id
+        self.num = num
 
     def move(self, action, ROBOT_MAP):
         def move_up(self):
@@ -107,10 +108,11 @@ class ROBOT_MAP(tk.Tk, object):
             self.env_map.append(a)
 
     def init_robot(self, ROBOT):
-        self.robot.append(self.map.create_rectangle(ROBOT.x* UNIT_PIX,
-                    ROBOT.y * UNIT_PIX, (ROBOT.x+ 1) * UNIT_PIX,
-                    (ROBOT.y+1) * UNIT_PIX, fill='red'))
-        print(ROBOT.x,ROBOT.y)
+        for i in range(ROBOT[0].num):
+            self.robot.append(self.map.create_rectangle(ROBOT[i].x* UNIT_PIX,
+                    ROBOT[i].y * UNIT_PIX, (ROBOT[i].x+ 1) * UNIT_PIX,
+                    (ROBOT[i].y+1) * UNIT_PIX, fill='red'))
+            print(ROBOT[i].x,ROBOT[i].y)
 
 
 
