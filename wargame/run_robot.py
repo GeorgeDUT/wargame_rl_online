@@ -1,15 +1,15 @@
 from robot_carry import *
 
 def update():
-    for turn in range(50):
+    for turn in range(60):
         action = []
         for i in range(5):
             action.append( robot[i].move('d',map))
         map.flash(robot[0].num, action)
-        action2=[]
-        for i in range(5):
-            action2.append( robot[i].move('d',map))
-        map.flash(robot[0].num, action2)
+        #ction2=[]
+        #for i in range(5):
+        #    action2.append( robot[i].move('d',map))
+        #map.flash(robot[0].num, action2)
         print(robot[0].x,robot[0].y)
 
 if __name__ == "__main__":

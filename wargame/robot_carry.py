@@ -42,18 +42,23 @@ class ROBOT(object):
         chang_x = self.x+add_x
         chang_y = self.y+add_y
         #check border
-        if chang_x<0:
+        if chang_x < 0:
             chang_x = 0
             add_x = 0
-        if chang_x>=ROBOT_MAP.map_w-ROBOT_MAP.map_start_x:
-            chang_x=ROBOT_MAP.map_w-ROBOT_MAP.map_start_x
+        if chang_x > ROBOT_MAP.map_w-ROBOT_MAP.map_start_x-1:
+            chang_x = ROBOT_MAP.map_w-ROBOT_MAP.map_start_x-1
             add_x = 0
-        if chang_y<0:
+        if chang_y < 0:
             chang_y = 0
             add_y = 0
-        if chang_y>=ROBOT_MAP.map_h-ROBOT_MAP.map_start_y:
-            chang_y=ROBOT_MAP.map_h-ROBOT_MAP.map_start_y
+        if chang_y > ROBOT_MAP.map_h-ROBOT_MAP.map_start_y-1:
+            chang_y = ROBOT_MAP.map_h-ROBOT_MAP.map_start_y-1
             add_y = 0
+        if ROBOT_MAP.env_map[chang_y][chang_x] == 1:
+            add_y = 0
+            add_x = 0
+            chang_y = self.y
+            chang_x = self.x
         self.x = chang_x
         self.y = chang_y
         return add_x,add_y
@@ -115,12 +120,13 @@ class ROBOT_MAP(tk.Tk, object):
                 a.append(0)
             self.env_map.append(a)
 
+
     def init_robot(self, ROBOT):
         for i in range(ROBOT[0].num):
             self.robot.append(self.map.create_rectangle(ROBOT[i].x* UNIT_PIX,
                     ROBOT[i].y * UNIT_PIX, (ROBOT[i].x+ 1) * UNIT_PIX,
                     (ROBOT[i].y+1) * UNIT_PIX, fill='red'))
-            print(ROBOT[i].x,ROBOT[i].y)
+            #print(ROBOT[i].x,ROBOT[i].y)
 
     def flash(self,num,action):
         # move robot
@@ -128,8 +134,7 @@ class ROBOT_MAP(tk.Tk, object):
         for i in range(num):
             add_x = action[i][0]
             add_y = action[i][1]
-            self.map.move(self.robot[i],
-                             UNIT_PIX * add_x, UNIT_PIX * add_y)
+            self.map.move(self.robot[i], UNIT_PIX * add_x, UNIT_PIX * add_y)
         self.update()
 
 
