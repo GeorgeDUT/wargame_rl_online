@@ -12,19 +12,18 @@ else:
 MAP_W = 50
 MAP_H = 30
 UNIT_PIX = 25
-ROBOT_NUM = 10
-
-
-def updat():
-    print('ok')
 
 class ROBOT(object):
-    def __init__(self,x_loc=0,y_loc=0,robot_id=0,num=1):
+    def __init__(self,x_loc=0,y_loc=0,robot_id=0,blood = 10, dirction = (0,1)):
         super(ROBOT,self).__init__()
         self.x = x_loc
         self.y = y_loc
         self.id = robot_id
-        self.num = num
+        self.blood = blood
+        self.dirction = dirction
+        self.team = 1
+        # dirction (x,y) x is horizontal axis, y is vertical axis
+        # (1,0) is right dirction, (0,1) is down, (-1,0) is left, (0,-1) is up
 
     def move(self, action, ROBOT_MAP):
         def move_up(self):
@@ -69,23 +68,70 @@ class TRUCK(object):
 class WAll(object):
     pass
 
-class PEOPLE(object):
-    pass
+class NATO(object):
+    def __init__(self,x_loc=0,y_loc=0,nato_id=0,blood = 10, dirction = (0,-1)):
+        super(NATO,self).__init__()
+        self.x = x_loc
+        self.y = y_loc
+        self.id = nato_id
+        self.blood = blood
+        self.dirction = dirction
+        self.team = 2
+        # dirction (x,y) x is horizontal axis, y is vertical axis
+        # (1,0) is right dirction, (0,1) is down, (-1,0) is left, (0,-1) is up
+
+    def move(self, action, ROBOT_MAP):
+        def move_up(self):
+            return  0, -1
+        def move_down(self):
+            return  0, 1
+        def move_left(self):
+            return -1,  0
+        def move_right(self):
+            return 1, 0
+        def move_stay(self):
+            return 0, 0
+        dic = {'u':move_up(self), 'd':move_down(self), 'l': move_left(self), 'r': move_right(self),'s':move_stay(self)}
+        add_x,add_y = dic[action]
+        chang_x = self.x+add_x
+        chang_y = self.y+add_y
+        #check border
+        if chang_x < 0:
+            chang_x = 0
+            add_x = 0
+        if chang_x > ROBOT_MAP.map_w-ROBOT_MAP.map_start_x-1:
+            chang_x = ROBOT_MAP.map_w-ROBOT_MAP.map_start_x-1
+            add_x = 0
+        if chang_y < 0:
+            chang_y = 0
+            add_y = 0
+        if chang_y > ROBOT_MAP.map_h-ROBOT_MAP.map_start_y-1:
+            chang_y = ROBOT_MAP.map_h-ROBOT_MAP.map_start_y-1
+            add_y = 0
+        if ROBOT_MAP.env_map[chang_y][chang_x] == 1:
+            add_y = 0
+            add_x = 0
+            chang_y = self.y
+            chang_x = self.x
+        self.x = chang_x
+        self.y = chang_y
+        return add_x,add_y
 
 
 class ROBOT_MAP(tk.Tk, object):
-    def __init__(self):
+    def __init__(self, ROBOT_NUM = 10, NATO_NUM = 10):
         super(ROBOT_MAP, self).__init__()
         self.title('robot carry')
         self.geometry('{0}x{1}'.format(MAP_W * UNIT_PIX, MAP_H * UNIT_PIX))
         self.robot_num = ROBOT_NUM
+        self.nato_num = NATO_NUM
         self.map_start_x = 10
         self.map_start_y = 0
         self.map_w = MAP_W
         self.map_h = MAP_H
-        #self.robot_loc = []
         self.env_map = []
         self.robot=[]
+        self.nato=[]
         self.truck=[]
         self.people=[]
 
@@ -121,12 +167,17 @@ class ROBOT_MAP(tk.Tk, object):
             self.env_map.append(a)
 
 
-    def init_robot(self, ROBOT):
-        for i in range(ROBOT[0].num):
-            self.robot.append(self.map.create_rectangle(ROBOT[i].x* UNIT_PIX,
+    def init_robot(self, ROBOT,n):
+        for i in range(n):
+            self.robot.append(self.map.create_rectangle(ROBOT[i].x * UNIT_PIX,
                     ROBOT[i].y * UNIT_PIX, (ROBOT[i].x+ 1) * UNIT_PIX,
                     (ROBOT[i].y+1) * UNIT_PIX, fill='red'))
-            #print(ROBOT[i].x,ROBOT[i].y)
+
+    def init_nato(self,NATO,n):
+        for i in range(n):
+            self.nato.append(self.map.create_rectangle(NATO[i].x * UNIT_PIX,
+                    NATO[i].y * UNIT_PIX, (NATO[i].x+1) * UNIT_PIX,
+                    (NATO[i].y + 1) * UNIT_PIX, fill='black'))
 
     def flash(self,num,action):
         # move robot
