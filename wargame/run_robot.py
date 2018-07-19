@@ -1,14 +1,20 @@
 from robot_carry import *
+import time
 
-robot_NUM = 10
-nato_NUM = 10
+robot_NUM = 5
+nato_NUM = 5
 
 def update():
     for turn in range(30):
-        action = []
+        action_robot = []
+        action_nato = []
         for i in range(map.robot_num):
-            action.append( robot[i].move('d',map))
-        map.flash(map.robot_num, action)
+            action_robot.append(robot[i].move('d',map))
+        for i in range(map.nato_num):
+            action_nato.append(nato[i].move('u', map))
+        map.flash(map.robot_num, action_robot,1)
+        map.flash(map.nato_num, action_nato, 2)
+        time.sleep(0.25)
         print(robot[map.robot_num-1].x,robot[map.robot_num-1].y)
         print(robot[0].team)
 

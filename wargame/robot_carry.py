@@ -179,14 +179,23 @@ class ROBOT_MAP(tk.Tk, object):
                     NATO[i].y * UNIT_PIX, (NATO[i].x+1) * UNIT_PIX,
                     (NATO[i].y + 1) * UNIT_PIX, fill='black'))
 
-    def flash(self,num,action):
+    def flash(self,num,action,team):
         # move robot
-        time.sleep(0.25)
-        for i in range(num):
-            add_x = action[i][0]
-            add_y = action[i][1]
-            self.map.move(self.robot[i], UNIT_PIX * add_x, UNIT_PIX * add_y)
+        if team == 1:
+            for i in range(num):
+                add_x = action[i][0]
+                add_y = action[i][1]
+                self.map.move(self.robot[i], UNIT_PIX * add_x, UNIT_PIX * add_y)
+        elif team == 2:
+            for i in range(num):
+                add_x = action[i][0]
+                add_y = action[i][1]
+                self.map.move(self.nato[i], UNIT_PIX * add_x, UNIT_PIX * add_y)
         self.update()
+
+    def battle():
+        pass
+
 
 
 
