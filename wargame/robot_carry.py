@@ -1,5 +1,6 @@
 from __future__ import division
 import sys
+import numpy as np
 import time
 
 if sys.version_info.major == 2:
@@ -13,15 +14,95 @@ MAP_W = 50
 MAP_H = 30
 UNIT_PIX = 25
 
+
+class ARMY(object):
+    def __init__(self, x_loc=0, y_loc=0, id=0, blood=10, dirction=(0, 1)):
+        self.x = x_loc
+        self.y = y_loc
+        self.last_x = x_loc
+        self.last_y = y_loc
+        self.id = id
+        self.blood = blood
+        self.state = 'peace'
+        # dirction (x,y) x is horizontal axis, y is vertical axis
+        # (1,0) is right dirction, (0,1) is down, (-1,0) is left, (0,-1) is up
+        self.dirction = dirction
+
+    def move(self, action, ROBOT_MAP):
+        def move_up(self):
+            return 0, -1
+
+        def move_down(self):
+            return 0, 1
+
+        def move_left(self):
+            return -1, 0
+
+        def move_right(self):
+            return 1, 0
+
+        def move_stay(self):
+            return 0, 0
+
+        dic = {'u': move_up(self), 'd': move_down(self), 'l': move_left(self), 'r': move_right(self),
+               's': move_stay(self)}
+        add_x, add_y = dic[action]
+        chang_x = self.x + add_x
+        chang_y = self.y + add_y
+        # check border
+        if chang_x < 0:
+            chang_x = 0
+            add_x = 0
+        if chang_x > ROBOT_MAP.map_w - ROBOT_MAP.map_start_x - 1:
+            chang_x = ROBOT_MAP.map_w - ROBOT_MAP.map_start_x - 1
+            add_x = 0
+        if chang_y < 0:
+            chang_y = 0
+            add_y = 0
+        if chang_y > ROBOT_MAP.map_h - ROBOT_MAP.map_start_y - 1:
+            chang_y = ROBOT_MAP.map_h - ROBOT_MAP.map_start_y - 1
+            add_y = 0
+        if (ROBOT_MAP.env_map[chang_y][chang_x] == 'robot' ) or (ROBOT_MAP.env_map[chang_y][chang_x] == 'nato'):
+            add_y = 0
+            add_x = 0
+            chang_y = self.y
+            chang_x = self.x
+        self.last_x = self.x
+        self.last_y = self.y
+        self.x = chang_x
+        self.y = chang_y
+        return add_x, add_y
+
+
+class ROBOT(ARMY):
+    def __init__(self, x_loc, y_loc, id, blood, dirction):
+        super(ROBOT,self).__init__(x_loc,y_loc,id,blood, dirction)
+        self.team = 1
+        self.class_name = 'robot'
+        self.force = 0.1
+
+
+class NATO(ARMY):
+    def __init__(self,x_loc,y_loc,id,blood, dirction):
+        super(NATO,self).__init__(x_loc,y_loc,id,blood, dirction)
+        self.team = 2
+        self.class_name = 'nato'
+        self.force = 0.1
+
+
+'''
 class ROBOT(object):
     def __init__(self,x_loc=0,y_loc=0,robot_id=0,blood = 10, dirction = (0,1)):
         super(ROBOT,self).__init__()
         self.x = x_loc
         self.y = y_loc
+        self.last_x = x_loc
+        self.last_y = y_loc
         self.id = robot_id
         self.blood = blood
         self.dirction = dirction
         self.team = 1
+        self.class_name = 'robot'
         # dirction (x,y) x is horizontal axis, y is vertical axis
         # (1,0) is right dirction, (0,1) is down, (-1,0) is left, (0,-1) is up
 
@@ -53,7 +134,7 @@ class ROBOT(object):
         if chang_y > ROBOT_MAP.map_h-ROBOT_MAP.map_start_y-1:
             chang_y = ROBOT_MAP.map_h-ROBOT_MAP.map_start_y-1
             add_y = 0
-        if ROBOT_MAP.env_map[chang_y][chang_x] == 1:
+        if ROBOT_MAP.env_map[chang_y][chang_x] == 'wall':
             add_y = 0
             add_x = 0
             chang_y = self.y
@@ -73,10 +154,13 @@ class NATO(object):
         super(NATO,self).__init__()
         self.x = x_loc
         self.y = y_loc
+        self.last_x = x_loc
+        self.last_y = y_loc
         self.id = nato_id
         self.blood = blood
         self.dirction = dirction
         self.team = 2
+        self.class_name = 'nato'
         # dirction (x,y) x is horizontal axis, y is vertical axis
         # (1,0) is right dirction, (0,1) is down, (-1,0) is left, (0,-1) is up
 
@@ -116,6 +200,8 @@ class NATO(object):
         self.x = chang_x
         self.y = chang_y
         return add_x,add_y
+'''
+
 
 
 class ROBOT_MAP(tk.Tk, object):
@@ -132,9 +218,9 @@ class ROBOT_MAP(tk.Tk, object):
         self.env_map = []
         self.robot=[]
         self.nato=[]
-        self.truck=[]
-        self.people=[]
-
+        # robot_loc[i][0] is i robot's x,robot_loc[i][1] is i robot's y,
+        self.robot_loc = np.zeros(shape=(ROBOT_NUM,2))
+        self.nato_loc = np.zeros(shape=(NATO_NUM,2))
         self.display_window()
         self._build_map()
 
@@ -159,42 +245,92 @@ class ROBOT_MAP(tk.Tk, object):
         for r in range(0, MAP_H * UNIT_PIX, UNIT_PIX):
             x0, y0, x1, y1 = 0, r, MAP_W * UNIT_PIX, r
             self.map.create_line(x0, y0, x1, y1)
-        # init env_map,env_map[]=1,wall;env_map[]=2
+        # init env_map,env_map[]='robot',robot;env_map[]='nato',nato;env_map[]=
         for i in range(self.map_h):
             a=[]
             for j in range(self.map_w-self.map_start_x):
-                a.append(0)
+                a.append('null')
             self.env_map.append(a)
 
+    def regist(self, aclass):
+        a = aclass.last_x
+        b = aclass.last_y
+        a_ = aclass.x
+        b_ = aclass.y
+        class_name = aclass.class_name
+        self.env_map[b][a] = 'null'
+        self.env_map[b_][a_] = class_name
+        if aclass.class_name == 'robot':
+            self.robot_loc[aclass.id][0] = aclass.x
+            self.robot_loc[aclass.id][1] = aclass.y
+        elif aclass.class_name == 'nato':
+            self.nato_loc[aclass.id][0] = aclass.x
+            self.nato_loc[aclass.id][1] = aclass.y
 
     def init_robot(self, ROBOT,n):
         for i in range(n):
             self.robot.append(self.map.create_rectangle(ROBOT[i].x * UNIT_PIX,
                     ROBOT[i].y * UNIT_PIX, (ROBOT[i].x+ 1) * UNIT_PIX,
                     (ROBOT[i].y+1) * UNIT_PIX, fill='red'))
+            self.regist(ROBOT[i])
 
     def init_nato(self,NATO,n):
         for i in range(n):
             self.nato.append(self.map.create_rectangle(NATO[i].x * UNIT_PIX,
                     NATO[i].y * UNIT_PIX, (NATO[i].x+1) * UNIT_PIX,
                     (NATO[i].y + 1) * UNIT_PIX, fill='black'))
+            self.regist(NATO[i])
 
-    def flash(self,num,action,team):
+    def flash(self,num,action,aclass):
         # move robot
-        if team == 1:
+        if aclass[0].team == 1:
             for i in range(num):
                 add_x = action[i][0]
                 add_y = action[i][1]
                 self.map.move(self.robot[i], UNIT_PIX * add_x, UNIT_PIX * add_y)
-        elif team == 2:
+                self.regist(aclass[i])
+        # move noto
+        elif aclass[0].team == 2:
             for i in range(num):
                 add_x = action[i][0]
                 add_y = action[i][1]
                 self.map.move(self.nato[i], UNIT_PIX * add_x, UNIT_PIX * add_y)
+                self.regist(aclass[i])
         self.update()
 
-    def battle():
+    def check_fight(self):
+        for i in range(self.robot_num):
+            x = self.robot_loc[i][0]
+            y = self.robot_loc[i][1]
+            add_space =np.zeros(shape=(4,2))
+            add_space[0][0] = 0
+            add_space[0][1] = -1
+            add_space[1][0] = 0
+            add_space[1][1] = 1
+            add_space[2][0] = -1
+            add_space[2][1] = 0
+            add_space[3][0] = 1
+            add_space[3][1] = 0
+            if x == 0:
+                add_space[2][0] = 0
+                add_space[2][1] = 0
+            if y == 0:
+                add_space[0][0] = 0
+                add_space[0][1] = 0
+            if x == self.map_w-self.map_start_x-1:
+                add_space[3][0] = 0
+                add_space[3][1] = 0
+            if y == self.map_h-self.map_start_y-1:
+                add_space[0][1] = 0
+                add_space[1][0] = 0
+            for j in range(4):
+                column = x + add_space[j][0]
+                line = y + add_space[j][1]
+                if self.env_map[line][column] =='nato':
+                    pass
+
         pass
+
 
 
 
