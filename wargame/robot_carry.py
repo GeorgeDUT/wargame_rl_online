@@ -291,14 +291,14 @@ class ROBOT_MAP(tk.Tk, object):
                 add_x = action[i][0]
                 add_y = action[i][1]
                 self.map.move(self.robot[i], UNIT_PIX * add_x, UNIT_PIX * add_y)
-                self.regist(aclass[i])
+                #self.regist(aclass[i])
         # move noto
         elif aclass[0].class_name == 'nato':
             for i in range(num):
                 add_x = action[i][0]
                 add_y = action[i][1]
                 self.map.move(self.nato[i], UNIT_PIX * add_x, UNIT_PIX * add_y)
-                self.regist(aclass[i])
+                #self.regist(aclass[i])
         self.update()
 
     def check_surround(self,name,id):

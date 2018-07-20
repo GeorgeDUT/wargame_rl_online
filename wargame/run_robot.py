@@ -3,46 +3,32 @@ import time
 from hq import *
 
 
-robot_NUM = 3
+robot_NUM = 4
 nato_NUM = 1
 
 
 def update():
-    for turn in range(300):
+    for turn in range(3000):
         action_robot = []
         action_nato = []
         for i in range(my_map.robot_num):
             choice = brain_of_rboto(my_map)
             #choice = 'd'
             action_robot.append(robot[i].move(choice,my_map))
+            my_map.regist(robot[i])
         for i in range(my_map.nato_num):
             choice2 = brain_of_nato(my_map)
             #choice2 = 'u'
             action_nato.append(nato[i].move(choice2, my_map))
+            my_map.regist(nato[i])
         my_map.flash(my_map.robot_num, action_robot,robot)
         my_map.flash(my_map.nato_num, action_nato, nato)
+        # surround one
         if my_map.check_surround('nato',0):
+            print ('surround')
+            time.sleep(3)
             my_map.restart(robot,nato)
-
-        cnt_robot = 0
-        cnt_nato = 0
-        for i in range(my_map.map_h):
-            for j in range(my_map.map_w-my_map.map_start_x):
-                if my_map.env_map[i][j] == 'robot':
-                    cnt_robot = cnt_robot + 1
-                elif my_map.env_map[i][j] == 'nato':
-                    cnt_nato = cnt_nato + 1
-        if cnt_robot!=my_map.robot_num:
-            print(turn,'turn')
-            print (cnt_robot)
-            print (my_map.env_map)
-            print (my_map.robot_loc)
-
-
-
-    print ('robot', my_map.robot_loc)
-    print('nato', my_map.nato_loc)
-    print('end')
+            time.sleep(3)
 
 
 if __name__ == "__main__":
