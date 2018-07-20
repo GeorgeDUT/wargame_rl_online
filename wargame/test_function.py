@@ -18,3 +18,8 @@ def loss_agent(my_map,turn):
         print(my_map.robot_loc)
         print(my_map.nato_loc)
         time.sleep(1)
+
+
+def test_var(new_map):
+    new_map.env_map[0][0]='ok'
+    #return new_map

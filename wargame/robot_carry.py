@@ -411,7 +411,7 @@ class ROBOT_MAP(tk.Tk, object):
             self.regist(nato[i])
             nato[i].last_x = nato[i].x
             nato[i].last_y = nato[i].y
-        # ensure all regist on map
+        # ensure all robot or nato are registered on env_map
         for i in range(self.robot_num):
             self.env_map[robot[i].y][robot[i].x] = robot[i].class_name
         for i in range(self.nato_num):

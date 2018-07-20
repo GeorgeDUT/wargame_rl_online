@@ -3,7 +3,7 @@ import numpy as np
 
 def feedback_from_env(my_map, aclass, aclass_id,action):
     single_action = aclass[aclass_id].move(action, my_map)
-    #my_map.regist(aclass[aclass_id])
+    my_map.regist(aclass[aclass_id])
     return single_action
 
 def brain_of_rboto(my_map):
