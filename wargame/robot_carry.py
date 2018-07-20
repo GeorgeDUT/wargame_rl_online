@@ -10,8 +10,8 @@ else:
     from tkinter import *
     import tkinter as tk
 
-MAP_W = 50
-MAP_H = 30
+MAP_W = 15
+MAP_H = 5
 UNIT_PIX = 25
 
 
@@ -24,6 +24,9 @@ class ARMY(object):
         self.id = id
         self.blood = blood
         self.state = 'peace'
+        self.init_x = x_loc
+        self.init_y = y_loc
+        self.init_blood = blood
         # dirction (x,y) x is horizontal axis, y is vertical axis
         # (1,0) is right dirction, (0,1) is down, (-1,0) is left, (0,-1) is up
         self.dirction = dirction
@@ -283,14 +286,14 @@ class ROBOT_MAP(tk.Tk, object):
 
     def flash(self,num,action,aclass):
         # move robot
-        if aclass[0].team == 1:
+        if aclass[0].class_name == 'robot':
             for i in range(num):
                 add_x = action[i][0]
                 add_y = action[i][1]
                 self.map.move(self.robot[i], UNIT_PIX * add_x, UNIT_PIX * add_y)
                 self.regist(aclass[i])
         # move noto
-        elif aclass[0].team == 2:
+        elif aclass[0].class_name == 'nato':
             for i in range(num):
                 add_x = action[i][0]
                 add_y = action[i][1]
@@ -298,7 +301,50 @@ class ROBOT_MAP(tk.Tk, object):
                 self.regist(aclass[i])
         self.update()
 
-    def check_fight(self):
+    def check_surround(self,name,id):
+        if name == 'robot':
+            pass
+        elif name == 'nato':
+            find = 0
+            x = self.nato_loc[id][0]
+            y = self.nato_loc[id][1]
+            add_space = np.zeros(shape=(4, 2))
+            add_space[0][0] = 0
+            add_space[0][1] = -1
+            add_space[1][0] = 0
+            add_space[1][1] = 1
+            add_space[2][0] = -1
+            add_space[2][1] = 0
+            add_space[3][0] = 1
+            add_space[3][1] = 0
+            if x == 0:
+                add_space[2][0] = 0
+                add_space[2][1] = 0
+                find = find + 1
+            if y == 0:
+                add_space[0][0] = 0
+                add_space[0][1] = 0
+                find = find + 1
+            if x == self.map_w - self.map_start_x - 1:
+                add_space[3][0] = 0
+                add_space[3][1] = 0
+                find = find + 1
+            if y == self.map_h - self.map_start_y - 1:
+                add_space[1][1] = 0
+                add_space[1][0] = 0
+                find = find + 1
+            for j in range(4):
+                column = int(self.nato_loc[id][0] + add_space[j][0])
+                line = int(self.nato_loc[id][1] + add_space[j][1])
+                if self.env_map[line][column] == 'robot':
+                    find = find + 1
+            if find == 4:
+                return True
+            else:
+                return False
+
+    # TODO fight check
+    def check_fight(self,robot,nato):
         for i in range(self.robot_num):
             x = self.robot_loc[i][0]
             y = self.robot_loc[i][1]
@@ -321,15 +367,49 @@ class ROBOT_MAP(tk.Tk, object):
                 add_space[3][0] = 0
                 add_space[3][1] = 0
             if y == self.map_h-self.map_start_y-1:
-                add_space[0][1] = 0
+                add_space[1][1] = 0
                 add_space[1][0] = 0
             for j in range(4):
                 column = x + add_space[j][0]
                 line = y + add_space[j][1]
-                if self.env_map[line][column] =='nato':
-                    pass
+                if self.env_map[line][column] == 'nato':
+                    robot[i].state = 'war'
+                    for k in range(self.nato_num):
+                        if nato[k].x == column and nato[k].y == line:
+                            nato[k].state = 'war'
 
-        pass
+    #
+    def restart(self,robot,nato):
+        # change robot
+        for i in range(self.robot_num):
+            add_x = robot[i].init_x - robot[i].x
+            add_y = robot[i].init_y - robot[i].y
+            robot[i].last_x = robot[i].x
+            robot[i].last_y = robot[i].y
+            self.map.move(self.robot[i], UNIT_PIX * add_x, UNIT_PIX * add_y)
+            robot[i].x = robot[i].init_x
+            robot[i].y = robot[i].init_y
+            robot[i].blood = robot[i].init_blood
+            self.regist(robot[i])
+            robot[i].last_x = robot[i].x
+            robot[i].last_y = robot[i].y
+        # change nato
+        for i in range(self.nato_num):
+            add_x = nato[i].init_x - nato[i].x
+            add_y = nato[i].init_y - nato[i].y
+            self.map.move(self.nato[i], UNIT_PIX * add_x, UNIT_PIX * add_y)
+            nato[i].last_x = nato[i].x
+            nato[i].last_y = nato[i].y
+            nato[i].x = nato[i].init_x
+            nato[i].y = nato[i].init_y
+            nato[i].blood = nato[i].init_blood
+            self.regist(nato[i])
+            nato[i].last_x = nato[i].x
+            nato[i].last_y = nato[i].y
+        self.update()
+
+
+
 
 
 

@@ -3,6 +3,7 @@ import numpy as np
 import random
 import time
 import sys
+import numpy as np
 
 if sys.version_info.major == 2:
     from Tkinter import *
@@ -20,7 +21,7 @@ WATER_SIZE_W=2
 WOODS_BLOCK=5
 WOODS_SIZE_H=2
 WOODS_SIZE_W=2
-RED_ARMY = 3
+RED_ARMY = 4
 GRAY_ARMY = 1
 
 class Warmap(tk.Tk, object):
@@ -156,7 +157,6 @@ class Warmap(tk.Tk, object):
                          UNIT * add_x, UNIT * add_y)
 
         # reward function
-        #'''
         s_ = []
         for i in range(RED_ARMY):
             s_.append(self.canvas.coords(self.army[teamid][i]))
@@ -164,18 +164,70 @@ class Warmap(tk.Tk, object):
         gray_state = []
         reward = 0
         done = False
+        # new vs rule
+        for agent_id in range(GRAY_ARMY):
+            x = self.army_loc[1][agent_id][0]
+            y = self.army_loc[1][agent_id][0]
+            add = [x, y]
+            gray_state.append(add)
+        add_space = np.zeros(shape=(4, 2))
+        add_space[0][0] = 0
+        add_space[0][1] = -1
+        add_space[1][0] = 0
+        add_space[1][1] = 1
+        add_space[2][0] = -1
+        add_space[2][1] = 0
+        add_space[3][0] = 1
+        add_space[3][1] = 0
+        find = 0
+        if x == 0:
+            add_space[2][0] = 0
+            add_space[2][1] = 0
+            find = find + 1
+        if y == 0:
+            add_space[0][0] = 0
+            add_space[0][1] = 0
+            find = find + 1
+        if x == MAZE_W - 1:
+            add_space[3][0] = 0
+            add_space[3][1] = 0
+            find = find + 1
+        if y == MAZE_H - 1:
+            add_space[0][1] = 0
+            add_space[1][0] = 0
+            find = find + 1
+        for j in range(4):
+            other_x = self.army_loc[1][agent_id][0] + add_space[j][0]
+            other_y = self.army_loc[1][agent_id][1] + add_space[j][1]
+            for find_agent in range(RED_ARMY):
+                if self.army_loc[0][find_agent][0] == other_x and self.army_loc[0][find_agent][1] == other_y:
+                    find = find + 1
+                    print('ok', other_x,other_y, self.army_loc[1][0][0],self.army_loc[1][0][1])
+        if find == 4:
+            reward = 10
+            done = True
+            s_ = 'terminal'
+        else:
+            reward = 0
+            done = False
+
+
+        '''
         for agent_id in range(GRAY_ARMY):
             gray_state.append(self.canvas.coords(self.army[1][agent_id]))
         for i in range(RED_ARMY):
             if s_[i] in gray_state:
-                reward = 0
+                reward = 10
                 done = True
                 s_ = 'terminal'
                 break
             else:
                 reward = 0
                 done = False
-        #'''
+        '''
+
+
+        '''
         for i in range(RED_ARMY):
             for j in range(GRAY_ARMY):
                 x=abs(self.army_loc[0][i][0]-self.army_loc[1][j][0])
@@ -194,6 +246,7 @@ class Warmap(tk.Tk, object):
                 y = abs(self.army_loc[0][i][1] - self.army_loc[0][j][1])
                 dis = dis + x + y
         reward=reward+dis*0
+        '''
 
         '''
         gray_state = []
@@ -279,7 +332,7 @@ class Warmap(tk.Tk, object):
                          UNIT * add_x, UNIT * add_y)
 
     def reload(self,turn):
-        if turn > 145:
+        if turn > 300:
             time.sleep(0.28)
         else:
             pass

@@ -3,37 +3,48 @@ import time
 from hq import *
 
 
-robot_NUM = 10
-nato_NUM = 10
+robot_NUM = 5
+nato_NUM = 1
 
 
 def update():
-    for turn in range(100):
+    for turn in range(3000):
         action_robot = []
         action_nato = []
-        for i in range(map.robot_num):
-            choice = brain_of_rboto(map)
-            action_robot.append(robot[i].move(choice,map))
-        for i in range(map.nato_num):
-            choice2 = brain_of_nato(map)
-            action_nato.append(nato[i].move(choice2, map))
-        map.flash(map.robot_num, action_robot,robot)
-        map.flash(map.nato_num, action_nato, nato)
-        time.sleep(0.01)
-    print(map.robot_loc)
-    print(map.nato_loc)
+        for i in range(my_map.robot_num):
+            choice = brain_of_rboto(my_map)
+            #choice = 'd'
+            action_robot.append(robot[i].move(choice,my_map))
+        for i in range(my_map.nato_num):
+            choice2 = brain_of_nato(my_map)
+            #choice2 = 'u'
+            action_nato.append(nato[i].move(choice2, my_map))
+        my_map.flash(my_map.robot_num, action_robot,robot)
+        my_map.flash(my_map.nato_num, action_nato, nato)
+        if my_map.check_surround('nato',0):
+            #print ('robot', my_map.robot_loc)
+            #print('nato', my_map.nato_loc)
+            print('surround')
+            print(my_map.env_map)
+            time.sleep(6)
+            my_map.restart(robot,nato)
+            time.sleep(3)
+
+    print ('robot', my_map.robot_loc)
+    print('nato', my_map.nato_loc)
+    print('end')
 
 
 if __name__ == "__main__":
 
-    map = ROBOT_MAP(ROBOT_NUM=robot_NUM, NATO_NUM=nato_NUM)
+    my_map = ROBOT_MAP(ROBOT_NUM=robot_NUM, NATO_NUM=nato_NUM)
     robot = []
     nato = []
-    for i in range(map.robot_num):
-        robot.append(ROBOT(x_loc=2*i+1, y_loc=0, id=i, blood=10.0, dirction=(0,1)))
-    for i in range(map.nato_num):
-        nato.append(NATO(x_loc=2*i+1, y_loc=29, id=i, blood=10.0, dirction=(0,-1)))
-    map.init_robot(robot,map.robot_num)
-    map.init_nato(nato,map.nato_num)
-    map.after(10, update)
-    map.mainloop()
+    for i in range(my_map.robot_num):
+        robot.append(ROBOT(x_loc=i, y_loc=0, id=i, blood=10.0, dirction=(0,1)))
+    for i in range(my_map.nato_num):
+        nato.append(NATO(x_loc=2, y_loc=2, id=i, blood=10.0, dirction=(0,-1)))
+    my_map.init_robot(robot,my_map.robot_num)
+    my_map.init_nato(nato,my_map.nato_num)
+    my_map.after(10, update)
+    my_map.mainloop()

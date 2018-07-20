@@ -5,13 +5,13 @@ import pandas as pd
 import time
 import sys
 import matplotlib.pyplot as plt
-RED_ARMY = 3
+RED_ARMY = 4
 GRAY_ARMY = 1
-T = 3
+T = 4
 # gate =1 gray army random go gate =0 gray army do not go
-gate = 0
+gate = 1
 # if RUN=1, gray army will escape from red army
-RUN = 0
+RUN = 1
 
 class RL(object):
     def __init__(self, action_space, learning_rate=0.01,reward_decay=0.9,e_greedy=0.9, agent_num = 1):
@@ -112,7 +112,7 @@ def Contorl_update():
 def update():
     aver_step = 0
     point = []
-    for turn in range(155):
+    for turn in range(355):
         # reset all agent
         obs=[]
         action=[]
@@ -163,7 +163,9 @@ def update():
         #print(turn,all_step,aver_step/(turn+1))
         print(turn, all_step)
         point.append(all_step)
-    print(RL.q_table)
+
+    for i in range(2):
+        print(env.army_loc[i])
     plt.plot(point)
     plt.show()
     #env.destroy()
