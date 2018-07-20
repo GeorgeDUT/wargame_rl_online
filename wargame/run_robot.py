@@ -1,6 +1,7 @@
 from robot_carry import *
 import time
 from hq import *
+from test_function import *
 
 
 robot_NUM = 4
@@ -8,27 +9,31 @@ nato_NUM = 1
 
 
 def update():
-    for turn in range(3000):
+    for turn in range(100000):
         action_robot = []
         action_nato = []
         for i in range(my_map.robot_num):
             choice = brain_of_rboto(my_map)
-            #choice = 'd'
-            action_robot.append(robot[i].move(choice,my_map))
+            #single_action = feedback_from_env(my_map, robot, i, choice)
+            #action_robot.append(single_action)
+            action_robot.append(robot[i].move(choice, my_map))
             my_map.regist(robot[i])
         for i in range(my_map.nato_num):
             choice2 = brain_of_nato(my_map)
-            #choice2 = 'u'
+            #single_action2 = feedback_from_env(my_map, nato, i, choice2)
+            #action_nato.append(single_action2)
             action_nato.append(nato[i].move(choice2, my_map))
             my_map.regist(nato[i])
         my_map.flash(my_map.robot_num, action_robot,robot)
         my_map.flash(my_map.nato_num, action_nato, nato)
         # surround one
         if my_map.check_surround('nato',0):
-            print ('surround')
-            time.sleep(3)
+            print (turn, 'surround')
+            time.sleep(0)
             my_map.restart(robot,nato)
-            time.sleep(3)
+            time.sleep(0)
+        loss_agent(my_map,turn)
+    print('end')
 
 
 if __name__ == "__main__":

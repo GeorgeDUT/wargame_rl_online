@@ -270,6 +270,12 @@ class ROBOT_MAP(tk.Tk, object):
             self.nato_loc[aclass.id][0] = aclass.x
             self.nato_loc[aclass.id][1] = aclass.y
 
+        # check
+        if self.env_map[aclass.y][aclass.x] != aclass.class_name:
+            print('wrong',aclass.x,aclass.y)
+            time.sleep(5)
+
+
     def init_robot(self, ROBOT,n):
         for i in range(n):
             self.robot.append(self.map.create_rectangle(ROBOT[i].x * UNIT_PIX,
@@ -378,7 +384,6 @@ class ROBOT_MAP(tk.Tk, object):
                         if nato[k].x == column and nato[k].y == line:
                             nato[k].state = 'war'
 
-    #
     def restart(self,robot,nato):
         # change robot
         for i in range(self.robot_num):
@@ -406,6 +411,11 @@ class ROBOT_MAP(tk.Tk, object):
             self.regist(nato[i])
             nato[i].last_x = nato[i].x
             nato[i].last_y = nato[i].y
+        # ensure all regist on map
+        for i in range(self.robot_num):
+            self.env_map[robot[i].y][robot[i].x] = robot[i].class_name
+        for i in range(self.nato_num):
+            self.env_map[nato[i].y][nato[i].x] = nato[i].class_name
         self.update()
 
 
