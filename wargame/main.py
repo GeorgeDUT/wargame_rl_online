@@ -1,3 +1,6 @@
+'''
+this is old version
+'''
 from map import Warmap
 import random
 import numpy as np

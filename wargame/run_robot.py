@@ -1,5 +1,10 @@
-from robot_carry import *
+'''
+this file is main function of all the model
+'''
+
 import time
+import matplotlib.pyplot as plt
+from robot_carry import *
 from hq import *
 from test_function import *
 
@@ -9,30 +14,26 @@ nato_NUM = 1
 
 
 def update():
-    for turn in range(0):
-        action_robot = []
-        action_nato = []
-        for i in range(my_map.robot_num):
-            choice = brain_of_rboto(my_map)
-            single_action = feedback_from_env(my_map, robot, i, choice)
-            action_robot.append(single_action)
-            #action_robot.append(robot[i].move(choice, my_map))
-            #my_map.regist(robot[i])
-        for i in range(my_map.nato_num):
-            choice2 = brain_of_nato(my_map)
-            single_action2 = feedback_from_env(my_map, nato, i, choice2)
-            action_nato.append(single_action2)
-            #action_nato.append(nato[i].move(choice2, my_map))
-            #my_map.regist(nato[i])
-        my_map.flash(my_map.robot_num, action_robot,robot)
-        my_map.flash(my_map.nato_num, action_nato, nato)
-        # surround one
-        if my_map.check_surround('nato',0):
-            print (turn, 'surround')
-            time.sleep(0)
-            my_map.restart(robot,nato)
-            time.sleep(0)
-        loss_agent(my_map,turn)
+    for epsid in range(0):
+        for step in range(5000):
+            action_robot = []
+            action_nato = []
+            for i in range(my_map.robot_num):
+                choice = brain_of_rboto(my_map)
+                single_action, s_ = feedback_from_env(my_map, robot, i, choice)
+                action_robot.append(single_action)
+            for i in range(my_map.nato_num):
+                choice2 = brain_of_nato(my_map)
+                single_action2, s_2 = feedback_from_env(my_map, nato, i, choice2)
+                action_nato.append(single_action2)
+            my_map.flash(my_map.robot_num, action_robot,robot)
+            my_map.flash(my_map.nato_num, action_nato, nato)
+            reward = get_reward_from_env(my_map)
+            if reward == 10:
+                my_map.restart(robot,nato)
+                break
+                time.sleep(1)
+            loss_agent_test(my_map,step)
     print('end')
 
 
@@ -49,3 +50,4 @@ if __name__ == "__main__":
     my_map.init_nato(nato,my_map.nato_num)
     my_map.after(10, update)
     my_map.mainloop()
+    test_rand_function()
