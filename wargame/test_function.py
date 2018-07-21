@@ -1,8 +1,10 @@
-'''this file use to test the function of other modle.
-'''
+"""
+this file use to test the function of other model.
+"""
 import time
 import pandas as pd
 import numpy as np
+from hq import *
 
 
 def loss_agent_test(my_map,turn):
@@ -15,17 +17,24 @@ def loss_agent_test(my_map,turn):
             elif my_map.env_map[i][j] == 'nato':
                 cnt_nato = cnt_nato + 1
     if cnt_robot != my_map.robot_num:
-        print(turn, 'lost agent')
+        print(turn, 'lost robot')
         print(cnt_robot)
         print(my_map.env_map)
         print(my_map.robot_loc)
         print(my_map.nato_loc)
         time.sleep(1)
+    if cnt_nato != my_map.nato_num:
+        print(turn, 'lost nato')
+        print(cnt_nato)
+        print(my_map.env_map)
+        print(my_map.robot_loc)
+        print(my_map.nato_loc)
 
 
 def test_var(new_map):
     new_map.env_map[0][0]='ok'
     #return new_map
+
 
 def test_index():
     actions = ['a','b','c']
@@ -37,6 +46,28 @@ def test_index():
     else:
         print('in a.index')
 
+
 def test_rand_function():
     for i in range(100):
         print(np.random.rand())
+
+
+def test_robot_map(robot, nato, my_map):
+    for i in range(my_map.robot_num):
+        if robot[i].x == my_map.robot_loc[i][0] and robot[i].y == my_map.robot_loc[i][1]:
+            pass
+        else:
+            print('no loc')
+    for i in range(my_map.nato_num):
+        if nato[i].x == my_map.nato_loc[i][0] and nato[i].y == my_map.nato_loc[i][1]:
+            pass
+        else:
+            print('no loc')
+
+def test_observation_str(my_map):
+    observation = []
+    for i in range(my_map.robot_num):
+        observation.append(get_init_state(my_map, 'robot', i))
+
+
+

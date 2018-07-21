@@ -1,6 +1,6 @@
-'''
+"""
 this is old version
-'''
+"""
 import numpy as np
 #import tensorflow as tf
 import random

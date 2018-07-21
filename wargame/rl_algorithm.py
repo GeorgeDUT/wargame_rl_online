@@ -1,6 +1,6 @@
-'''
+"""
 this file is reinforcement learning algorithm model
-'''
+"""
 import random
 import numpy as np
 import pandas as pd

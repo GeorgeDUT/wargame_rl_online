@@ -1,27 +1,49 @@
-'''
+"""
 in this file:
 all the function use to contact env and run_robot
-'''
+"""
 import numpy as np
 import time
 
 
-def feedback_from_env(my_map, aclass, aclass_id,action):
+def get_state(my_map,class_name, agent_id):
+    s = []
+    if class_name == 'robot':
+        a = int(my_map.robot_loc[agent_id][0])
+        b = int(my_map.robot_loc[agent_id][1])
+        s.append([a,b])
+        for i in range(my_map.map_h-my_map.map_start_y):
+            for j in range(my_map.map_w-my_map.map_start_x):
+                if my_map.env_map[i][j] == 'robot':
+                    x = j
+                    y = i
+                    s.append([x,y])
+        for i in range(my_map.map_h-my_map.map_start_y):
+            for j in range(my_map.map_w-my_map.map_start_x):
+                if my_map.env_map[i][j] == 'nato':
+                    x = j
+                    y = i
+                    s.append([x,y])
+    if class_name == 'nato':
+        s = 'null'
+    return list(s)
+
+
+def feedback_from_env(my_map, aclass, aclass_id, action):
     single_action = aclass[aclass_id].move(action, my_map)
-    s_ ='terminal'
     my_map.regist(aclass[aclass_id])
+    s_ = get_state(my_map, aclass[aclass_id].class_name, aclass_id)
     return single_action, s_
 
 
 def get_reward_from_env(my_map):
-    reward = 0
     if my_map.check_surround('nato', 0):
-        print ('surround')
-        time.sleep(1)
+        done = True
         reward = 10
     else:
+        done = False
         reward = 0
-    return reward
+    return reward,done
 
 
 def brain_of_rboto(my_map):
@@ -33,9 +55,6 @@ def brain_of_rboto(my_map):
 def brain_of_nato(my_map):
     action_space = ['u', 'd', 'r', 'l', 's']
     action = np.random.choice(action_space)
+    action = 's'
     return action
 
-
-class RL(object):
-    def __init__(self,ac):
-        pass

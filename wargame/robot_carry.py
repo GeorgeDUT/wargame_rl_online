@@ -1,6 +1,6 @@
-'''
+"""
 this file is env model
-'''
+"""
 
 from __future__ import division
 import sys
@@ -210,7 +210,6 @@ class NATO(object):
 '''
 
 
-
 class ROBOT_MAP(tk.Tk, object):
     def __init__(self, ROBOT_NUM = 10, NATO_NUM = 10):
         super(ROBOT_MAP, self).__init__()
@@ -225,6 +224,8 @@ class ROBOT_MAP(tk.Tk, object):
         self.env_map = []
         self.robot=[]
         self.nato=[]
+        self.action_space = ['u','d','l','r','s']
+        self.action_num = len(self.action_space)
         # robot_loc[i][0] is i robot's x,robot_loc[i][1] is i robot's y,
         self.robot_loc = np.zeros(shape=(ROBOT_NUM,2))
         self.nato_loc = np.zeros(shape=(NATO_NUM,2))
