@@ -8,6 +8,7 @@ from robot_carry import *
 from hq import *
 from test_function import *
 from rl_algorithm import *
+import matplotlib.pyplot as plt
 
 
 robot_NUM = 4
@@ -15,7 +16,8 @@ nato_NUM = 1
 
 
 def update():
-    for episode in range(500):
+    point=[]
+    for episode in range(1500):
         # every robot choose a action on observation
 
         observation_robot = []
@@ -47,6 +49,12 @@ def update():
             # draw robot and nato on may
             my_map.flash(my_map.robot_num, action_robot_num, robot)
             my_map.flash(my_map.nato_num, action_nato_num, nato)
+            '''watch move'''
+            if episode>1460:
+                time.sleep(0.25)
+            '''watch move'''
+
+
             # get reward
             reward,done = get_reward_from_env(my_map)
 
@@ -61,10 +69,14 @@ def update():
                 observation_robot[i] = observation_robot_next[i]
                 action_robot[i] = action_robot_next[i]
 
-            if reward == 10:
+            if reward == 100:
                 my_map.restart(robot,nato)
                 print(episode,step, 'surround')
-                time.sleep(0)
+                point.append(step)
+                '''watch move'''
+                if episode > 1460:
+                    time.sleep(0.5)
+                '''watch move'''
                 break
 
             # nato random run
@@ -97,6 +109,8 @@ def update():
             #test_robot_map(robot,nato, my_map)
             '''
     print('end')
+    plt.plot(point)
+    plt.show()
 
 
 if __name__ == "__main__":
@@ -107,7 +121,7 @@ if __name__ == "__main__":
     for i in range(my_map.robot_num):
         robot.append(ROBOT(x_loc=i, y_loc=0, id=i, blood=10.0, dirction=(0,1)))
     for i in range(my_map.nato_num):
-        nato.append(NATO(x_loc=i, y_loc=3, id=i, blood=10.0, dirction=(0,-1)))
+        nato.append(NATO(x_loc=i, y_loc=2, id=i, blood=10.0, dirction=(0,-1)))
     RL = Q_learning_table(actions=list(['u','d','l','r','s']))
     my_map.init_robot(robot,my_map.robot_num)
     my_map.init_nato(nato,my_map.nato_num)

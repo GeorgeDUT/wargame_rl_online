@@ -39,7 +39,7 @@ def feedback_from_env(my_map, aclass, aclass_id, action):
 def get_reward_from_env(my_map):
     if my_map.check_surround('nato', 0):
         done = True
-        reward = 10
+        reward = 100
     else:
         done = False
         reward = 0
@@ -55,6 +55,6 @@ def brain_of_rboto(my_map):
 def brain_of_nato(my_map):
     action_space = ['u', 'd', 'r', 'l', 's']
     action = np.random.choice(action_space)
-    action = 's'
+    #action = 's'
     return action
 
