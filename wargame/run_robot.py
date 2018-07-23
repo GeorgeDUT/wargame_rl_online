@@ -17,7 +17,7 @@ nato_NUM = 1
 
 def update():
     point=[]
-    for episode in range(1500):
+    for episode in range(500):
         # every robot choose a action on observation
 
         observation_robot = []
@@ -34,7 +34,7 @@ def update():
         # one episode start
         for step in range(500000):
             observation_robot_next = []
-            observation_robot_next.clear()
+            test_list_clear(observation_robot_next)
             # this action_num use to tell map to flash, format [addx,addy]
             action_robot_num = []
             action_nato_num = []
@@ -80,8 +80,8 @@ def update():
                 break
 
             # nato random run
-            observation_nato.clear()
-            action_nato.clear()
+            test_list_clear(observation_nato)
+            test_list_clear(action_nato)
             for i in range(my_map.nato_num):
                 observation_nato.append(get_state(my_map, 'nato', i))
                 action_nato.append(brain_of_nato(my_map))
