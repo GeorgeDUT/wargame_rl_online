@@ -5,6 +5,7 @@ import time
 import pandas as pd
 import numpy as np
 from hq import *
+import sys
 
 
 def loss_agent_test(my_map,turn):
@@ -71,3 +72,9 @@ def test_observation_str(my_map):
 
 
 
+def test_list_clear(alist):
+    if sys.version_info.major == 3:
+        alist.clear()
+    else:
+        while len(alist) > 0:
+            alist.pop()

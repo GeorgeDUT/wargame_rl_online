@@ -129,3 +129,4 @@ if __name__ == "__main__":
     my_map.after(10, update)
     my_map.mainloop()
     print(RL.q_table)
+
