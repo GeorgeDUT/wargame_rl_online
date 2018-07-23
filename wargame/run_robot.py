@@ -12,13 +12,13 @@ from rl_algorithm import *
 import matplotlib.pyplot as plt
 
 
-robot_NUM = 4
+robot_NUM = 2
 nato_NUM = 1
 
 
 def update():
     point=[]
-    for episode in range(500):
+    for episode in range(1500):
         # every robot choose a action on observation
 
         observation_robot = []
@@ -52,7 +52,7 @@ def update():
             my_map.flash(my_map.nato_num, action_nato_num, nato)
             '''watch move'''
             if episode>1460:
-                time.sleep(0.25)
+                time.sleep(0.1)
             '''watch move'''
 
 
@@ -76,7 +76,7 @@ def update():
                 point.append(step)
                 '''watch move'''
                 if episode > 1460:
-                    time.sleep(0.5)
+                    time.sleep(0.1)
                 '''watch move'''
                 break
 
