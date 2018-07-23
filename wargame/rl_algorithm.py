@@ -2,6 +2,7 @@
 this file is reinforcement learning algorithm model
 """
 import random
+import tensorflow as tf
 import numpy as np
 import pandas as pd
 
@@ -42,9 +43,9 @@ class RL(object):
         pass
 
 
-class Q_learning_table(RL):
+class QLearningTable(RL):
         def __init__(self,actions, learning_rate=0.01,reward_decay=0.9,e_greedy=0.9):
-            super(Q_learning_table,self).__init__(actions, learning_rate, reward_decay, e_greedy)
+            super(QLearningTable,self).__init__(actions, learning_rate, reward_decay, e_greedy)
 
         def learn(self, s,a,r,s_):
             self.check_state_exist(s_)
@@ -56,7 +57,11 @@ class Q_learning_table(RL):
             self.q_table.loc[s,a]+=self.lr*(q_target-q_predict)
 
 
-class Sarsa_table(RL):
+class SarsaTable(RL):
+    pass
+
+
+class DQN():
     pass
 
 

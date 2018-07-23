@@ -65,16 +65,24 @@ def test_robot_map(robot, nato, my_map):
         else:
             print('no loc')
 
+
 def test_observation_str(my_map):
     observation = []
     for i in range(my_map.robot_num):
-        observation.append(get_init_state(my_map, 'robot', i))
+        observation.append(get_state(my_map, 'robot', i))
 
 
-
+# this function use to clear the list
 def test_list_clear(alist):
     if sys.version_info.major == 3:
         alist.clear()
     else:
         while len(alist) > 0:
             alist.pop()
+
+
+def test_if_is_not_else():
+    b = None
+    #b.append(1)
+    a = 0 if b is not None else 1
+    print('a',a)

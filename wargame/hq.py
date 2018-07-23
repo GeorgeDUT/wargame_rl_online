@@ -1,7 +1,12 @@
 """
 in this file:
 all the function use to contact env and run_robot
+define reward:
+    1)surround version:
+        if nato is surrounded by robot, get reward 100
+        other situation, get reward 0
 """
+
 import numpy as np
 import time
 
