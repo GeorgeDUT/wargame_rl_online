@@ -60,18 +60,18 @@ def train_q_tale(episode, point,point2,point3):
             observation_robot[i] = observation_robot_next[i]
             action_robot[i] = action_robot_next[i]
 
-        if reward == 100:
+        if done:
             my_map.restart(robot, nato)
             print(episode, step, 'surround')
             point.append(step)
             # watch move
             if episode > 1500:
-                time.sleep(0.1)
+                time.sleep(0.2)
             # watch move
             break
         # watch move
         if episode > 1500:
-            time.sleep(0.5)
+            time.sleep(0.1)
         # watch move
 
         # nato random run
@@ -110,15 +110,15 @@ def update():
     point=[]
     point2=[]
     point3=[]
-    for episode in range(1850):
+    for episode in range(1520):
         # every robot choose a action on observation
         train_q_tale(episode,point,point2,point3)
         time.sleep(0)
     print('end')
-    #plt.plot(point,color ='red')
+    plt.plot(point,color ='red')
     #plt.plot(point2, color='black')
     #plt.plot(point3, color='green')
-    #plt.show()
+    plt.show()
 
 
 if __name__ == "__main__":
@@ -129,7 +129,7 @@ if __name__ == "__main__":
     for i in range(my_map.robot_num):
         robot.append(ROBOT(x_loc=i, y_loc=0, id=i, blood=10.0, dirction=(0,1)))
     for i in range(my_map.nato_num):
-        nato.append(NATO(x_loc=i, y_loc=2, id=i, blood=10.0, dirction=(0,-1)))
+        nato.append(NATO(x_loc=3, y_loc=3, id=i, blood=10.0, dirction=(0,-1)))
     RL = QLearningTable(actions=list(['u','d','l','r','s']))
     my_map.init_robot(robot,my_map.robot_num)
     my_map.init_nato(nato,my_map.nato_num)

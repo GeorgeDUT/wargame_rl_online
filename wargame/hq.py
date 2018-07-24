@@ -17,12 +17,14 @@ def get_state(my_map,class_name, agent_id):
         a = int(my_map.robot_loc[agent_id][0])
         b = int(my_map.robot_loc[agent_id][1])
         s.append([a,b])
-        #for i in range(my_map.map_h-my_map.map_start_y):
-        #    for j in range(my_map.map_w-my_map.map_start_x):
-        #        if my_map.env_map[i][j] == 'robot':
-        #            x = j
-        #            y = i
-        #            s.append([x,y])
+        '''
+        for i in range(my_map.map_h-my_map.map_start_y):
+            for j in range(my_map.map_w-my_map.map_start_x):
+                if my_map.env_map[i][j] == 'robot':
+                    x = j
+                    y = i
+                    s.append([x,y])
+        '''
         for i in range(my_map.map_h-my_map.map_start_y):
             for j in range(my_map.map_w-my_map.map_start_x):
                 if my_map.env_map[i][j] == 'nato':
@@ -47,7 +49,7 @@ def get_reward_from_env(my_map):
         reward = 100
     else:
         done = False
-        reward = 0
+        reward = -1
     return reward,done
 
 
