@@ -15,7 +15,7 @@ robot_NUM = 2
 nato_NUM = 1
 
 
-def train_q_tale(episode, point):
+def train_q_tale(episode, point,point2,point3):
     observation_robot = []
     observation_nato = []
     action_robot = []
@@ -45,10 +45,6 @@ def train_q_tale(episode, point):
         # draw robot and nato on may
         my_map.flash(my_map.robot_num, action_robot_num, robot)
         my_map.flash(my_map.nato_num, action_nato_num, nato)
-        # watch move
-        if episode > 1460:
-            time.sleep(0)
-        # watch move
 
         # get reward
         reward, done = get_reward_from_env(my_map)
@@ -69,10 +65,14 @@ def train_q_tale(episode, point):
             print(episode, step, 'surround')
             point.append(step)
             # watch move
-            if episode > 1460:
+            if episode > 1500:
                 time.sleep(0.1)
             # watch move
             break
+        # watch move
+        if episode > 1500:
+            time.sleep(0.5)
+        # watch move
 
         # nato random run
         test_list_clear(observation_nato)
@@ -108,12 +108,16 @@ def rand_no_train(episode,point):
 
 def update():
     point=[]
-    for episode in range(3000):
+    point2=[]
+    point3=[]
+    for episode in range(800):
         # every robot choose a action on observation
-        train_q_tale(episode,point)
+        train_q_tale(episode,point,point2,point3)
         time.sleep(0)
     print('end')
-    plt.plot(point)
+    plt.plot(point,color ='red')
+    #plt.plot(point2, color='black')
+    #plt.plot(point3, color='green')
     plt.show()
 
 

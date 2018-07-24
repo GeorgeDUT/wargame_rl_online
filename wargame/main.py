@@ -9,7 +9,7 @@ import time
 import sys
 import matplotlib.pyplot as plt
 RED_ARMY = 4
-GRAY_ARMY = 1
+GRAY_ARMY = 4
 T = 4
 # gate =1 gray army random go gate =0 gray army do not go
 gate = 1
