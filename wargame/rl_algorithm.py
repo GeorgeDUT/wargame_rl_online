@@ -2,9 +2,14 @@
 this file is reinforcement learning algorithm model
 """
 import random
-#import tensorflow as tf
+import sys
 import numpy as np
 import pandas as pd
+
+if sys.version_info.major == 3:
+    import tensorflow as tf
+else:
+    pass
 
 
 class RL(object):
