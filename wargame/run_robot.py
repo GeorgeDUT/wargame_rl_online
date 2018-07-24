@@ -3,7 +3,7 @@ this file is main function of all the model
 hello ubuntu
 """
 import time
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from robot_carry import *
 from hq import *
 from test_function import *
@@ -11,7 +11,7 @@ from rl_algorithm import *
 import matplotlib.pyplot as plt
 
 
-robot_NUM = 2
+robot_NUM = 4
 nato_NUM = 1
 
 
@@ -110,15 +110,15 @@ def update():
     point=[]
     point2=[]
     point3=[]
-    for episode in range(800):
+    for episode in range(1850):
         # every robot choose a action on observation
         train_q_tale(episode,point,point2,point3)
         time.sleep(0)
     print('end')
-    plt.plot(point,color ='red')
+    #plt.plot(point,color ='red')
     #plt.plot(point2, color='black')
     #plt.plot(point3, color='green')
-    plt.show()
+    #plt.show()
 
 
 if __name__ == "__main__":
