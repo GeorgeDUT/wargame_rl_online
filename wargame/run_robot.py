@@ -61,17 +61,17 @@ def train_q_tale(episode, point,point2,point3):
             action_robot[i] = action_robot_next[i]
 
         if done:
-            my_map.restart(robot, nato)
-            print(episode, step, 'surround')
-            point.append(step)
             # watch move
             if episode > 1500:
                 time.sleep(0.2)
             # watch move
+            my_map.restart(robot, nato)
+            print(episode, step, 'surround')
+            point.append(step)
             break
         # watch move
         if episode > 1500:
-            time.sleep(0.1)
+            time.sleep(0.25)
         # watch move
 
         # nato random run
@@ -104,6 +104,9 @@ def rand_no_train(episode,point):
             time.sleep(1)
     # loss_agent_test(my_map,step)
     # test_robot_map(robot,nato, my_map)
+
+def train_dqn():
+    pass
 
 
 def update():
