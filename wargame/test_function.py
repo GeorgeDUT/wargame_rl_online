@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 from hq import *
 import sys
+import platform
 
 
 def loss_agent_test(my_map,turn):
@@ -86,3 +87,16 @@ def test_if_is_not_else():
     #b.append(1)
     a = 0 if b is not None else 1
     print('a',a)
+
+
+def test_os():
+    while 1:
+        os = platform.version()
+        print(os.find('Ubuntu'))
+        print(os)
+
+
+def test_list_to_str():
+    l = [[1,2],[1,5],[1,0]]
+    r = ''.join(l)
+    print (r)

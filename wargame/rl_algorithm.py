@@ -2,14 +2,16 @@
 this file is reinforcement learning algorithm model
 """
 import random
-import sys
+import platform
 import numpy as np
 import pandas as pd
+import platform
 
-if sys.version_info.major == 3:
+os=platform.platform()
+if os.find('mac')==-1:
     import tensorflow as tf
 else:
-    pass
+    print('this version mac has no tensorflow')
 
 
 class RL(object):

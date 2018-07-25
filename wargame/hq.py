@@ -16,7 +16,8 @@ def get_state(my_map,class_name, agent_id):
     if class_name == 'robot':
         a = int(my_map.robot_loc[agent_id][0])
         b = int(my_map.robot_loc[agent_id][1])
-        s.append([a,b])
+        s.append(a)
+        s.append(b)
         '''
         for i in range(my_map.map_h-my_map.map_start_y):
             for j in range(my_map.map_w-my_map.map_start_x):
@@ -30,10 +31,37 @@ def get_state(my_map,class_name, agent_id):
                 if my_map.env_map[i][j] == 'nato':
                     x = j
                     y = i
-                    s.append([x,y])
+                    s.append(x)
+                    s.append(y)
     if class_name == 'nato':
         s = 'null'
-    return list(s)
+    return str(s)
+
+
+def get_full_state(my_map,class_name, agent_id):
+    s = []
+    if class_name == 'robot':
+        a = int(my_map.robot_loc[agent_id][0])
+        b = int(my_map.robot_loc[agent_id][1])
+        s.append(a)
+        s.append(b)
+        for i in range(my_map.map_h-my_map.map_start_y):
+            for j in range(my_map.map_w-my_map.map_start_x):
+                if my_map.env_map[i][j] == 'robot':
+                    x = j
+                    y = i
+                    s.append(x)
+                    s.append(y)
+        for i in range(my_map.map_h-my_map.map_start_y):
+            for j in range(my_map.map_w-my_map.map_start_x):
+                if my_map.env_map[i][j] == 'nato':
+                    x = j
+                    y = i
+                    s.append(x)
+                    s.append(y)
+    if class_name == 'nato':
+        s = 'null'
+    return str(s)
 
 
 def feedback_from_env(my_map, aclass, aclass_id, action):
