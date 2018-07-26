@@ -11,7 +11,7 @@ from rl_algorithm import *
 import matplotlib.pyplot as plt
 
 
-robot_NUM = 4
+robot_NUM = 2
 nato_NUM = 1
 
 
@@ -106,16 +106,18 @@ def rand_no_train(episode,point):
     # test_robot_map(robot,nato, my_map)
 
 
-def train_dqn():
+def train_dqn(episode,point):
     observation_robot = []
     action_robot = []
     action_nato = []
     for i in range(my_map.robot_num):
-        observation_robot.append(get_full_state(my_map,'robot',i))
+        observation_robot.append(get_dqn_state(my_map,'robot',i))
 
     for step in range(999999):
+        test_list_clear(action_robot)
+        test_list_clear(action_nato)
         for i in range(my_map.robot_num):
-            action_robot.append(RL.choose_action(str(observation_robot[i])))
+            action_robot.append(RL.choose_action(observation_robot[i]))
             action_nato.append(brain_of_nato(my_map))
         observation_robot_next = []
         test_list_clear(observation_robot_next)
@@ -123,7 +125,7 @@ def train_dqn():
         action_nato_num = []
         # get obs and reward
         for i in range(my_map.robot_num):
-            single_action, single_observation_robot_next = feedback_from_env(my_map, robot,i, action_robot[i])
+            single_action, single_observation_robot_next = feedback_dqn_from_env(my_map, robot,i, action_robot[i])
             observation_robot_next.append(single_observation_robot_next)
             action_robot_num.append(single_action)
         for i in range(my_map.nato_num):
@@ -147,18 +149,20 @@ def train_dqn():
             observation_robot[i]=observation_robot_next[i]
 
         if done:
+            print(episode,step,'surround')
+            point.append(step)
+            my_map.restart(robot, nato)
             break
-
 
 
 def update():
     point=[]
     point2=[]
     point3=[]
-    for episode in range(10):
+    for episode in range(1520):
         # every robot choose a action on observation
         train_q_tale(episode,point,point2,point3)
-        #train_dqn()
+        #train_dqn(episode,point)
     print('end')
     plt.plot(point,color ='red')
     #plt.plot(point2, color='black')
@@ -175,8 +179,8 @@ if __name__ == "__main__":
         robot.append(ROBOT(x_loc=i, y_loc=0, id=i, blood=10.0, dirction=(0,1)))
     for i in range(my_map.nato_num):
         nato.append(NATO(x_loc=3, y_loc=3, id=i, blood=10.0, dirction=(0,-1)))
-    #RL = QLearningTable(actions=list(['u','d','l','r','s']))
-
+    RL = QLearningTable(actions=list(['u','d','l','r','s']))
+    '''
     RL=DQN(my_map.action_num,2,
            learning_rate=0.01,
            reward_decay=0.9,
@@ -184,7 +188,7 @@ if __name__ == "__main__":
            replace_target_iter=200,
            memory_size=2000,
            )
-
+    '''
     my_map.init_robot(robot,my_map.robot_num)
     my_map.init_nato(nato,my_map.nato_num)
 

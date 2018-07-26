@@ -280,7 +280,6 @@ class ROBOT_MAP(tk.Tk, object):
             print('wrong',aclass.x,aclass.y)
             time.sleep(5)
 
-
     def init_robot(self, ROBOT,n):
         for i in range(n):
             self.robot.append(self.map.create_rectangle(ROBOT[i].x * UNIT_PIX,

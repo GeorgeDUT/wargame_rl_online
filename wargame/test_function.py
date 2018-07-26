@@ -100,3 +100,12 @@ def test_list_to_str():
     l = [[1,2],[1,5],[1,0]]
     r = ''.join(l)
     print (r)
+
+
+def test_list_newaxis():
+    x = np.array([0,1,0,4])
+    y = (np.array(x[:2]))
+    y2 = (np.array(x[:2]))- (np.array(x[2:4]))
+    print(np.array(x[2:4]))
+    print(y)
+    print(y2)
