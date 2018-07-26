@@ -16,7 +16,7 @@ else:
 
 MAP_W = 16
 MAP_H = 6
-UNIT_PIX = 25
+UNIT_PIX = 50
 
 
 class ARMY(object):

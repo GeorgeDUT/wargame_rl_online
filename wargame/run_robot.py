@@ -11,7 +11,7 @@ from rl_algorithm import *
 import matplotlib.pyplot as plt
 
 
-robot_NUM = 2
+robot_NUM = 6
 nato_NUM = 1
 
 
@@ -62,7 +62,7 @@ def train_q_tale(episode, point,point2,point3):
 
         if done:
             # watch move
-            if episode > 1500:
+            if episode > 1300:
                 time.sleep(0.2)
             # watch move
             my_map.restart(robot, nato)
@@ -70,7 +70,7 @@ def train_q_tale(episode, point,point2,point3):
             point.append(step)
             break
         # watch move
-        if episode > 1500:
+        if episode > 1300:
             time.sleep(0.25)
         # watch move
 
@@ -159,7 +159,7 @@ def update():
     point=[]
     point2=[]
     point3=[]
-    for episode in range(1520):
+    for episode in range(1320):
         # every robot choose a action on observation
         train_q_tale(episode,point,point2,point3)
         #train_dqn(episode,point)
