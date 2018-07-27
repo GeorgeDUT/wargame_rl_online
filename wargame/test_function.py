@@ -7,7 +7,7 @@ import numpy as np
 from hq import *
 import sys
 import platform
-
+from A_algorithm import *
 
 def loss_agent_test(my_map,turn):
     cnt_robot = 0

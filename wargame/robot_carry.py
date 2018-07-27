@@ -14,9 +14,9 @@ else:
     from tkinter import *
     import tkinter as tk
 
-MAP_W = 16
-MAP_H = 6
-UNIT_PIX = 50
+MAP_W = 40
+MAP_H = 30
+UNIT_PIX = 25
 
 
 class ARMY(object):

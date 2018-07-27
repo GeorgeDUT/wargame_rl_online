@@ -8,10 +8,11 @@ from robot_carry import *
 from hq import *
 from test_function import *
 from rl_algorithm import *
+from A_algorithm import *
 import matplotlib.pyplot as plt
 
 
-robot_NUM = 6
+robot_NUM = 4
 nato_NUM = 1
 
 
