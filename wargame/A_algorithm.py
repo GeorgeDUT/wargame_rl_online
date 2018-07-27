@@ -67,7 +67,7 @@ def A_function(my_map, robot, nato):
                 elif addy<0:
                     all_ation[idx]='d'
 
-    for i in range(my_map.robot_loc):
+    for i in range(my_map.robot_num):
         if i not in choose_id:
             idx = i
             addx = my_map.robot_loc[idx][0] - my_map.nato_loc[0][0]
