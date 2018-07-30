@@ -6,9 +6,10 @@ import platform
 import numpy as np
 import pandas as pd
 import platform
+import sys
 
-os=platform.platform()
-if os.find('mac')==-1:
+os = platform.platform()
+if os.find('Darwin')==-1:
     import tensorflow as tf
 else:
     print('this version mac has no tensorflow')
@@ -223,15 +224,28 @@ def brain_of_nato(my_map):
     #action = 's'
     return action
     '''
-    action = input('action')
-    if action =='w':
-        return_action = 'u'
-    elif action == 's':
-        return_action = 'd'
-    elif action == 'a':
-        return_action = 'l'
-    elif action == 'd':
-        return_action = 'r'
+    if sys.version_info.major == 2:
+        action = raw_input('action')
+        if action == 'w':
+            return_action = 'u'
+        elif action == 's':
+            return_action = 'd'
+        elif action == 'a':
+            return_action = 'l'
+        elif action == 'd':
+            return_action = 'r'
+        else:
+            return_action = 's'
     else:
-        return_action = 's'
+        action = input('action')
+        if action == 'w':
+            return_action = 'u'
+        elif action == 's':
+            return_action = 'd'
+        elif action == 'a':
+            return_action = 'l'
+        elif action == 'd':
+            return_action = 'r'
+        else:
+            return_action = 's'
     return return_action
