@@ -12,7 +12,7 @@ from A_algorithm import *
 import matplotlib.pyplot as plt
 
 
-robot_NUM = 5
+robot_NUM = 4
 nato_NUM = 1
 
 
@@ -158,7 +158,7 @@ def train_dqn(episode,point):
 
 def naive_a_algorithm(my_map, robot,nato,episode,point):
     for step in range(99999):
-        time.sleep(0.5)
+        #time.sleep(0.5)
         action_robot_num=[]
         action_nato_num=[]
         choice=A_function(my_map,robot,nato)
@@ -204,7 +204,7 @@ if __name__ == "__main__":
     for i in range(my_map.robot_num):
         robot.append(ROBOT(x_loc=i, y_loc=0, id=i, blood=10.0, dirction=(0,1)))
     for i in range(my_map.nato_num):
-        nato.append(NATO(x_loc=15, y_loc=15, id=i, blood=10.0, dirction=(0,-1)))
+        nato.append(NATO(x_loc=6, y_loc=6, id=i, blood=10.0, dirction=(0,-1)))
     RL = QLearningTable(actions=list(['u','d','l','r','s']))
     '''
     RL=DQN(my_map.action_num,2,

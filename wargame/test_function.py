@@ -109,3 +109,8 @@ def test_list_newaxis():
     print(np.array(x[2:4]))
     print(y)
     print(y2)
+
+def test_key_input():
+    action = input()
+    if action == 'w':
+        print('shang')
