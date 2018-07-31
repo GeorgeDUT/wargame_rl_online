@@ -1,5 +1,6 @@
 """
 this file is use to A* algorithm design
+a_function is false
 """
 import numpy as np
 import random
