@@ -186,8 +186,8 @@ def update():
     point3=[]
     for episode in range(1320):
         # every robot choose a action on observation
-        train_q_tale(episode,point,point2,point3)
-        # train_dqn(episode,point)
+        # train_q_tale(episode,point,point2,point3)
+        train_dqn(episode,point)
         # naive_a_algorithm(my_map,robot,nato,episode,point)
     print('end')
     plt.plot(point,color ='red')
@@ -206,8 +206,8 @@ if __name__ == "__main__":
 
     for i in range(my_map.nato_num):
         nato.append(NATO(x_loc=3, y_loc=3, id=i, blood=10.0, dirction=(0,-1)))
-    RL = QLearningTable(actions=list(['u','d','l','r','s']))
-    '''
+    #RL = QLearningTable(actions=list(['u','d','l','r','s']))
+
     RL=DQN(my_map.action_num,2,
            learning_rate=0.01,
            reward_decay=0.9,
@@ -215,7 +215,7 @@ if __name__ == "__main__":
            replace_target_iter=200,
            memory_size=2000,
            )
-    '''
+    
     my_map.init_robot(robot,my_map.robot_num)
     my_map.init_nato(nato,my_map.nato_num)
 
