@@ -12,7 +12,7 @@ from A_algorithm import *
 import matplotlib.pyplot as plt
 
 
-robot_NUM = 3
+robot_NUM = 4
 nato_NUM = 1
 
 
@@ -186,9 +186,9 @@ def update():
     point3=[]
     for episode in range(1320):
         # every robot choose a action on observation
-        # train_q_tale(episode,point,point2,point3)
+        train_q_tale(episode,point,point2,point3)
         # train_dqn(episode,point)
-        naive_a_algorithm(my_map,robot,nato,episode,point)
+        # naive_a_algorithm(my_map,robot,nato,episode,point)
     print('end')
     plt.plot(point,color ='red')
     #plt.plot(point2, color='black')
@@ -201,15 +201,11 @@ if __name__ == "__main__":
     my_map = ROBOT_MAP(ROBOT_NUM=robot_NUM, NATO_NUM=nato_NUM)
     robot = []
     nato = []
-    #for i in range(my_map.robot_num):
-    #    robot.append(ROBOT(x_loc=i, y_loc=0, id=i, blood=10.0, dirction=(0,1)))
-    robot.append(ROBOT(x_loc=0, y_loc=0, id=0, blood=10.0, dirction=(0, 1)))
-    robot.append(ROBOT(x_loc=18, y_loc=18, id=1, blood=10.0, dirction=(0, 1)))
-    robot.append(ROBOT(x_loc=0, y_loc=18, id=2, blood=10.0, dirction=(0, 1)))
-    #robot.append(ROBOT(x_loc=18, y_loc=0, id=3, blood=10.0, dirction=(0, 1)))
+    for i in range(my_map.robot_num):
+        robot.append(ROBOT(x_loc=i, y_loc=0, id=i, blood=10.0, dirction=(0,1)))
 
     for i in range(my_map.nato_num):
-        nato.append(NATO(x_loc=9, y_loc=9, id=i, blood=10.0, dirction=(0,-1)))
+        nato.append(NATO(x_loc=3, y_loc=3, id=i, blood=10.0, dirction=(0,-1)))
     RL = QLearningTable(actions=list(['u','d','l','r','s']))
     '''
     RL=DQN(my_map.action_num,2,

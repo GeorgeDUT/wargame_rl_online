@@ -7,12 +7,14 @@ import numpy as np
 import pandas as pd
 import platform
 import sys
+import tensorflow as tf
 
 os = platform.platform()
 if os.find('Darwin')==-1:
-    import tensorflow as tf
+    print('this version is not mac')
 else:
-    print('this version mac has no tensorflow')
+    import tensorflow as tf
+    print('this version is mac')
 
 
 class RL(object):
@@ -216,13 +218,14 @@ def brain_of_rboto(my_map):
 
 
 def brain_of_nato(my_map):
-    '''
+
     action_space = ['u', 'd', 'r', 'l', 's']
     action = np.random.choice(action_space)
     if random.random()>1:
         action = 's'
     #action = 's'
     return action
+
     '''
     if sys.version_info.major == 2:
         action = raw_input('action')
@@ -249,3 +252,4 @@ def brain_of_nato(my_map):
         else:
             return_action = 's'
     return return_action
+    '''
