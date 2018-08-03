@@ -8,6 +8,8 @@ from hq import *
 import sys
 import platform
 from A_algorithm import *
+import tensorflow as tf
+
 
 def loss_agent_test(my_map,turn):
     cnt_robot = 0
@@ -110,7 +112,15 @@ def test_list_newaxis():
     print(y)
     print(y2)
 
+
 def test_key_input():
     action = input()
     if action == 'w':
         print('shang')
+
+
+def test_tensorflow():
+    matrix1 = tf.constant([[3., 3.]])
+    matrix2 = tf.constant([[2.], [2.]])
+    product = tf.matmul(matrix1, matrix2)
+    print(product)

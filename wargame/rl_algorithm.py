@@ -6,14 +6,12 @@ import platform
 import numpy as np
 import pandas as pd
 import platform
-import sys
 import tensorflow as tf
 
 os = platform.platform()
 if os.find('Darwin')==-1:
     print('this version is not mac')
 else:
-    import tensorflow as tf
     print('this version is mac')
 
 

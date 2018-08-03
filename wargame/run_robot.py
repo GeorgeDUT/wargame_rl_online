@@ -198,6 +198,8 @@ def update():
 
 if __name__ == "__main__":
 
+    test_tensorflow()
+    print('ok')
     my_map = ROBOT_MAP(ROBOT_NUM=robot_NUM, NATO_NUM=nato_NUM)
     robot = []
     nato = []
