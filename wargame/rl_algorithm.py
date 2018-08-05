@@ -25,7 +25,6 @@ class RL(object):
         self.q_table = pd.DataFrame(columns=self.actions,dtype=np.float64)
 
     def check_state_exist(self,state):
-        print (state)
         if state not in self.q_table.index:
             self.q_table = self.q_table.append(
                 pd.Series(
