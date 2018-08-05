@@ -3,6 +3,7 @@ this file is reinforcement learning algorithm model
 """
 import random
 import platform
+import sys
 import numpy as np
 import pandas as pd
 import platform
@@ -177,7 +178,7 @@ class DQN:
         # check to replace target parameters
         if self.learn_step_counter % self.replace_target_iter == 0:
             self.sess.run(self.target_replace_op)
-            print('\ntarget_params_replaced\n')
+            #print('\ntarget_params_replaced\n')
 
         # sample batch memory from all memory
         if self.memory_counter > self.memory_size:
@@ -216,15 +217,15 @@ def brain_of_rboto(my_map):
 
 
 def brain_of_nato(my_map):
-
+    '''
     action_space = ['u', 'd', 'r', 'l', 's']
     action = np.random.choice(action_space)
     if random.random()>1:
         action = 's'
     #action = 's'
     return action
-
     '''
+
     if sys.version_info.major == 2:
         action = raw_input('action')
         if action == 'w':
@@ -250,4 +251,4 @@ def brain_of_nato(my_map):
         else:
             return_action = 's'
     return return_action
-    '''
+

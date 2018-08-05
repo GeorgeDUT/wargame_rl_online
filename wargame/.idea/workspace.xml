@@ -11,31 +11,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="map.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/map.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1150">
-              <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
-              <folding>
-                <element signature="e#28#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="hq.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2553">
+            <state relative-caret-position="1886">
               <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
               <folding>
                 <element signature="e#205#223#0" expanded="true" />
@@ -44,22 +23,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run_robot.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="run_robot.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/run_robot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="213" column="28" selection-start-line="213" selection-start-column="28" selection-end-line="213" selection-end-column="28" />
+            <state relative-caret-position="322">
+              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
               <folding>
                 <element signature="e#65#76#0" expanded="true" />
+                <element signature="e#327#2918#0" />
                 <element signature="e#2959#3859#0" />
-                <element signature="e#4106#5707#0" />
+                <element signature="e#3896#5707#0" />
                 <element signature="e#5771#6659#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="paper" pinned="false" current-in-tab="true">
+      <file leaf-file-name="paper" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/paper_reading/paper">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="69">
@@ -71,8 +51,8 @@
       <file leaf-file-name="A_algorithm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/A_algorithm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="678">
-              <caret line="91" column="21" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
+            <state relative-caret-position="-115">
+              <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -80,19 +60,12 @@
       <file leaf-file-name="rl_algorithm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rl_algorithm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1311">
-              <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_function.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_function.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2553">
-              <caret line="117" column="21" selection-start-line="117" selection-start-column="21" selection-end-line="117" selection-end-column="21" />
+            <state relative-caret-position="184">
+              <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
               <folding>
-                <element signature="e#59#70#0" expanded="true" />
+                <element signature="e#60#73#0" expanded="true" />
+                <element signature="e#321#1483#0" />
+                <element signature="e#1520#2027#0" />
               </folding>
             </state>
           </provider>
@@ -101,11 +74,21 @@
       <file leaf-file-name="robot_carry.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/robot_carry.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3772">
-              <caret line="274" column="16" selection-start-line="274" selection-start-column="16" selection-end-line="274" selection-end-column="16" />
+            <state relative-caret-position="461">
+              <caret line="113" column="79" selection-start-line="113" selection-start-column="79" selection-end-line="113" selection-end-column="79" />
               <folding>
                 <element signature="e#32#63#0" expanded="true" />
-                <element signature="e#2650#6198#1" />
+                <element signature="e#309#2197#0" />
+                <element signature="e#2223#2425#0" />
+                <element signature="e#2450#2646#0" />
+                <element signature="e#3646#4112#0" />
+                <element signature="e#4216#5003#0" />
+                <element signature="e#5059#5228#0" />
+                <element signature="e#8393#9040#0" />
+                <element signature="e#10343#11742#0" />
+                <element signature="e#9143#10377#0" />
+                <element signature="e#13091#14495#0" />
+                <element signature="e#11883#13287#0" />
               </folding>
             </state>
           </provider>
@@ -133,28 +116,29 @@
       <list>
         <option value="$PROJECT_DIR$/mian.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/map.py" />
         <option value="$PROJECT_DIR$/hq.py" />
         <option value="$PROJECT_DIR$/A_algorithm.py" />
         <option value="$PROJECT_DIR$/test_function.py" />
+        <option value="$PROJECT_DIR$/paper_reading/paper" />
+        <option value="$PROJECT_DIR$/map.py" />
+        <option value="$PROJECT_DIR$/rl_algorithm.py" />
         <option value="$PROJECT_DIR$/robot_carry.py" />
         <option value="$PROJECT_DIR$/run_robot.py" />
-        <option value="$PROJECT_DIR$/rl_algorithm.py" />
-        <option value="$PROJECT_DIR$/paper_reading/paper" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="628" />
-    <option name="y" value="28" />
-    <option name="width" value="1287" />
-    <option name="height" value="963" />
+    <option name="x" value="8" />
+    <option name="y" value="37" />
+    <option name="width" value="1362" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -171,7 +155,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -312,35 +295,25 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="628" y="28" width="1287" height="963" extended-state="0" />
+    <frame x="8" y="37" width="1362" height="1047" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12667191" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11961367" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2841981" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5590129" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.23143564" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39744952" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12667191" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30172414" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39744952" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -634,16 +607,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/map.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_function.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2553">
+        <state relative-caret-position="635">
           <caret line="117" column="21" selection-start-line="117" selection-start-column="21" selection-end-line="117" selection-end-column="21" />
           <folding>
             <element signature="e#59#70#0" expanded="true" />
@@ -653,7 +619,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1150">
+        <state relative-caret-position="1081">
           <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
           <folding>
             <element signature="e#28#50#0" expanded="true" />
@@ -661,9 +627,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/map.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hq.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2553">
+        <state relative-caret-position="1886">
           <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
           <folding>
             <element signature="e#205#223#0" expanded="true" />
@@ -673,39 +646,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/robot_carry.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3772">
-          <caret line="274" column="16" selection-start-line="274" selection-start-column="16" selection-end-line="274" selection-end-column="16" />
+        <state relative-caret-position="461">
+          <caret line="113" column="79" selection-start-line="113" selection-start-column="79" selection-end-line="113" selection-end-column="79" />
           <folding>
             <element signature="e#32#63#0" expanded="true" />
-            <element signature="e#2650#6198#1" />
+            <element signature="e#309#2197#0" />
+            <element signature="e#2223#2425#0" />
+            <element signature="e#2450#2646#0" />
+            <element signature="e#3646#4112#0" />
+            <element signature="e#4216#5003#0" />
+            <element signature="e#5059#5228#0" />
+            <element signature="e#8393#9040#0" />
+            <element signature="e#10343#11742#0" />
+            <element signature="e#9143#10377#0" />
+            <element signature="e#13091#14495#0" />
+            <element signature="e#11883#13287#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rl_algorithm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1311">
-          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run_robot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="213" column="28" selection-start-line="213" selection-start-column="28" selection-end-line="213" selection-end-column="28" />
+        <state relative-caret-position="184">
+          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
           <folding>
-            <element signature="e#65#76#0" expanded="true" />
-            <element signature="e#2959#3859#0" />
-            <element signature="e#4106#5707#0" />
-            <element signature="e#5771#6659#0" />
+            <element signature="e#60#73#0" expanded="true" />
+            <element signature="e#321#1483#0" />
+            <element signature="e#1520#2027#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/A_algorithm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="91" column="21" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
+        <state relative-caret-position="-115">
+          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -713,6 +688,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_robot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding>
+            <element signature="e#65#76#0" expanded="true" />
+            <element signature="e#327#2918#0" />
+            <element signature="e#2959#3859#0" />
+            <element signature="e#3896#5707#0" />
+            <element signature="e#5771#6659#0" />
+          </folding>
         </state>
       </provider>
     </entry>

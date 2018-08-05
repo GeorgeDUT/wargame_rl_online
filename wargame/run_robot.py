@@ -11,7 +11,8 @@ from rl_algorithm import *
 from A_algorithm import *
 import matplotlib.pyplot as plt
 
-
+'''if DRAW_PIC is False, program will not use tkinter'''
+DRAW_PIC = False
 robot_NUM = 4
 nato_NUM = 1
 
@@ -186,9 +187,9 @@ def update():
     point3=[]
     for episode in range(1300):
         # every robot choose a action on observation
-        train_q_tale(episode,point,point2,point3)
+        # train_q_tale(episode,point,point2,point3)
         # train_dqn(episode,point)
-        # naive_a_algorithm(my_map,robot,nato,episode,point)
+        naive_a_algorithm(my_map,robot,nato,episode,point)
     print('end')
     plt.plot(point,color ='red')
     #plt.plot(point2, color='black')
@@ -199,7 +200,7 @@ def update():
 if __name__ == "__main__":
 
     print('ok')
-    my_map = ROBOT_MAP(ROBOT_NUM=robot_NUM, NATO_NUM=nato_NUM)
+    my_map = ROBOT_MAP(ROBOT_NUM=robot_NUM, NATO_NUM=nato_NUM,draw_pic=DRAW_PIC)
     robot = []
     nato = []
     for i in range(my_map.robot_num):
@@ -207,7 +208,7 @@ if __name__ == "__main__":
 
     for i in range(my_map.nato_num):
         nato.append(NATO(x_loc=3, y_loc=3, id=i, blood=10.0, dirction=(0,-1)))
-    RL = QLearningTable(actions=list(['u','d','l','r','s']))
+    #RL = QLearningTable(actions=list(['u','d','l','r','s']))
     '''
     RL=DQN(my_map.action_num,2,
            learning_rate=0.01,
