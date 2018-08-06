@@ -390,7 +390,6 @@ class ROBOT_MAP(tk.Tk, object):
             self.env_map[robot[i].y][robot[i].x] = robot[i].class_name
         for i in range(self.nato_num):
             self.env_map[nato[i].y][nato[i].x] = nato[i].class_name
-        self.update()
 
     def restart(self,robot,nato):
         if self.draw_pic:
