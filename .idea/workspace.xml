@@ -18,8 +18,8 @@
       <file leaf-file-name="robot_carry.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/robot_carry.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+            <state relative-caret-position="-5589">
+              <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
               <folding>
                 <element signature="e#32#63#0" expanded="true" />
                 <element signature="e#2223#2425#0" />
@@ -42,13 +42,10 @@
       <file leaf-file-name="run_robot.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="230" column="32" lean-forward="true" selection-start-line="230" selection-start-column="32" selection-end-line="230" selection-end-column="32" />
+            <state relative-caret-position="4623">
+              <caret line="231" column="9" selection-start-line="231" selection-start-column="9" selection-end-line="231" selection-end-column="9" />
               <folding>
                 <element signature="e#65#76#0" expanded="true" />
-                <element signature="e#400#2991#0" />
-                <element signature="e#3032#3932#0" />
-                <element signature="e#3969#5780#0" />
               </folding>
             </state>
           </provider>
@@ -59,12 +56,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="69">
               <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-              <folding>
-                <element signature="e#332#1494#0" />
-                <element signature="e#1531#2038#0" />
-                <element signature="e#2067#2071#0" />
-                <element signature="e#2089#8119#0" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -85,7 +76,7 @@
       <file leaf-file-name="hq.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/hq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="739">
+            <state relative-caret-position="1909">
               <caret line="84" column="57" selection-start-line="84" selection-start-column="57" selection-end-line="84" selection-end-column="57" />
               <folding>
                 <element signature="e#205#223#0" expanded="true" />
@@ -97,7 +88,7 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="622">
+            <state relative-caret-position="1380">
               <caret line="66" column="28" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
             </state>
           </provider>
@@ -106,7 +97,7 @@
       <file leaf-file-name="test_function.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/test_function.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="2829">
               <caret line="129" column="18" selection-start-line="127" selection-start-column="4" selection-end-line="138" selection-end-column="19" />
               <folding>
                 <element signature="e#59#70#0" expanded="true" />
@@ -141,15 +132,15 @@
         <option value="$PROJECT_DIR$/wargame/venv/nato_brain.py" />
         <option value="$PROJECT_DIR$/wargame/rl_algorithm.py" />
         <option value="$PROJECT_DIR$/wargame/nato_brain.py" />
-        <option value="$PROJECT_DIR$/wargame/robot_carry.py" />
         <option value="$PROJECT_DIR$/wargame/test_function.py" />
         <option value="$PROJECT_DIR$/wargame/run_robot.py" />
+        <option value="$PROJECT_DIR$/wargame/robot_carry.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="447" />
-    <option name="y" value="28" />
+    <option name="x" value="340" />
+    <option name="y" value="46" />
     <option name="width" value="1309" />
     <option name="height" value="977" />
   </component>
@@ -267,14 +258,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="447" y="28" width="1309" height="977" extended-state="0" />
+    <frame x="340" y="46" width="1309" height="977" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15003867" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Python Console" order="9" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.21911922" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3066202" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -299,6 +290,26 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/wargame/test_function.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2829">
+          <caret line="129" column="18" selection-start-line="127" selection-start-column="4" selection-end-line="138" selection-end-column="19" />
+          <folding>
+            <element signature="e#59#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5290">
+          <caret line="230" column="32" lean-forward="true" selection-start-line="230" selection-start-column="32" selection-end-line="230" selection-end-column="32" />
+          <folding>
+            <element signature="e#65#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wargame/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1140">
@@ -344,12 +355,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1406">
           <caret line="211" column="43" lean-forward="true" selection-start-line="211" selection-start-column="43" selection-end-line="211" selection-end-column="43" />
-          <folding>
-            <element signature="e#332#1494#0" />
-            <element signature="e#1531#2038#0" />
-            <element signature="e#2067#2071#0" />
-            <element signature="e#2089#8119#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -401,12 +406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3040">
           <caret line="164" column="48" lean-forward="true" selection-start-line="164" selection-start-column="48" selection-end-line="164" selection-end-column="48" />
-          <folding>
-            <element signature="e#332#1494#0" />
-            <element signature="e#1531#2038#0" />
-            <element signature="e#2067#2071#0" />
-            <element signature="e#2089#8119#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -489,12 +488,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3705">
           <caret line="198" column="26" lean-forward="true" selection-start-line="198" selection-start-column="26" selection-end-line="198" selection-end-column="26" />
-          <folding>
-            <element signature="e#332#1494#0" />
-            <element signature="e#1531#2038#0" />
-            <element signature="e#2067#2071#0" />
-            <element signature="e#2089#8119#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -651,19 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wargame/paper_reading/paper">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wargame/venv/nato_brain.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wargame/venv/nato_brain">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/wargame/A_algorithm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -679,25 +659,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
+        <state relative-caret-position="1380">
           <caret line="66" column="28" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/test_function.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="2829">
           <caret line="129" column="18" selection-start-line="127" selection-start-column="4" selection-end-line="138" selection-end-column="19" />
           <folding>
             <element signature="e#59#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wargame/hq.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1909">
+          <caret line="84" column="57" selection-start-line="84" selection-start-column="57" selection-end-line="84" selection-end-column="57" />
+          <folding>
+            <element signature="e#205#223#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -706,19 +693,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding>
-            <element signature="e#332#1494#0" />
-            <element signature="e#1531#2038#0" />
-            <element signature="e#2067#2071#0" />
-            <element signature="e#2089#8119#0" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/robot_carry.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        <state relative-caret-position="-5589">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding>
             <element signature="e#32#63#0" expanded="true" />
             <element signature="e#2223#2425#0" />
@@ -728,25 +709,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wargame/hq.py">
+    <entry file="file://$PROJECT_DIR$/wargame/paper_reading/paper">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="84" column="57" selection-start-line="84" selection-start-column="57" selection-end-line="84" selection-end-column="57" />
-          <folding>
-            <element signature="e#205#223#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="115">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="230" column="32" lean-forward="true" selection-start-line="230" selection-start-column="32" selection-end-line="230" selection-end-column="32" />
+        <state relative-caret-position="4623">
+          <caret line="231" column="9" selection-start-line="231" selection-start-column="9" selection-end-line="231" selection-end-column="9" />
           <folding>
             <element signature="e#65#76#0" expanded="true" />
-            <element signature="e#400#2991#0" />
-            <element signature="e#3032#3932#0" />
-            <element signature="e#3969#5780#0" />
           </folding>
         </state>
       </provider>

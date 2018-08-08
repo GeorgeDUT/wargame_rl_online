@@ -227,11 +227,9 @@ if __name__ == "__main__":
             print("pressed", repr(event.char))
         def callback(event):
             print("clicked at", event.x, event.y)
-        frame = Frame(my_map,width=300,height=100)
-        frame.bind("<Key>", key)
-        frame.bind("<Button-1>", callback)
-        frame.pack()
-
+        my_map.bind("<Key>", key)
+        my_map.bind("<Button-1>", callback)
+        #my_map.pack()
         my_map.mainloop()
 
     else:
