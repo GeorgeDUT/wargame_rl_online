@@ -10,11 +10,12 @@ from test_function import *
 from rl_algorithm import *
 from A_algorithm import *
 import matplotlib.pyplot as plt
+from nato_brain import *
 
 '''if DRAW_PIC is False, program will not use tkinter'''
-DRAW_PIC = False
+DRAW_PIC = True
 robot_NUM = 4
-nato_NUM = 1
+nato_NUM = 4
 
 
 def train_q_tale(episode, point,point2,point3):
@@ -162,7 +163,7 @@ def naive_a_algorithm(my_map, robot,nato,episode,point):
         #time.sleep(0.5)
         action_robot_num=[]
         action_nato_num=[]
-        choice=A_function(my_map,robot,nato)
+        choice=a_function(my_map,robot,nato)
         for i in range(my_map.robot_num):
             single_action,s_=feedback_from_env(my_map, robot, i, choice[i])
             action_robot_num.append(single_action)
@@ -188,8 +189,8 @@ def update():
     for episode in range(1300):
         # every robot choose a action on observation
         # train_q_tale(episode,point,point2,point3)
-        train_dqn(episode,point)
-        # naive_a_algorithm(my_map,robot,nato,episode,point)
+        # train_dqn(episode,point)
+        naive_a_algorithm(my_map,robot,nato,episode,point)
     print('end')
     plt.plot(point,color ='red')
     #plt.plot(point2, color='black')
@@ -198,7 +199,6 @@ def update():
 
 
 if __name__ == "__main__":
-
     print('ok')
     my_map = ROBOT_MAP(ROBOT_NUM=robot_NUM, NATO_NUM=nato_NUM,draw_pic=DRAW_PIC)
     robot = []
@@ -208,7 +208,7 @@ if __name__ == "__main__":
 
     for i in range(my_map.nato_num):
         nato.append(NATO(x_loc=3, y_loc=3, id=i, blood=10.0, dirction=(0,-1)))
-    #RL = QLearningTable(actions=list(['u','d','l','r','s']))
+    # RL = QLearningTable(actions=list(['u','d','l','r','s']))
 
     RL=DQN(my_map.action_num,2,
            learning_rate=0.01,
@@ -223,7 +223,17 @@ if __name__ == "__main__":
 
     if my_map.draw_pic:
         my_map.after(10, update)
+        def key(event):
+            print("pressed", repr(event.char))
+        def callback(event):
+            print("clicked at", event.x, event.y)
+        frame = Frame(my_map,width=300,height=100)
+        frame.bind("<Key>", key)
+        frame.bind("<Button-1>", callback)
+        frame.pack()
+
         my_map.mainloop()
+
     else:
         update()
         pass

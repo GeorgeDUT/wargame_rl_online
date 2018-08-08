@@ -8,8 +8,13 @@ from hq import *
 import sys
 import platform
 from A_algorithm import *
-import tensorflow as tf
 
+if sys.version_info.major == 2:
+    from Tkinter import *
+    import Tkinter as tk
+else:
+    from tkinter import *
+    import tkinter as tk
 
 def loss_agent_test(my_map,turn):
     cnt_robot = 0
@@ -117,5 +122,22 @@ def test_key_input():
     action = input()
     if action == 'w':
         print('shang')
+
+
+def test_mouse():
+    root = Tk()
+    def key(event):
+        print ("pressed", repr(event.char))
+
+    def callback(event):
+        print ("clicked at", event.x, event.y)
+
+    frame = Frame(root, width=100, height=100)
+    frame.bind("<Key>", key)
+    frame.bind("<Button-1>", callback)
+    frame.pack()
+    root.mainloop()
+
+
 
 

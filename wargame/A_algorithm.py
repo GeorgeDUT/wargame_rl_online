@@ -26,7 +26,7 @@ def a_choose_agent(dis):
     return choose
 
 
-def A_function(my_map, robot, nato):
+def a_function(my_map, robot, nato):
     all_ation = []
     goal = []
     goal.append([my_map.nato_loc[0][0], my_map.nato_loc[0][1]-1])
