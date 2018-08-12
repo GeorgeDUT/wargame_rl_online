@@ -16,6 +16,7 @@ else:
     from tkinter import *
     import tkinter as tk
 
+
 def loss_agent_test(my_map,turn):
     cnt_robot = 0
     cnt_nato = 0
