@@ -13,9 +13,9 @@ import matplotlib.pyplot as plt
 from nato_brain import *
 
 '''if DRAW_PIC is False, program will not use tkinter'''
-DRAW_PIC = False
-robot_NUM = 4
-nato_NUM = 1
+DRAW_PIC = True
+robot_NUM = 5
+nato_NUM = 5
 
 
 def train_q_tale(episode, point,point2,point3):
@@ -189,8 +189,9 @@ def update():
     for episode in range(1300):
         # every robot choose a action on observation
         # train_q_tale(episode,point,point2,point3)
-        train_dqn(episode,point)
+        # train_dqn(episode,point)
         # naive_a_algorithm(my_map,robot,nato,episode,point)
+        rand_no_train(episode,point)
     print('end')
     plt.plot(point,color ='red')
     #plt.plot(point2, color='black')
