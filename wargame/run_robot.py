@@ -13,9 +13,9 @@ import matplotlib.pyplot as plt
 from nato_brain import *
 
 '''if DRAW_PIC is False, program will not use tkinter'''
-DRAW_PIC = False
+DRAW_PIC = True
 robot_NUM = 5
-nato_NUM = 1
+nato_NUM = 4
 
 
 def train_q_tale(episode, point,point2,point3):
