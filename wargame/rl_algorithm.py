@@ -382,7 +382,6 @@ class DQN:
         return action
 
 
-
     def learn(self):
 
         # check to replace target parameters
@@ -391,7 +390,7 @@ class DQN:
 
             self.sess.run(self.replace_target_op)
 
-            print('\ntarget_params_replaced\n')
+            #print('\ntarget_params_replaced\n')
 
 
 

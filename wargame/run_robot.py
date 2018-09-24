@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 from nato_brain import *
 
 '''if DRAW_PIC is False, program will not use tkinter'''
-DRAW_PIC = True
+DRAW_PIC = False
 robot_NUM = 5
 nato_NUM = 1
 
