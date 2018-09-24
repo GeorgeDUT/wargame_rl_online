@@ -1,6 +1,8 @@
 """
 this file is main function of all the model
 hello ubuntu
+open file chose
+D:\pythoncode\wargame-rl-online\wargame_rl_online\wargame>
 """
 import time
 import sys
@@ -15,7 +17,7 @@ from nato_brain import *
 '''if DRAW_PIC is False, program will not use tkinter'''
 DRAW_PIC = True
 robot_NUM = 5
-nato_NUM = 4
+nato_NUM = 1
 
 
 def train_q_tale(episode, point,point2,point3):
