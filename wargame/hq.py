@@ -112,7 +112,7 @@ def get_reward_from_env(my_map):
         reward = 100
     else:
         done = False
-        reward = -1
+        reward = 0
     return reward,done
 
 

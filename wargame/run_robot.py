@@ -188,7 +188,7 @@ def update():
     point=[]
     point2=[]
     point3=[]
-    for episode in range(1300):
+    for episode in range(5000):
         # every robot choose a action on observation
         # train_q_tale(episode,point,point2,point3)
         train_dqn(episode,point)
