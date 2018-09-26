@@ -144,10 +144,14 @@ def train_dqn(episode,point):
         reward, done = get_reward_from_env(my_map)
 
         # store
-        for i in range(my_map.robot_num):
-            RL.store_transition(observation_robot[i],action_robot[i],reward,observation_robot_next[i])
-
-        if (step > 200) and (step%5 == 0):
+        #for i in range(my_map.robot_num):
+            #RL.store_transition(observation_robot[i],action_robot[i],reward,observation_robot_next[i])
+	for i in range(my_map.robot_num):
+           if(step>2000):
+                pass
+           else:
+                RL.store_transition(observation_robot[i],action_robot[i],reward,observation_robot_next[i])
+        if (step > 100) and (step%5 == 0):
             RL.learn()
 
         for i in range(my_map.robot_num):
