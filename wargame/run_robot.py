@@ -15,8 +15,8 @@ import matplotlib.pyplot as plt
 from nato_brain import *
 
 '''if DRAW_PIC is False, program will not use tkinter'''
-DRAW_PIC = False
-robot_NUM = 5
+DRAW_PIC = True
+robot_NUM = 4
 nato_NUM = 1
 
 
@@ -146,11 +146,16 @@ def train_dqn(episode,point):
         # store
         #for i in range(my_map.robot_num):
             #RL.store_transition(observation_robot[i],action_robot[i],reward,observation_robot_next[i])
-	for i in range(my_map.robot_num):
-           if(step>2000):
+        aver_step=0
+        for i in range(episode):
+            aver_step=point[i]/episode+aver_step
+
+        for i in range(my_map.robot_num):
+            if(step>((1+aver_step)*1.5)):
                 pass
-           else:
+            else:
                 RL.store_transition(observation_robot[i],action_robot[i],reward,observation_robot_next[i])
+
         if (step > 100) and (step%5 == 0):
             RL.learn()
 
@@ -192,7 +197,7 @@ def update():
     point=[]
     point2=[]
     point3=[]
-    for episode in range(5000):
+    for episode in range(1000):
         # every robot choose a action on observation
         # train_q_tale(episode,point,point2,point3)
         train_dqn(episode,point)
