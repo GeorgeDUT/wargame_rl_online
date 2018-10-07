@@ -15,7 +15,7 @@ else:
     import tkinter as tk
 
 MAP_W = 14
-MAP_H = 4
+MAP_H = 5
 UNIT_PIX = 25
 
 
@@ -79,6 +79,7 @@ class ARMY(object):
             add_x = 0
             chang_y = self.y
             chang_x = self.x
+
         self.last_x = self.x
         self.last_y = self.y
         self.x = chang_x
@@ -176,19 +177,22 @@ class ROBOT_MAP(tk.Tk, object):
             self.env_map.append(a)
 
     def regist(self, aclass):
-        a = aclass.last_x
-        b = aclass.last_y
-        a_ = aclass.x
-        b_ = aclass.y
-        class_name = aclass.class_name
-        self.env_map[b][a] = 'null'
-        self.env_map[b_][a_] = class_name
-        if aclass.class_name == 'robot':
-            self.robot_loc[aclass.id][0] = aclass.x
-            self.robot_loc[aclass.id][1] = aclass.y
-        elif aclass.class_name == 'nato':
-            self.nato_loc[aclass.id][0] = aclass.x
-            self.nato_loc[aclass.id][1] = aclass.y
+        if aclass.state == 'live':
+            a = aclass.last_x
+            b = aclass.last_y
+            a_ = aclass.x
+            b_ = aclass.y
+            class_name = aclass.class_name
+            self.env_map[b][a] = 'null'
+            self.env_map[b_][a_] = class_name
+            if aclass.class_name == 'robot':
+                self.robot_loc[aclass.id][0] = aclass.x
+                self.robot_loc[aclass.id][1] = aclass.y
+            elif aclass.class_name == 'nato':
+                self.nato_loc[aclass.id][0] = aclass.x
+                self.nato_loc[aclass.id][1] = aclass.y
+        elif aclass.state == 'dead':
+            pass
 
     def init_robot_tk(self, ROBOT,n):
         for i in range(n):
@@ -409,6 +413,7 @@ class ROBOT_MAP(tk.Tk, object):
             pass
         elif agent.class_name == 'nato':
             agent.state='dead'
+            self.env_map[agent.y][agent.x]='null'
 
 
 

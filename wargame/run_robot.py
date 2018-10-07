@@ -89,6 +89,7 @@ def train_q_tale(episode, point,point2,point3):
 
 def rand_no_train(episode,point):
     for step in range(50000):
+        time.sleep(0.5)
         action_robot_num = []
         action_nato_num = []
         for i in range(my_map.robot_num):
@@ -101,12 +102,12 @@ def rand_no_train(episode,point):
             action_nato_num.append(single_action2)
         my_map.flash(my_map.robot_num, action_robot_num, robot)
         my_map.flash(my_map.nato_num, action_nato_num, nato)
-        reward, done = get_reward_from_env(my_map)
+        reward, done = get_reward_from_env(my_map,robot,nato)
         if done:
             my_map.restart(robot, nato)
             print(step, 'surround')
             break
-            time.sleep(1)
+    point.append(step)
     # loss_agent_test(my_map,step)
     # test_robot_map(robot,nato, my_map)
 
@@ -202,12 +203,12 @@ def update():
     point=[]
     point2=[]
     point3=[]
-    for episode in range(200):
+    for episode in range(2):
         # every robot choose a action on observation
         # train_q_tale(episode,point,point2,point3)
-        train_dqn(episode,point)
+        # train_dqn(episode,point)
         # naive_a_algorithm(my_map,robot,nato,episode,point)
-        # rand_no_train(episode,point)
+        rand_no_train(episode,point)
     print('end')
     plt.plot(point,color ='red')
     #plt.plot(point2, color='black')
@@ -253,5 +254,4 @@ if __name__ == "__main__":
         pass
     #print(RL.q_table)
 
-    # test area
 
