@@ -27,7 +27,7 @@ class ARMY(object):
         self.last_y = y_loc
         self.id = id
         self.blood = blood
-        self.state = 'peace'
+        self.state = 'live'
         self.init_x = x_loc
         self.init_y = y_loc
         self.init_blood = blood
@@ -69,7 +69,12 @@ class ARMY(object):
         if chang_y > ROBOT_MAP.map_h - ROBOT_MAP.map_start_y - 1:
             chang_y = ROBOT_MAP.map_h - ROBOT_MAP.map_start_y - 1
             add_y = 0
-        if (ROBOT_MAP.env_map[chang_y][chang_x] == 'robot' ) or (ROBOT_MAP.env_map[chang_y][chang_x] == 'nato'):
+        if (ROBOT_MAP.env_map[chang_y][chang_x] == 'robot') or (ROBOT_MAP.env_map[chang_y][chang_x] == 'nato'):
+            add_y = 0
+            add_x = 0
+            chang_y = self.y
+            chang_x = self.x
+        if self.state =='dead':
             add_y = 0
             add_x = 0
             chang_y = self.y
@@ -184,10 +189,6 @@ class ROBOT_MAP(tk.Tk, object):
         elif aclass.class_name == 'nato':
             self.nato_loc[aclass.id][0] = aclass.x
             self.nato_loc[aclass.id][1] = aclass.y
-        # check
-        if self.env_map[aclass.y][aclass.x] != aclass.class_name:
-            print('wrong',aclass.x,aclass.y)
-            time.sleep(5)
 
     def init_robot_tk(self, ROBOT,n):
         for i in range(n):
@@ -292,6 +293,7 @@ class ROBOT_MAP(tk.Tk, object):
                 return False
 
     # TODO fight check
+    '''
     def check_fight(self,robot,nato):
         for i in range(self.robot_num):
             x = self.robot_loc[i][0]
@@ -325,6 +327,7 @@ class ROBOT_MAP(tk.Tk, object):
                     for k in range(self.nato_num):
                         if nato[k].x == column and nato[k].y == line:
                             nato[k].state = 'war'
+    '''
 
     def restart_tk(self,robot,nato):
         # change robot
@@ -392,10 +395,22 @@ class ROBOT_MAP(tk.Tk, object):
             self.env_map[nato[i].y][nato[i].x] = nato[i].class_name
 
     def restart(self,robot,nato):
+        for i in range(self.robot_num):
+            robot[i].state='live'
+        for i in range(self.nato_num):
+            nato[i].state='live'
         if self.draw_pic:
             self.restart_tk(robot,nato)
         else:
             self.restart_server(robot,nato)
+
+    def remove_agent(self,agent,agent_id):
+        if agent.class_name == 'robot':
+            pass
+        elif agent.class_name == 'nato':
+            agent.state='dead'
+
+
 
 
 

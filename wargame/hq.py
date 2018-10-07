@@ -107,13 +107,20 @@ def feedback_dqn_from_env(my_map, aclass, aclass_id, action):
     return single_action, s_
 
 
-def get_reward_from_env(my_map):
-    if my_map.check_surround('nato', 0):
+def get_reward_from_env(my_map,robot,nato):
+    for i in range(my_map.nato_num):
+        if my_map.check_surround('nato',i) and nato[i].state == 'live':
+            my_map.remove_agent(nato[i],i)
+    sum = 0
+    for i in range(my_map.nato_num):
+        if nato[i].state == 'dead':
+            sum = sum+1
+    if sum == my_map.nato_num:
+        reward = 10
         done = True
-        reward = 100
     else:
-        done = False
         reward = 0
+        done = False
     return reward,done
 
 

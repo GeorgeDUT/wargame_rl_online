@@ -17,7 +17,7 @@ from nato_brain import *
 '''if DRAW_PIC is False, program will not use tkinter'''
 DRAW_PIC = True
 robot_NUM = 4
-nato_NUM = 1
+nato_NUM = 3
 
 
 def train_q_tale(episode, point,point2,point3):
@@ -119,6 +119,8 @@ def train_dqn(episode,point):
         observation_robot.append(get_dqn_state(my_map,'robot',i))
 
     for step in range(999999):
+        if episode>100:
+            time.sleep(0.5)
         test_list_clear(action_robot)
         test_list_clear(action_nato)
         for i in range(my_map.robot_num):
@@ -141,7 +143,7 @@ def train_dqn(episode,point):
         my_map.flash(my_map.nato_num,action_nato_num,nato)
 
         # get reward
-        reward, done = get_reward_from_env(my_map)
+        reward, done = get_reward_from_env(my_map,robot,nato)
 
         # store
         #for i in range(my_map.robot_num):
@@ -167,6 +169,9 @@ def train_dqn(episode,point):
             point.append(step)
             my_map.restart(robot, nato)
             break
+
+    if episode>0:
+        print(my_map.env_map)
 
 
 def naive_a_algorithm(my_map, robot,nato,episode,point):
@@ -197,7 +202,7 @@ def update():
     point=[]
     point2=[]
     point3=[]
-    for episode in range(1000):
+    for episode in range(200):
         # every robot choose a action on observation
         # train_q_tale(episode,point,point2,point3)
         train_dqn(episode,point)
@@ -217,9 +222,8 @@ if __name__ == "__main__":
     nato = []
     for i in range(my_map.robot_num):
         robot.append(ROBOT(x_loc=i, y_loc=0, id=i, blood=10.0, dirction=(0,1)))
-
     for i in range(my_map.nato_num):
-        nato.append(NATO(x_loc=3, y_loc=3, id=i, blood=10.0, dirction=(0,-1)))
+        nato.append(NATO(x_loc=i, y_loc=3, id=i, blood=10.0, dirction=(0,-1)))
     # RL = QLearningTable(actions=list(['u','d','l','r','s']))
 
     RL=DQN(my_map.action_num,2,
