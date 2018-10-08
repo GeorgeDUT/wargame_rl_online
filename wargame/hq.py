@@ -117,7 +117,7 @@ def get_reward_from_env(my_map,robot,nato):
             sum = sum+1
     if sum == my_map.nato_num:
         reward = 10
-        done = False
+        done = True
     else:
         reward = 0
         done = False

@@ -14,8 +14,8 @@ else:
     from tkinter import *
     import tkinter as tk
 
-MAP_W = 14
-MAP_H = 5
+MAP_W = 16
+MAP_H = 6
 UNIT_PIX = 25
 
 

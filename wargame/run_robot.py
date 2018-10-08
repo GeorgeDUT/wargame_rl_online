@@ -17,7 +17,7 @@ from nato_brain import *
 '''if DRAW_PIC is False, program will not use tkinter'''
 DRAW_PIC = True
 robot_NUM = 4
-nato_NUM = 3
+nato_NUM = 1
 
 
 def train_q_tale(episode, point,point2,point3):
@@ -66,17 +66,13 @@ def train_q_tale(episode, point,point2,point3):
             action_robot[i] = action_robot_next[i]
 
         if done:
-            # watch move
-            if episode > 1300:
-                time.sleep(0.2)
-            # watch move
             my_map.restart(robot, nato)
             print(episode, step, 'surround')
             point.append(step)
             break
         # watch move
         if episode > 1300:
-            time.sleep(0.25)
+            time.sleep(0)
         # watch move
 
         # nato random run
@@ -120,8 +116,6 @@ def train_dqn(episode,point):
         observation_robot.append(get_dqn_state(my_map,'robot',i))
 
     for step in range(999999):
-        if episode>100:
-            time.sleep(0.5)
         test_list_clear(action_robot)
         test_list_clear(action_nato)
         for i in range(my_map.robot_num):
@@ -159,7 +153,7 @@ def train_dqn(episode,point):
             else:
                 RL.store_transition(observation_robot[i],action_robot[i],reward,observation_robot_next[i])
 
-        if (step > 100) and (step%5 == 0):
+        if (step <999999) and (step%5 == 0):
             RL.learn()
 
         for i in range(my_map.robot_num):
@@ -170,9 +164,6 @@ def train_dqn(episode,point):
             point.append(step)
             my_map.restart(robot, nato)
             break
-
-    if episode>0:
-        print(my_map.env_map)
 
 
 def naive_a_algorithm(my_map, robot,nato,episode,point):
@@ -203,12 +194,12 @@ def update():
     point=[]
     point2=[]
     point3=[]
-    for episode in range(2):
+    for episode in range(1000):
         # every robot choose a action on observation
         # train_q_tale(episode,point,point2,point3)
-        # train_dqn(episode,point)
+        train_dqn(episode,point)
         # naive_a_algorithm(my_map,robot,nato,episode,point)
-        rand_no_train(episode,point)
+        # rand_no_train(episode,point)
     print('end')
     plt.plot(point,color ='red')
     #plt.plot(point2, color='black')
