@@ -115,7 +115,7 @@ def train_dqn(episode,point):
     for i in range(my_map.robot_num):
         observation_robot.append(get_dqn_state(my_map,'robot',i))
 
-    for step in range(999999):
+    for step in range(9999):
         test_list_clear(action_robot)
         test_list_clear(action_nato)
         for i in range(my_map.robot_num):
@@ -146,12 +146,9 @@ def train_dqn(episode,point):
         aver_step=0
         for i in range(episode):
             aver_step=point[i]/episode+aver_step
-
+        # this method has no use, will change.todo find another method
         for i in range(my_map.robot_num):
-            if(step>((1+aver_step)*1.5)):
-                pass
-            else:
-                RL.store_transition(observation_robot[i],action_robot[i],reward,observation_robot_next[i])
+            RL.store_transition(observation_robot[i],action_robot[i],reward,observation_robot_next[i])
 
         if (step <999999) and (step%5 == 0):
             RL.learn()
