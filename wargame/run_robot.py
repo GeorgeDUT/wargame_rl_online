@@ -17,7 +17,7 @@ from nato_brain import *
 '''if DRAW_PIC is False, program will not use tkinter'''
 DRAW_PIC = True
 robot_NUM = 4
-nato_NUM = 1
+nato_NUM = 4
 
 
 def train_q_tale(episode, point,point2,point3):
@@ -85,7 +85,8 @@ def train_q_tale(episode, point,point2,point3):
 
 def rand_no_train(episode,point):
     for step in range(50000):
-        time.sleep(0.5)
+        if episode>99:
+            time.sleep(0.2)
         action_robot_num = []
         action_nato_num = []
         for i in range(my_map.robot_num):
@@ -163,6 +164,10 @@ def train_dqn(episode,point):
             break
 
 
+def comptition_train_dqn(episode,point):
+    pass
+
+
 def naive_a_algorithm(my_map, robot,nato,episode,point):
     for step in range(99999):
         #time.sleep(0.5)
@@ -191,7 +196,7 @@ def update():
     point=[]
     point2=[]
     point3=[]
-    for episode in range(1000):
+    for episode in range(4000):
         # every robot choose a action on observation
         # train_q_tale(episode,point,point2,point3)
         train_dqn(episode,point)
