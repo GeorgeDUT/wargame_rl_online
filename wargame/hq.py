@@ -65,6 +65,7 @@ def get_full_state(my_map,class_name, agent_id):
 
 
 def get_dqn_state(my_map,class_name, agent_id):
+    '''
     s = []
     a = 0
     b = 0
@@ -75,6 +76,26 @@ def get_dqn_state(my_map,class_name, agent_id):
                 b = b+(my_map.robot_loc[i][1]-my_map.nato_loc[j][1])
         s.append(a)
         s.append(b)
+    else:
+        s.append(0)
+        s.append(0)
+    s_return = np.array(s[:2])
+
+    return s_return
+    '''
+    s = []
+    s.append(agent_id)
+    if class_name == 'robot':
+        for i in range(my_map.robot_num):
+            a = my_map.robot_loc[i][0]
+            b = my_map.robot_loc[i][1]
+            s.append(a)
+            s.append(b)
+        for i in range(my_map.nato_num):
+            a = my_map.nato_loc[i][0]
+            b = my_map.nato_loc[i][1]
+            s.append(a)
+            s.append(b)
     else:
         s.append(0)
         s.append(0)

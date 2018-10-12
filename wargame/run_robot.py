@@ -17,7 +17,7 @@ from nato_brain import *
 '''if DRAW_PIC is False, program will not use tkinter'''
 DRAW_PIC = True
 robot_NUM = 4
-nato_NUM = 4
+nato_NUM = 1
 
 
 def train_q_tale(episode, point,point2,point3):
@@ -116,7 +116,7 @@ def train_dqn(episode,point):
     for i in range(my_map.robot_num):
         observation_robot.append(get_dqn_state(my_map,'robot',i))
 
-    for step in range(9999):
+    for step in range(99999):
         test_list_clear(action_robot)
         test_list_clear(action_nato)
         for i in range(my_map.robot_num):
@@ -196,7 +196,7 @@ def update():
     point=[]
     point2=[]
     point3=[]
-    for episode in range(4000):
+    for episode in range(1000):
         # every robot choose a action on observation
         # train_q_tale(episode,point,point2,point3)
         train_dqn(episode,point)
@@ -217,7 +217,7 @@ if __name__ == "__main__":
     for i in range(my_map.robot_num):
         robot.append(ROBOT(x_loc=i, y_loc=0, id=i, blood=10.0, dirction=(0,1)))
     for i in range(my_map.nato_num):
-        nato.append(NATO(x_loc=i, y_loc=3, id=i, blood=10.0, dirction=(0,-1)))
+        nato.append(NATO(x_loc=i, y_loc=2, id=i, blood=10.0, dirction=(0,-1)))
     # RL = QLearningTable(actions=list(['u','d','l','r','s']))
 
     RL=DQN(my_map.action_num,2,
