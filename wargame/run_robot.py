@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 from nato_brain import *
 
 '''if DRAW_PIC is False, program will not use tkinter'''
-DRAW_PIC = True
+DRAW_PIC = False
 robot_NUM = 4
 nato_NUM = 1
 
@@ -109,13 +109,13 @@ def rand_no_train(episode,point):
     # test_robot_map(robot,nato, my_map)
 
 
-def train_dqn(episode,point):
+def train_dqn(episode,point,ponit2):
     observation_robot = []
     action_robot = []
     action_nato = []
     for i in range(my_map.robot_num):
         observation_robot.append(get_dqn_state(my_map,'robot',i))
-
+    sum_reward=0
     for step in range(99999):
         test_list_clear(action_robot)
         test_list_clear(action_nato)
@@ -140,7 +140,7 @@ def train_dqn(episode,point):
 
         # get reward
         reward, done = get_reward_from_env(my_map,robot,nato)
-
+        sum_reward=sum_reward+reward
         # store
         #for i in range(my_map.robot_num):
             #RL.store_transition(observation_robot[i],action_robot[i],reward,observation_robot_next[i])
@@ -160,6 +160,7 @@ def train_dqn(episode,point):
         if done:
             print(episode,step,'surround')
             point.append(step)
+            ponit2.append(sum_reward)
             my_map.restart(robot, nato)
             break
 
@@ -196,15 +197,15 @@ def update():
     point=[]
     point2=[]
     point3=[]
-    for episode in range(1000):
+    for episode in range(5000):
         # every robot choose a action on observation
         # train_q_tale(episode,point,point2,point3)
-        train_dqn(episode,point)
+        train_dqn(episode,point,point2)
         # naive_a_algorithm(my_map,robot,nato,episode,point)
         # rand_no_train(episode,point)
     print('end')
     plt.plot(point,color ='red')
-    #plt.plot(point2, color='black')
+    plt.plot(point2, color='black')
     #plt.plot(point3, color='green')
     plt.show()
 

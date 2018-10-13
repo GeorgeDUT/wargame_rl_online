@@ -137,10 +137,10 @@ def get_reward_from_env(my_map,robot,nato):
         if nato[i].state == 'dead':
             sum = sum+1
     if sum == my_map.nato_num:
-        reward = 10
+        reward = 0
         done = True
     else:
-        reward = 0
+        reward = -1
         done = False
     return reward,done
 
