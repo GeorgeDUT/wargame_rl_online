@@ -5,7 +5,7 @@ import numpy as np
 def brain_of_nato(my_map):
     action_space = ['u', 'd', 'r', 'l', 's']
     action = np.random.choice(action_space)
-    if random.random()>1:
+    if random.random()>0:
         action = 's'
     #action = 's'
     return action

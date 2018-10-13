@@ -495,9 +495,4 @@ class NashDQN:
         plt.show()
 
 
-def brain_of_rboto(my_map):
-    action_space = ['u', 'd', 'r', 'l', 's']
-    action = np.random.choice(action_space)
-    return action
-
 
