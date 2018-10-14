@@ -8,6 +8,7 @@ from hq import *
 import sys
 import platform
 from A_algorithm import *
+import matplotlib.pyplot as plt
 
 if sys.version_info.major == 2:
     from Tkinter import *
@@ -139,6 +140,14 @@ def test_mouse():
     frame.pack()
     root.mainloop()
 
+def softmax(x):
+    return np.exp(x)/np.sum(np.exp(x),axis=0)
+
+x=np.arange(0,6.0,1)
+print(x)
+scores=np.stack([x,np.ones_like(x),0.2*np.ones_like(x)])
+plt.plot(x,softmax(x),linewidth=2)
+plt.show()
 
 
 
