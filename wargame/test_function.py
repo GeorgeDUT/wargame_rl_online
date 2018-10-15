@@ -168,7 +168,7 @@ class RLSoftmax(object):
                 )
             )
 
-            self.q_table.loc[state,'j']=4
+            self.q_table.loc[state,'j']=4*np.random.rand()
             self.q_table.loc[state,'s']=0
             self.q_table.loc[state,'b']=0
 
@@ -204,12 +204,13 @@ class QLearningSoftmax(RLSoftmax):
         self.q_table.loc[s, a] += (self.lr/(time*0.0001+1)) * (q_target - q_predict)
 
 
-def train_softmax(episode,j_gailv,s_gailv):
+def train_softmax(episode,j_gailv,s_gailv,j_o,s_o):
     obs_a=1
+    obs_o=1
     while(1):
         action_a=RL.choose_action(str(obs_a))
-        action_o=np.random.choice(['j','s','b'])
-        #action_o='j'
+        #action_o=np.random.choice(['j','s','b'])
+        action_o=RL_O.choose_action(str(obs_a))
         if action_a==action_o:
             reward=0
         elif action_a=='j' and action_o=='s':
@@ -225,22 +226,33 @@ def train_softmax(episode,j_gailv,s_gailv):
         elif action_a=='b' and action_o=='s':
             reward=1
         obs_a_next=1
+        obs_o_next=1
         action_a_next=RL.choose_action(str(obs_a_next))
+        action_o_next=RL_O.choose_action(str(obs_o_next))
         RL.learn(str(obs_a), action_a, reward,str(obs_a_next),episode)
+        RL_O.learn(str(obs_o),action_o, -reward,str(obs_o_next),episode)
         action_a=action_a_next
+        action_o=action_o_next
         obs_a=obs_a_next
+        obs_o=obs_o_next
         gailv=softmax(RL.q_table.loc[str(obs_a),:])
-        print(gailv[0],gailv[1],gailv[2],gailv[0]+gailv[1]+gailv[2])
+        gailv_o=softmax(RL_O.q_table.loc[str(obs_o),:])
+        #print(gailv[0],gailv[1],gailv[2],gailv[0]+gailv[1]+gailv[2])
         j_gailv.append(gailv[0])
         s_gailv.append(gailv[1])
+        j_o.append(gailv_o[0])
+        s_o.append(gailv_o[1])
+        print(gailv_o[0], gailv_o[1], gailv_o[2], gailv_o[0] + gailv_o[1] + gailv_o[2])
         break
 
 
 def update():
     j_gailv=[]
     s_gailv=[]
+    j_o=[]
+    s_o=[]
     for episode in range(6000):
-        train_softmax(episode,j_gailv,s_gailv)
+        train_softmax(episode,j_gailv,s_gailv,j_o,s_o)
     j_gailv_1=[]
     s_gailv_1=[]
     j_gailv_2=[]
@@ -278,9 +290,12 @@ def update():
     plt.plot(j_gailv_4, s_gailv_4, color='blue')
     plt.plot(j_gailv_5, s_gailv_5, color='darkblue')
     plt.plot(j_gailv_6, s_gailv_6, color='black')
+
+    plt.plot(j_o, s_o, color='red')
     plt.show()
 
 RL =QLearningSoftmax(actions=list(['j','s','b']))
+RL_O=QLearningSoftmax(actions=list(['j','s','b']))
 update()
 print ('ok')
 
