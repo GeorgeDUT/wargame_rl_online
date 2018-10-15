@@ -150,7 +150,7 @@ def softmax(x):
 
 
 class RLSoftmax(object):
-    def __init__(self,action_space, learning_rate=0.01,reward_decay=0.9,e_greedy=0.9):
+    def __init__(self,action_space, learning_rate=0.1,reward_decay=0.9,e_greedy=0.9):
         self.actions = action_space
         self.lr = learning_rate
         self.gamma = reward_decay
@@ -168,7 +168,7 @@ class RLSoftmax(object):
                 )
             )
 
-            self.q_table.loc[state,'j']=1
+            self.q_table.loc[state,'j']=4
             self.q_table.loc[state,'s']=0
             self.q_table.loc[state,'b']=0
 
@@ -194,14 +194,14 @@ class QLearningSoftmax(RLSoftmax):
     def __init__(self, actions, learning_rate=0.01, reward_decay=0.9, e_greedy=0.9):
         super(QLearningSoftmax, self).__init__(actions, learning_rate, reward_decay, e_greedy)
 
-    def learn(self, s, a, r, s_):
+    def learn(self, s, a, r, s_,time):
         self.check_state_exist(s_)
         q_predict = self.q_table.loc[s, a]
         if s_ != 'terminal':
             q_target = r + self.gamma * self.q_table.loc[s_, :].max()
         else:
             q_target = r
-        self.q_table.loc[s, a] += self.lr * (q_target - q_predict)
+        self.q_table.loc[s, a] += (self.lr/(time*0.0001+1)) * (q_target - q_predict)
 
 
 def train_softmax(episode,j_gailv,s_gailv):
@@ -226,7 +226,7 @@ def train_softmax(episode,j_gailv,s_gailv):
             reward=1
         obs_a_next=1
         action_a_next=RL.choose_action(str(obs_a_next))
-        RL.learn(str(obs_a), action_a, reward,str(obs_a_next))
+        RL.learn(str(obs_a), action_a, reward,str(obs_a_next),episode)
         action_a=action_a_next
         obs_a=obs_a_next
         gailv=softmax(RL.q_table.loc[str(obs_a),:])
@@ -272,11 +272,11 @@ def update():
         elif i<6000 and i>=5000:
             j_gailv_6.append(j_gailv[i])
             s_gailv_6.append(s_gailv[i])
-    plt.plot(j_gailv_1, s_gailv_1, color='blue')
-    plt.plot(j_gailv_2, s_gailv_2, color='mediumblue')
-    plt.plot(j_gailv_3, s_gailv_3, color='darkblue')
-    plt.plot(j_gailv_4, s_gailv_4, color='navy')
-    plt.plot(j_gailv_5, s_gailv_5, color='midnightblue')
+    plt.plot(j_gailv_1, s_gailv_1, color='lightskyblue')
+    plt.plot(j_gailv_2, s_gailv_2, color='deepskyblue')
+    plt.plot(j_gailv_3, s_gailv_3, color='dodgerblue')
+    plt.plot(j_gailv_4, s_gailv_4, color='blue')
+    plt.plot(j_gailv_5, s_gailv_5, color='darkblue')
     plt.plot(j_gailv_6, s_gailv_6, color='black')
     plt.show()
 
