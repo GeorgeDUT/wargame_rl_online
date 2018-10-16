@@ -1,3 +1,4 @@
+'''this is without q learning'''
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -72,6 +73,7 @@ def train_softmax(episode,j_gailv,s_gailv,j_o,s_o):
         action_a=RL.choose_action(str(obs_a))
         #action_o=np.random.choice(['j','s','b'])
         action_o=RL_O.choose_action(str(obs_a))
+        action_o='s'
         if action_a==action_o:
             reward=0
         elif action_a=='j' and action_o=='s':
@@ -90,6 +92,7 @@ def train_softmax(episode,j_gailv,s_gailv,j_o,s_o):
         obs_o_next=1
         action_a_next=RL.choose_action(str(obs_a_next))
         action_o_next=RL_O.choose_action(str(obs_o_next))
+        action_o_next='s'
         RL.learn(str(obs_a), action_a, reward,str(obs_a_next),episode)
         RL_O.learn(str(obs_o),action_o, -reward,str(obs_o_next),episode)
         action_a=action_a_next
@@ -152,7 +155,7 @@ def update():
     plt.plot(j_gailv_5, s_gailv_5, color='darkblue')
     plt.plot(j_gailv_6, s_gailv_6, color='black')
 
-    plt.plot(j_o, s_o, color='red')
+    #plt.plot(j_o, s_o, color='red')
     plt.show()
 
 RL =QLearningSoftmax(actions=list(['j','s','b']))
