@@ -12,13 +12,13 @@ from test_function import *
 from rl_algorithm import *
 from A_algorithm import *
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 from nato_brain import *
 
 '''if DRAW_PIC is False, program will not use tkinter'''
 DRAW_PIC = True
 robot_NUM = 4
 nato_NUM = 1
-
 
 def train_q_tale(episode, point,point2,point3):
     observation_robot = []
@@ -211,7 +211,6 @@ def update():
 
 
 if __name__ == "__main__":
-    print('ok')
     my_map = ROBOT_MAP(ROBOT_NUM=robot_NUM, NATO_NUM=nato_NUM,draw_pic=DRAW_PIC)
     robot = []
     nato = []
