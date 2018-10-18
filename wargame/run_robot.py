@@ -11,6 +11,8 @@ from hq import *
 from test_function import *
 from rl_algorithm import *
 from A_algorithm import *
+import matplotlib
+matplotlib.use("TkAgg")
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from nato_brain import *
@@ -197,13 +199,14 @@ def update():
     point=[]
     point2=[]
     point3=[]
-    for episode in range(5000):
+    for episode in range(5):
         # every robot choose a action on observation
         # train_q_tale(episode,point,point2,point3)
         train_dqn(episode,point,point2)
         # naive_a_algorithm(my_map,robot,nato,episode,point)
         # rand_no_train(episode,point)
     print('end')
+
     plt.plot(point,color ='red')
     plt.plot(point2, color='black')
     #plt.plot(point3, color='green')
