@@ -31,32 +31,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run_robot.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="run_robot.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="642">
-              <caret line="151" column="65" selection-start-line="151" selection-start-column="65" selection-end-line="151" selection-end-column="65" />
+            <state relative-caret-position="322">
+              <caret line="81" column="36" lean-forward="true" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
               <folding>
                 <element signature="e#140#151#0" expanded="true" />
-                <element signature="e#499#2974#0" />
-                <element signature="e#3015#3974#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rl_algorithm.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rl_algorithm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/rl_algorithm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="97" selection-start-line="97" selection-end-line="97" />
+            <state relative-caret-position="184">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="e#60#73#0" expanded="true" />
                 <element signature="e#305#1467#0" />
                 <element signature="e#1504#2011#0" />
-                <element signature="e#2046#8098#1" />
-                <element signature="e#8116#15307#0" />
-                <element signature="e#15329#22520#0" />
               </folding>
             </state>
           </provider>
@@ -105,23 +100,10 @@
       <file leaf-file-name="test_function.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/test_function.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="145" column="19" selection-start-line="145" selection-start-column="19" selection-end-line="145" selection-end-column="19" />
+            <state relative-caret-position="3082">
+              <caret line="141" selection-start-line="141" selection-end-line="141" />
               <folding>
                 <element signature="e#59#70#0" expanded="true" />
-                <element signature="e#361#1061#0" />
-                <element signature="e#1091#1137#0" />
-                <element signature="e#1162#1432#0" />
-                <element signature="e#1465#1517#0" />
-                <element signature="e#1565#1929#0" />
-                <element signature="e#1970#2082#0" />
-                <element signature="e#2155#2272#0" />
-                <element signature="e#2306#2382#0" />
-                <element signature="e#2404#2495#0" />
-                <element signature="e#2526#2582#0" />
-                <element signature="e#2614#2765#0" />
-                <element signature="e#2794#2855#0" />
-                <element signature="e#2880#3181#0" />
               </folding>
             </state>
           </provider>
@@ -163,9 +145,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="413" />
-    <option name="y" value="55" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="440" />
+    <option name="y" value="21" />
     <option name="width" value="1309" />
     <option name="height" value="889" />
   </component>
@@ -182,6 +164,11 @@
               <item name="wargame_rl_online" type="b2602c69:ProjectViewProjectNode" />
               <item name="wargame_rl_online" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="wargame_rl_online" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wargame_rl_online" type="462c0819:PsiDirectoryNode" />
+              <item name="nash_q_learning" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -189,7 +176,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../testlist" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../multi_agent_game" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -204,7 +191,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_function">
+  <component name="RunManager" selected="Python.run_robot">
     <configuration name="run_robot" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="wargame_rl_online" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -247,8 +234,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test_function" />
         <item itemvalue="Python.run_robot" />
+        <item itemvalue="Python.test_function" />
       </list>
     </recent_temporary>
   </component>
@@ -266,14 +253,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="413" y="55" width="1309" height="889" extended-state="0" />
+    <frame x="440" y="21" width="1309" height="889" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15003867" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Python Console" order="9" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.28978008" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28978008" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.29366106" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -304,19 +292,6 @@
           <caret line="129" column="18" selection-start-line="127" selection-start-column="4" selection-end-line="138" selection-end-column="19" />
           <folding>
             <element signature="e#59#70#0" expanded="true" />
-            <element signature="e#361#1061#0" />
-            <element signature="e#1091#1137#0" />
-            <element signature="e#1162#1432#0" />
-            <element signature="e#1465#1517#0" />
-            <element signature="e#1565#1929#0" />
-            <element signature="e#1970#2082#0" />
-            <element signature="e#2155#2272#0" />
-            <element signature="e#2306#2382#0" />
-            <element signature="e#2404#2495#0" />
-            <element signature="e#2526#2582#0" />
-            <element signature="e#2614#2765#0" />
-            <element signature="e#2794#2855#0" />
-            <element signature="e#2880#3181#0" />
           </folding>
         </state>
       </provider>
@@ -327,8 +302,6 @@
           <caret line="230" column="32" lean-forward="true" selection-start-line="230" selection-start-column="32" selection-end-line="230" selection-end-column="32" />
           <folding>
             <element signature="e#140#151#0" expanded="true" />
-            <element signature="e#499#2974#0" />
-            <element signature="e#3015#3974#0" />
           </folding>
         </state>
       </provider>
@@ -733,18 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
-          <caret line="151" column="65" selection-start-line="151" selection-start-column="65" selection-end-line="151" selection-end-column="65" />
-          <folding>
-            <element signature="e#140#151#0" expanded="true" />
-            <element signature="e#499#2974#0" />
-            <element signature="e#3015#3974#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wargame/A_algorithm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -758,38 +719,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/test_function.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="145" column="19" selection-start-line="145" selection-start-column="19" selection-end-line="145" selection-end-column="19" />
+        <state relative-caret-position="3082">
+          <caret line="141" selection-start-line="141" selection-end-line="141" />
           <folding>
             <element signature="e#59#70#0" expanded="true" />
-            <element signature="e#361#1061#0" />
-            <element signature="e#1091#1137#0" />
-            <element signature="e#1162#1432#0" />
-            <element signature="e#1465#1517#0" />
-            <element signature="e#1565#1929#0" />
-            <element signature="e#1970#2082#0" />
-            <element signature="e#2155#2272#0" />
-            <element signature="e#2306#2382#0" />
-            <element signature="e#2404#2495#0" />
-            <element signature="e#2526#2582#0" />
-            <element signature="e#2614#2765#0" />
-            <element signature="e#2794#2855#0" />
-            <element signature="e#2880#3181#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/rl_algorithm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="97" selection-start-line="97" selection-end-line="97" />
+        <state relative-caret-position="184">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="e#60#73#0" expanded="true" />
             <element signature="e#305#1467#0" />
             <element signature="e#1504#2011#0" />
-            <element signature="e#2046#8098#1" />
-            <element signature="e#8116#15307#0" />
-            <element signature="e#15329#22520#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="81" column="36" lean-forward="true" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
+          <folding>
+            <element signature="e#140#151#0" expanded="true" />
           </folding>
         </state>
       </provider>
