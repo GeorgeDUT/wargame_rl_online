@@ -200,6 +200,7 @@ def update():
     b_gailv_4 = []
     b_gailv_5 = []
     b_gailv_6 = []
+
     for i in range(6000):
         if i<1000:
             j_gailv_1.append(j_gailv[i])

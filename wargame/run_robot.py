@@ -186,24 +186,26 @@ def naive_a_algorithm(my_map, robot,nato,episode,point):
             action_nato_num.append(single_action2)
         my_map.flash(my_map.robot_num, action_robot_num, robot)
         my_map.flash(my_map.nato_num, action_nato_num, nato)
-        reward, done = get_reward_from_env(my_map)
+        reward, done = get_reward_from_env(my_map,robot,nato)
         if done:
             time.sleep(0.5)
             my_map.restart(robot, nato)
             print(episode, step, 'surround')
             point.append(step)
             break
+        time.sleep(0.3)
 
 
 def update():
     point=[]
     point2=[]
     point3=[]
-    for episode in range(5):
+    for episode in range(50):
         # every robot choose a action on observation
         # train_q_tale(episode,point,point2,point3)
-        train_dqn(episode,point,point2)
-        # naive_a_algorithm(my_map,robot,nato,episode,point)
+        # train_dqn(episode,point,point2)
+        # time.sleep(0.5)
+        naive_a_algorithm(my_map,robot,nato,episode,point)
         # rand_no_train(episode,point)
     print('end')
 
