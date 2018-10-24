@@ -203,9 +203,9 @@ def update():
     for episode in range(50):
         # every robot choose a action on observation
         # train_q_tale(episode,point,point2,point3)
-        # train_dqn(episode,point,point2)
+        train_dqn(episode,point,point2)
         # time.sleep(0.5)
-        naive_a_algorithm(my_map,robot,nato,episode,point)
+        # naive_a_algorithm(my_map,robot,nato,episode,point)
         # rand_no_train(episode,point)
     print('end')
 

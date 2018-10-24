@@ -99,7 +99,7 @@ def get_dqn_state(my_map,class_name, agent_id):
     else:
         s.append(0)
         s.append(0)
-    s_return = np.array(s[:2])
+    s_return = np.array(s[:10])
 
     return s_return
 
