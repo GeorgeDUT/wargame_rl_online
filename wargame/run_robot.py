@@ -153,7 +153,7 @@ def train_dqn(episode,point,ponit2):
         for i in range(my_map.robot_num):
             RL.store_transition(observation_robot[i],action_robot[i],reward,observation_robot_next[i])
 
-        if (step <999999) and (step%5 == 0):
+        if (episode>5) and (step%5 == 0):
             RL.learn()
 
         for i in range(my_map.robot_num):
@@ -165,10 +165,6 @@ def train_dqn(episode,point,ponit2):
             ponit2.append(sum_reward)
             my_map.restart(robot, nato)
             break
-
-
-def comptition_train_dqn(episode,point):
-    pass
 
 
 def naive_a_algorithm(my_map, robot,nato,episode,point):
@@ -200,7 +196,7 @@ def update():
     point=[]
     point2=[]
     point3=[]
-    for episode in range(50):
+    for episode in range(5000):
         # every robot choose a action on observation
         # train_q_tale(episode,point,point2,point3)
         train_dqn(episode,point,point2)
@@ -225,7 +221,7 @@ if __name__ == "__main__":
         nato.append(NATO(x_loc=i, y_loc=2, id=i, blood=10.0, dirction=(0,-1)))
     # RL = QLearningTable(actions=list(['u','d','l','r','s']))
 
-    RL=DQN(my_map.action_num,2,
+    RL=DQN(my_map.action_num,3,
            learning_rate=0.01,
            reward_decay=0.9,
            e_greedy=0.9,

@@ -83,25 +83,41 @@ def get_dqn_state(my_map,class_name, agent_id):
 
     return s_return
     '''
-    s = []
+    '''
+    s_return = np.zeros((my_map.robot_num*my_map.nato_num)*2+1)
+    s=[]
     s.append(agent_id)
     if class_name == 'robot':
         for i in range(my_map.robot_num):
-            a = my_map.robot_loc[i][0]
-            b = my_map.robot_loc[i][1]
-            s.append(a)
-            s.append(b)
-        for i in range(my_map.nato_num):
-            a = my_map.nato_loc[i][0]
-            b = my_map.nato_loc[i][1]
-            s.append(a)
-            s.append(b)
-    else:
-        s.append(0)
-        s.append(0)
-    s_return = np.array(s[:10])
-
+            for j in range(my_map.nato_num):
+                a = (my_map.robot_loc[i][0]-my_map.nato_loc[j][0])
+                b = (my_map.robot_loc[i][1]-my_map.nato_loc[j][1])
+                if a >0:
+                    a=1
+                elif a<0:
+                    a=-1
+                if b>0:
+                    b=1
+                elif b<0:
+                    b=-1
+                s.append(a)
+                s.append(b)
+    for i in range(len(s)):
+        s_return[i]=s[i]
     return s_return
+    '''
+    s_return = np.zeros(my_map.nato_num*2+1)
+    s = []
+    s.append(agent_id)
+    for j in range(my_map.nato_num):
+        a = (my_map.robot_loc[agent_id][0] - my_map.nato_loc[j][0])
+        b = (my_map.robot_loc[agent_id][1] - my_map.nato_loc[j][1])
+        s.append(a)
+        s.append(b)
+    for i in range(len(s)):
+        s_return[i] = s[i]
+    return s_return
+
 
 
 def feedback_from_env(my_map, aclass, aclass_id, action):
