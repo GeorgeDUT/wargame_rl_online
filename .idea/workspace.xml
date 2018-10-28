@@ -34,8 +34,8 @@
       <file leaf-file-name="run_robot.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="81" column="36" lean-forward="true" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
+            <state relative-caret-position="1886">
+              <caret line="82" column="40" lean-forward="true" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
               <folding>
                 <element signature="e#140#151#0" expanded="true" />
               </folding>
@@ -46,8 +46,8 @@
       <file leaf-file-name="rl_algorithm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/rl_algorithm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="92">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="e#60#73#0" expanded="true" />
                 <element signature="e#305#1467#0" />
@@ -145,9 +145,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="440" />
-    <option name="y" value="21" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="286" />
+    <option name="y" value="53" />
     <option name="width" value="1309" />
     <option name="height" value="889" />
   </component>
@@ -164,11 +164,6 @@
               <item name="wargame_rl_online" type="b2602c69:ProjectViewProjectNode" />
               <item name="wargame_rl_online" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="wargame_rl_online" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wargame_rl_online" type="462c0819:PsiDirectoryNode" />
-              <item name="nash_q_learning" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -176,7 +171,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../multi_agent_game" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -253,19 +248,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="440" y="21" width="1309" height="889" extended-state="0" />
+    <frame x="286" y="53" width="1309" height="889" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15003867" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15003867" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28978008" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Python Console" order="9" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28978008" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.29366106" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991276" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -729,8 +724,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/rl_algorithm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="92">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="e#60#73#0" expanded="true" />
             <element signature="e#305#1467#0" />
@@ -741,8 +736,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="81" column="36" lean-forward="true" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
+        <state relative-caret-position="1886">
+          <caret line="82" column="40" lean-forward="true" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
           <folding>
             <element signature="e#140#151#0" expanded="true" />
           </folding>
