@@ -229,12 +229,18 @@ def update():
 
     fig = plt.figure()
     ax = fig.gca(projection='3d')
-    ax.plot(j_gailv_1, s_gailv_1, b_gailv_1,color='lightskyblue')
-    ax.plot(j_gailv_2, s_gailv_2, b_gailv_2,color='deepskyblue')
-    ax.plot(j_gailv_3, s_gailv_3, b_gailv_3,color='dodgerblue')
-    ax.plot(j_gailv_4, s_gailv_4, b_gailv_4,color='blue')
-    ax.plot(j_gailv_5, s_gailv_5, b_gailv_5,color='darkblue')
-    ax.plot(j_gailv_6, s_gailv_6, b_gailv_6,color='black')
+    # ax.plot(j_gailv_1, s_gailv_1, b_gailv_1,color='lightskyblue')
+    # ax.plot(j_gailv_2, s_gailv_2, b_gailv_2,color='deepskyblue')
+    # ax.plot(j_gailv_3, s_gailv_3, b_gailv_3,color='dodgerblue')
+    # ax.plot(j_gailv_4, s_gailv_4, b_gailv_4,color='blue')
+    # ax.plot(j_gailv_5, s_gailv_5, b_gailv_5,color='darkblue')
+    # ax.plot(j_gailv_6, s_gailv_6, b_gailv_6,color='black')
+    ax.plot(j_gailv_1, s_gailv_1, b_gailv_1, color='blue')
+    ax.plot(j_gailv_2, s_gailv_2, b_gailv_2, color='blue')
+    ax.plot(j_gailv_3, s_gailv_3, b_gailv_3, color='blue')
+    ax.plot(j_gailv_4, s_gailv_4, b_gailv_4, color='blue')
+    ax.plot(j_gailv_5, s_gailv_5, b_gailv_5, color='blue')
+    ax.plot(j_gailv_6, s_gailv_6, b_gailv_6, color='blue')
     ax.legend()
 
     '''
@@ -248,7 +254,7 @@ def update():
     plt.show()
 
 RL =QLearningSoftmax(actions=list(['j','s','b']),init_j=5,init_s=0,init_b=0)
-RL_O=QLearningSoftmax(actions=list(['j','s','b']),init_j=0,init_s=5,init_b=0)
+RL_O=QLearningSoftmax(actions=list(['j','s','b']),init_j=5,init_s=0,init_b=0)
 update()
 print ('ok')
 
