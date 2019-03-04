@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5ebf5e4-8439-413c-821c-e5de5f5601e7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wargame/rl_algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/wargame/rl_algorithm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wargame/run_robot.py" beforeDir="false" afterPath="$PROJECT_DIR$/wargame/run_robot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nash_q_learning/markov-q-learning.py" beforeDir="false" afterPath="$PROJECT_DIR$/nash_q_learning/markov-q-learning.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,24 +16,17 @@
       <file leaf-file-name="robot_carry.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/robot_carry.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
+            <state relative-caret-position="255">
               <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-              <folding>
-                <element signature="e#32#63#0" expanded="true" />
-                <element signature="e#309#2330#0" />
-                <element signature="e#2356#2558#0" />
-                <element signature="e#2583#2779#0" />
-                <element signature="e#9582#10874#1" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run_robot.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="run_robot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1886">
-              <caret line="82" column="40" lean-forward="true" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
+            <state relative-caret-position="656">
+              <caret line="82" column="40" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
               <folding>
                 <element signature="e#140#151#0" expanded="true" />
               </folding>
@@ -46,7 +37,7 @@
       <file leaf-file-name="rl_algorithm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/rl_algorithm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
+            <state relative-caret-position="60">
               <caret line="8" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="e#60#73#0" expanded="true" />
@@ -60,7 +51,7 @@
       <file leaf-file-name="A_algorithm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/A_algorithm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
+            <state relative-caret-position="135">
               <caret line="27" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="e#132#599#0" />
@@ -73,7 +64,7 @@
       <file leaf-file-name="nato_brain.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/nato_brain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
+            <state relative-caret-position="90">
               <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -86,7 +77,7 @@
       <file leaf-file-name="hq.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/hq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
+            <state relative-caret-position="675">
               <caret line="92" column="23" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="23" />
               <folding>
                 <element signature="e#205#223#0" expanded="true" />
@@ -100,10 +91,22 @@
       <file leaf-file-name="test_function.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/test_function.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3082">
+            <state relative-caret-position="2010">
               <caret line="141" selection-start-line="141" selection-end-line="141" />
               <folding>
                 <element signature="e#59#70#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="markov-q-learning.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nash_q_learning/markov-q-learning.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="576">
+              <caret line="393" column="92" selection-start-line="393" selection-start-column="92" selection-end-line="393" selection-end-column="92" />
+              <folding>
+                <element signature="e#304#1842#0" />
               </folding>
             </state>
           </provider>
@@ -142,14 +145,15 @@
         <option value="$PROJECT_DIR$/wargame/nato_brain.py" />
         <option value="$PROJECT_DIR$/wargame/test_function.py" />
         <option value="$PROJECT_DIR$/wargame/rl_algorithm.py" />
+        <option value="$PROJECT_DIR$/nash_q_learning/markov-q-learning.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="286" />
-    <option name="y" value="53" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="459" />
+    <option name="y" value="48" />
     <option name="width" value="1309" />
-    <option name="height" value="889" />
+    <option name="height" value="807" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -163,6 +167,20 @@
             <path>
               <item name="wargame_rl_online" type="b2602c69:ProjectViewProjectNode" />
               <item name="wargame_rl_online" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wargame_rl_online" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wargame_rl_online" type="462c0819:PsiDirectoryNode" />
+              <item name="nash_q_learning" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wargame_rl_online" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="wargame_rl_online" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
             </path>
           </expand>
           <select />
@@ -186,7 +204,25 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.run_robot">
+  <component name="RunManager" selected="Python.markov-q-learning">
+    <configuration name="markov-q-learning" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="wargame_rl_online" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/nash_q_learning" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/nash_q_learning/markov-q-learning.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="run_robot" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="wargame_rl_online" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -226,9 +262,11 @@
     <list>
       <item itemvalue="Python.run_robot" />
       <item itemvalue="Python.test_function" />
+      <item itemvalue="Python.markov-q-learning" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.markov-q-learning" />
         <item itemvalue="Python.run_robot" />
         <item itemvalue="Python.test_function" />
       </list>
@@ -248,13 +286,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="286" y="53" width="1309" height="889" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15003867" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13611111" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.28978008" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Python Console" order="9" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -281,16 +319,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wargame/test_function.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2829">
-          <caret line="129" column="18" selection-start-line="127" selection-start-column="4" selection-end-line="138" selection-end-column="19" />
-          <folding>
-            <element signature="e#59#70#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5290">
@@ -326,13 +354,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1919">
           <caret line="280" column="25" selection-start-line="280" selection-start-column="25" selection-end-line="280" selection-end-column="25" />
-          <folding>
-            <element signature="e#32#63#0" expanded="true" />
-            <element signature="e#309#2330#0" />
-            <element signature="e#2356#2558#0" />
-            <element signature="e#2583#2779#0" />
-            <element signature="e#9582#10874#1" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -387,13 +408,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
           <caret line="98" selection-start-line="98" selection-end-line="98" />
-          <folding>
-            <element signature="e#32#63#0" expanded="true" />
-            <element signature="e#309#2330#0" />
-            <element signature="e#2356#2558#0" />
-            <element signature="e#2583#2779#0" />
-            <element signature="e#9582#10874#1" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -441,13 +455,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-          <folding>
-            <element signature="e#32#63#0" expanded="true" />
-            <element signature="e#309#2330#0" />
-            <element signature="e#2356#2558#0" />
-            <element signature="e#2583#2779#0" />
-            <element signature="e#9582#10874#1" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -495,13 +502,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-          <folding>
-            <element signature="e#32#63#0" expanded="true" />
-            <element signature="e#309#2330#0" />
-            <element signature="e#2356#2558#0" />
-            <element signature="e#2583#2779#0" />
-            <element signature="e#9582#10874#1" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -563,13 +563,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding>
-            <element signature="e#32#63#0" expanded="true" />
-            <element signature="e#309#2330#0" />
-            <element signature="e#2356#2558#0" />
-            <element signature="e#2583#2779#0" />
-            <element signature="e#9582#10874#1" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -591,13 +584,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-          <folding>
-            <element signature="e#32#63#0" expanded="true" />
-            <element signature="e#309#2330#0" />
-            <element signature="e#2356#2558#0" />
-            <element signature="e#2583#2779#0" />
-            <element signature="e#9582#10874#1" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -619,13 +605,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-          <folding>
-            <element signature="e#32#63#0" expanded="true" />
-            <element signature="e#309#2330#0" />
-            <element signature="e#2356#2558#0" />
-            <element signature="e#2583#2779#0" />
-            <element signature="e#9582#10874#1" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -666,21 +645,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/robot_carry.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
+        <state relative-caret-position="255">
           <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-          <folding>
-            <element signature="e#32#63#0" expanded="true" />
-            <element signature="e#309#2330#0" />
-            <element signature="e#2356#2558#0" />
-            <element signature="e#2583#2779#0" />
-            <element signature="e#9582#10874#1" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/hq.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
+        <state relative-caret-position="675">
           <caret line="92" column="23" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="23" />
           <folding>
             <element signature="e#205#223#0" expanded="true" />
@@ -692,7 +664,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/nato_brain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
+        <state relative-caret-position="90">
           <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
@@ -703,7 +675,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/A_algorithm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="135">
           <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="e#132#599#0" />
@@ -714,7 +686,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/test_function.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3082">
+        <state relative-caret-position="2010">
           <caret line="141" selection-start-line="141" selection-end-line="141" />
           <folding>
             <element signature="e#59#70#0" expanded="true" />
@@ -724,7 +696,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/rl_algorithm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
+        <state relative-caret-position="60">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="e#60#73#0" expanded="true" />
@@ -736,10 +708,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1886">
-          <caret line="82" column="40" lean-forward="true" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
+        <state relative-caret-position="656">
+          <caret line="82" column="40" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
           <folding>
             <element signature="e#140#151#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nash_q_learning/markov-q-learning.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="393" column="92" selection-start-line="393" selection-start-column="92" selection-end-line="393" selection-end-column="92" />
+          <folding>
+            <element signature="e#304#1842#0" />
           </folding>
         </state>
       </provider>
