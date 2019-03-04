@@ -390,7 +390,7 @@ def update():
 RL = QLearningSoftmax(actions=list(['u','d','l','r']),init_u=0,init_d=0,init_l=0,init_r=-0.1)
 RL_O = QLearningSoftmax(actions=list(['u','d','l','r']),init_u=-1,init_d=0,init_l=-1,init_r=0)
 
-RL2 = QLearningSoftmax(actions=list(['u','d','l','r']),init_u=0,init_d=0,init_l=2,init_r=0)
+RL2 = QLearningSoftmax(actions=list(['u','d','l','r']),init_u=3,init_d=0,init_l=2,init_r=0)
 RL_O2 = QLearningSoftmax(actions=list(['u','d','l','r']),init_u=0,init_d=0,init_l=0,init_r=8)
 
 RL3 = QLearningSoftmax(actions=list(['u','d','l','r']),init_u=0,init_d=0,init_l=0,init_r=0)
