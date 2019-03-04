@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5ebf5e4-8439-413c-821c-e5de5f5601e7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/nash_q_learning/markov-q-learning.py" beforeDir="false" afterPath="$PROJECT_DIR$/nash_q_learning/markov-q-learning.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nash_q_learning/prisoner.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,15 +13,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="robot_carry.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wargame/robot_carry.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="run_robot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -100,14 +91,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="markov-q-learning.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="markov-q-learning.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nash_q_learning/markov-q-learning.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="379" column="50" lean-forward="true" selection-start-line="379" selection-start-column="50" selection-end-line="379" selection-end-column="50" />
+            <state relative-caret-position="306">
+              <caret line="375" lean-forward="true" selection-end-line="402" />
               <folding>
                 <element signature="e#304#1842#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="prisoner.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nash_q_learning/prisoner.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="621">
+              <caret line="287" column="57" selection-start-line="287" selection-start-column="57" selection-end-line="287" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="actor-critic.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nash_q_learning/actor-critic.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="nash_q_table.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nash_q_learning/nash_q_table.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2113">
+              <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -146,6 +160,7 @@
         <option value="$PROJECT_DIR$/wargame/test_function.py" />
         <option value="$PROJECT_DIR$/wargame/rl_algorithm.py" />
         <option value="$PROJECT_DIR$/nash_q_learning/markov-q-learning.py" />
+        <option value="$PROJECT_DIR$/nash_q_learning/prisoner.py" />
       </list>
     </option>
   </component>
@@ -160,6 +175,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -185,7 +201,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -204,7 +219,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.markov-q-learning">
+  <component name="RunManager" selected="Python.prisoner">
     <configuration name="markov-q-learning" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="wargame_rl_online" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -218,6 +233,24 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/nash_q_learning/markov-q-learning.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="prisoner" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="wargame_rl_online" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/nash_q_learning" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/nash_q_learning/prisoner.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -263,9 +296,11 @@
       <item itemvalue="Python.run_robot" />
       <item itemvalue="Python.test_function" />
       <item itemvalue="Python.markov-q-learning" />
+      <item itemvalue="Python.prisoner" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.prisoner" />
         <item itemvalue="Python.markov-q-learning" />
         <item itemvalue="Python.run_robot" />
         <item itemvalue="Python.test_function" />
@@ -289,7 +324,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13611111" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19861111" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.25" />
@@ -319,30 +354,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5290">
-          <caret line="230" column="32" lean-forward="true" selection-start-line="230" selection-start-column="32" selection-end-line="230" selection-end-column="32" />
-          <folding>
-            <element signature="e#140#151#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wargame/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="66" column="28" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wargame/test_function.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wargame/A_algorithm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -716,13 +727,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/nash_q_learning/actor-critic.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nash_q_learning/nash_q_table.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2113">
+          <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nash_q_learning/markov-q-learning.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="379" column="50" lean-forward="true" selection-start-line="379" selection-start-column="50" selection-end-line="379" selection-end-column="50" />
+        <state relative-caret-position="306">
+          <caret line="375" lean-forward="true" selection-end-line="402" />
           <folding>
             <element signature="e#304#1842#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nash_q_learning/prisoner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="287" column="57" selection-start-line="287" selection-start-column="57" selection-end-line="287" selection-end-column="57" />
         </state>
       </provider>
     </entry>
