@@ -12,7 +12,7 @@ def softmax(x):
 
 
 class RLSoftmax(object):
-    def __init__(self,action_space, learning_rate=0.1,reward_decay=0.9,e_greedy=0.9):
+    def __init__(self,action_space, learning_rate=0.03,reward_decay=0.001,e_greedy=0.9):
         self.actions = action_space
         self.lr = learning_rate
         self.gamma = reward_decay
@@ -51,7 +51,7 @@ class RLSoftmax(object):
 
 
 class QLearningSoftmax(RLSoftmax):
-    def __init__(self, actions, learning_rate=0.1, reward_decay=0.9, e_greedy=1,init_c=5,init_d=0):
+    def __init__(self, actions, learning_rate=0.03, reward_decay=0.001, e_greedy=1,init_c=5,init_d=0):
         super(QLearningSoftmax, self).__init__(actions, learning_rate, reward_decay, e_greedy)
         self.init_c = init_c
         self.init_d = init_d
@@ -105,7 +105,7 @@ def train_softmax(episode,c_gailv,c_O):
         gailv_o=softmax(RL_O.q_table.loc[str(obs_o),:])
         c_gailv.append(gailv[0])
         c_O.append(gailv_o[0])
-        print(gailv_o[0])
+        print('1',gailv_o[0])
         break
 
 
@@ -147,7 +147,7 @@ def train_softmax2(episode,c_gailv,c_O):
         gailv_o=softmax(RL_O2.q_table.loc[str(obs_o),:])
         c_gailv.append(gailv[0])
         c_O.append(gailv_o[0])
-        print(gailv_o[0])
+        print('2',gailv_o[0])
         break
 
 
@@ -189,7 +189,7 @@ def train_softmax3(episode,c_gailv,c_O):
         gailv_o=softmax(RL_O3.q_table.loc[str(obs_o),:])
         c_gailv.append(gailv[0])
         c_O.append(gailv_o[0])
-        print(gailv_o[0])
+        print('3',gailv_o[0])
         break
 
 
@@ -240,37 +240,37 @@ def train_softmax4(episode,c_gailv,c_O):
 def update():
     c_gailv=[]
     c_o=[]
-    # for episode in range(15):
-    #     train_softmax(episode,c_gailv,c_o)
-    #
-    # c_gailv2 = []
-    # c_o2 = []
-    # for episode in range(15):
-    #     train_softmax2(episode, c_gailv2, c_o2)
-    #
-    # c_gailv3 = []
-    # c_o3 = []
-    # for episode in range(15):
-    #     train_softmax3(episode, c_gailv3, c_o3)
+    for episode in range(5000):
+        train_softmax(episode,c_gailv,c_o)
 
-    c_gailv4 = []
-    c_o4 = []
-    for episode in range(1500):
-        train_softmax4(episode, c_gailv4, c_o4)
+    c_gailv2 = []
+    c_o2 = []
+    for episode in range(5000):
+        train_softmax2(episode, c_gailv2, c_o2)
+
+    c_gailv3 = []
+    c_o3 = []
+    for episode in range(5000):
+        train_softmax3(episode, c_gailv3, c_o3)
+
+    # c_gailv4 = []
+    # c_o4 = []
+    # for episode in range(1500):
+    #     train_softmax4(episode, c_gailv4, c_o4)
 
     fig = plt.figure()
 
-    # plt.plot(c_gailv,'--', color='red')
-    # plt.plot(c_o, color='red')
-    #
-    # plt.plot(c_gailv2, '--', color='blue')
-    # plt.plot(c_o2,color='blue')
-    # #
-    # plt.plot(c_gailv3, '--', color='black')
-    # plt.plot(c_o3, color='black')
+    plt.plot(c_gailv,'--', color='red')
+    plt.plot(c_o, color='red')
 
-    plt.plot(c_gailv4, '--', color='green')
-    plt.plot(c_o4, color='green')
+    plt.plot(c_gailv2, '--', color='blue')
+    plt.plot(c_o2,color='blue')
+    #
+    plt.plot(c_gailv3, '--', color='black')
+    plt.plot(c_o3, color='black')
+
+    # plt.plot(c_gailv4, '--', color='green')
+    # plt.plot(c_o4, color='green')
 
     plt.show()
 
@@ -281,11 +281,11 @@ RL_O = QLearningSoftmax(actions=list(['c','d']),init_c=0,init_d=0)
 RL2 = QLearningSoftmax(actions=list(['c','d']),init_c=2,init_d=0)
 RL_O2 = QLearningSoftmax(actions=list(['c','d']),init_c=2,init_d=0)
 
-RL3 = QLearningSoftmax(actions=list(['c','d']),init_c=2,init_d=0)
-RL_O3 = QLearningSoftmax(actions=list(['c','d']),init_c=0,init_d=2)
+RL3 = QLearningSoftmax(actions=list(['c','d']),init_c=12,init_d=0)
+RL_O3 = QLearningSoftmax(actions=list(['c','d']),init_c=0,init_d=12)
 
-RL4 = QLearningSoftmax(actions=list(['c','d']),init_c=0,init_d=0)
-RL_O4 = QLearningSoftmax(actions=list(['c','d']),init_c=0,init_d=4)
+# RL4 = QLearningSoftmax(actions=list(['c','d']),init_c=0,init_d=0)
+# RL_O4 = QLearningSoftmax(actions=list(['c','d']),init_c=0,init_d=4)
 
 
 update()

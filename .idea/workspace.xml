@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5ebf5e4-8439-413c-821c-e5de5f5601e7" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/nash_q_learning/prisoner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nash_q_learning/prisoner.py" beforeDir="false" afterPath="$PROJECT_DIR$/nash_q_learning/prisoner.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,7 +17,7 @@
       <file leaf-file-name="run_robot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1125">
+            <state relative-caret-position="1230">
               <caret line="82" column="40" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
               <folding>
                 <element signature="e#140#151#0" expanded="true" />
@@ -28,7 +29,7 @@
       <file leaf-file-name="rl_algorithm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/rl_algorithm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
+            <state relative-caret-position="120">
               <caret line="8" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="e#60#73#0" expanded="true" />
@@ -55,7 +56,7 @@
       <file leaf-file-name="nato_brain.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/nato_brain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
+            <state relative-caret-position="105">
               <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -82,7 +83,7 @@
       <file leaf-file-name="test_function.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/test_function.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2010">
+            <state relative-caret-position="2115">
               <caret line="141" selection-start-line="141" selection-end-line="141" />
               <folding>
                 <element signature="e#59#70#0" expanded="true" />
@@ -94,8 +95,8 @@
       <file leaf-file-name="markov-q-learning.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nash_q_learning/markov-q-learning.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="375" lean-forward="true" selection-end-line="402" />
+            <state relative-caret-position="4920">
+              <caret line="375" selection-end-line="402" />
               <folding>
                 <element signature="e#304#1842#0" />
               </folding>
@@ -106,8 +107,11 @@
       <file leaf-file-name="prisoner.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nash_q_learning/prisoner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="287" column="57" selection-start-line="287" selection-start-column="57" selection-end-line="287" selection-end-column="57" />
+            <state relative-caret-position="299">
+              <caret line="253" column="47" selection-start-line="253" selection-start-column="47" selection-end-line="253" selection-end-column="47" />
+              <folding>
+                <element signature="e#33#52#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,8 +124,8 @@
       <file leaf-file-name="nash_q_table.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nash_q_learning/nash_q_table.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2113">
-              <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+            <state relative-caret-position="195">
+              <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -175,7 +179,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -201,6 +204,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -675,7 +679,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/nato_brain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state relative-caret-position="105">
           <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
@@ -697,7 +701,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/test_function.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2010">
+        <state relative-caret-position="2115">
           <caret line="141" selection-start-line="141" selection-end-line="141" />
           <folding>
             <element signature="e#59#70#0" expanded="true" />
@@ -707,7 +711,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/rl_algorithm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
+        <state relative-caret-position="120">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="e#60#73#0" expanded="true" />
@@ -719,7 +723,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1125">
+        <state relative-caret-position="1230">
           <caret line="82" column="40" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
           <folding>
             <element signature="e#140#151#0" expanded="true" />
@@ -732,15 +736,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nash_q_learning/nash_q_table.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2113">
-          <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+        <state relative-caret-position="195">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nash_q_learning/markov-q-learning.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="375" lean-forward="true" selection-end-line="402" />
+        <state relative-caret-position="4920">
+          <caret line="375" selection-end-line="402" />
           <folding>
             <element signature="e#304#1842#0" />
           </folding>
@@ -749,8 +753,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nash_q_learning/prisoner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="287" column="57" selection-start-line="287" selection-start-column="57" selection-end-line="287" selection-end-column="57" />
+        <state relative-caret-position="299">
+          <caret line="253" column="47" selection-start-line="253" selection-start-column="47" selection-end-line="253" selection-end-column="47" />
+          <folding>
+            <element signature="e#33#52#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
