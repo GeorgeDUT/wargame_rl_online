@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5ebf5e4-8439-413c-821c-e5de5f5601e7" name="Default" comment="" />
+    <list default="true" id="c5ebf5e4-8439-413c-821c-e5de5f5601e7" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +16,7 @@
       <file leaf-file-name="run_robot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1230">
+            <state>
               <caret line="82" column="40" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
               <folding>
                 <element signature="e#140#151#0" expanded="true" />
@@ -26,7 +28,7 @@
       <file leaf-file-name="rl_algorithm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/rl_algorithm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
+            <state relative-caret-position="60">
               <caret line="8" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="e#60#73#0" expanded="true" />
@@ -53,7 +55,7 @@
       <file leaf-file-name="nato_brain.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/nato_brain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
+            <state relative-caret-position="90">
               <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -63,24 +65,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hq.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wargame/hq.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="92" column="23" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="23" />
-              <folding>
-                <element signature="e#205#223#0" expanded="true" />
-                <element signature="e#286#1089#0" />
-                <element signature="e#1145#1960#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="test_function.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wargame/test_function.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2115">
+            <state relative-caret-position="2010">
               <caret line="141" selection-start-line="141" selection-end-line="141" />
               <folding>
                 <element signature="e#59#70#0" expanded="true" />
@@ -101,10 +89,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prisoner.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="prisoner.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nash_q_learning/prisoner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3581">
+            <state relative-caret-position="3353">
               <caret line="253" column="47" selection-start-line="253" selection-start-column="47" selection-end-line="253" selection-end-column="47" />
               <folding>
                 <element signature="e#33#52#0" expanded="true" />
@@ -123,6 +111,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
               <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -162,6 +159,8 @@
         <option value="$PROJECT_DIR$/wargame/rl_algorithm.py" />
         <option value="$PROJECT_DIR$/nash_q_learning/markov-q-learning.py" />
         <option value="$PROJECT_DIR$/nash_q_learning/prisoner.py" />
+        <option value="$PROJECT_DIR$/nash_q_learning/function-set.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -187,15 +186,6 @@
               <item name="wargame_rl_online" type="b2602c69:ProjectViewProjectNode" />
               <item name="wargame_rl_online" type="462c0819:PsiDirectoryNode" />
               <item name="nash_q_learning" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wargame_rl_online" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="wargame_rl_online" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
             </path>
           </expand>
           <select />
@@ -325,7 +315,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19861111" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19861111" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.25" />
@@ -355,13 +345,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wargame/A_algorithm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="7" column="24" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wargame/robot_carry.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1919">
@@ -676,7 +659,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/nato_brain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="90">
           <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
@@ -698,7 +681,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/test_function.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2115">
+        <state relative-caret-position="2010">
           <caret line="141" selection-start-line="141" selection-end-line="141" />
           <folding>
             <element signature="e#59#70#0" expanded="true" />
@@ -708,7 +691,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/rl_algorithm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="60">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="e#60#73#0" expanded="true" />
@@ -720,7 +703,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wargame/run_robot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
+        <state>
           <caret line="82" column="40" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
           <folding>
             <element signature="e#140#151#0" expanded="true" />
@@ -750,11 +733,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nash_q_learning/prisoner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3581">
+        <state relative-caret-position="3353">
           <caret line="253" column="47" selection-start-line="253" selection-start-column="47" selection-end-line="253" selection-end-column="47" />
           <folding>
             <element signature="e#33#52#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
         </state>
       </provider>
     </entry>
