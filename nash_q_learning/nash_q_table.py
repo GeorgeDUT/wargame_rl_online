@@ -4,6 +4,7 @@ import matplotlib as mpl
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+import random
 
 mpl.rcParams['legend.fontsize'] = 10
 
@@ -66,6 +67,16 @@ class RLSoftmax(object):
 
         return action
 
+    def choose_action_greedy(self,observation):
+        self.check_state_exist(observation)
+        if np.random.rand() < 0.9:
+            state_action = self.q_table.loc[observation, :]
+            state_action = state_action.reindex(np.random.permutation(state_action.index))
+            action = state_action.idxmax()
+        else:
+            action = np.random.choice(self.actions)
+        return action
+
     def learn(self, *arg):
         pass
 
@@ -92,9 +103,9 @@ def train_softmax(episode,j_gailv,s_gailv,j_o,s_o):
     obs_o=1
 
     while(1):
-        action_a=RL.choose_action(str(obs_a))
+        action_a=RL.choose_action_greedy(str(obs_a))
         #action_o=np.random.choice(['j','s','b'])
-        action_o=RL_O.choose_action(str(obs_a))
+        action_o=RL_O.choose_action_greedy(str(obs_a))
         # action_o=np.random.choice(['s'])
         if action_a==action_o:
             reward=0
@@ -112,8 +123,8 @@ def train_softmax(episode,j_gailv,s_gailv,j_o,s_o):
             reward=1
         obs_a_next=1
         obs_o_next=1
-        action_a_next=RL.choose_action(str(obs_a_next))
-        action_o_next=RL_O.choose_action(str(obs_o_next))
+        action_a_next=RL.choose_action_greedy(str(obs_a_next))
+        action_o_next=RL_O.choose_action_greedy(str(obs_o_next))
         # action_o=np.random.choice(['s'])
         RL.learn(str(obs_a), action_a, reward,str(obs_a_next),episode)
         RL_O.learn(str(obs_o),action_o, -reward,str(obs_o_next),episode)
@@ -179,7 +190,7 @@ def update():
     j_o=[]
     s_o=[]
     b_o=[]
-    for episode in range(6000):
+    for episode in range(1000):
         train_softmax(episode,j_gailv,s_gailv,j_o,s_o)
         b_o.append(1-j_o[episode]-s_o[episode])
     j_gailv_1=[]
@@ -201,20 +212,20 @@ def update():
     b_gailv_5 = []
     b_gailv_6 = []
 
-    for i in range(6000):
-        if i<1000:
+    for i in range(1000):
+        if i<200:
             j_gailv_1.append(j_gailv[i])
             s_gailv_1.append(s_gailv[i])
             b_gailv_1.append(1-j_gailv[i]-s_gailv[i])
-        elif i<2000 and i>=1000:
+        elif i<500 and i>=200:
             j_gailv_2.append(j_gailv[i])
             s_gailv_2.append(s_gailv[i])
             b_gailv_2.append(1 - j_gailv[i] - s_gailv[i])
-        elif i<3000 and i>=2000:
+        elif i<600 and i>=500:
             j_gailv_3.append(j_gailv[i])
             s_gailv_3.append(s_gailv[i])
             b_gailv_3.append(1 - j_gailv[i] - s_gailv[i])
-        elif i<4000 and i>=3000:
+        elif i<4000 and i>=600:
             j_gailv_4.append(j_gailv[i])
             s_gailv_4.append(s_gailv[i])
             b_gailv_4.append(1 - j_gailv[i] - s_gailv[i])
@@ -229,18 +240,20 @@ def update():
 
     fig = plt.figure()
     ax = fig.gca(projection='3d')
-    # ax.plot(j_gailv_1, s_gailv_1, b_gailv_1,color='lightskyblue')
-    # ax.plot(j_gailv_2, s_gailv_2, b_gailv_2,color='deepskyblue')
-    # ax.plot(j_gailv_3, s_gailv_3, b_gailv_3,color='dodgerblue')
-    # ax.plot(j_gailv_4, s_gailv_4, b_gailv_4,color='blue')
-    # ax.plot(j_gailv_5, s_gailv_5, b_gailv_5,color='darkblue')
-    # ax.plot(j_gailv_6, s_gailv_6, b_gailv_6,color='black')
-    ax.plot(j_gailv_1, s_gailv_1, b_gailv_1, color='blue')
-    ax.plot(j_gailv_2, s_gailv_2, b_gailv_2, color='blue')
-    ax.plot(j_gailv_3, s_gailv_3, b_gailv_3, color='blue')
-    ax.plot(j_gailv_4, s_gailv_4, b_gailv_4, color='blue')
-    ax.plot(j_gailv_5, s_gailv_5, b_gailv_5, color='blue')
-    ax.plot(j_gailv_6, s_gailv_6, b_gailv_6, color='blue')
+    ax.plot(j_gailv_1, s_gailv_1, b_gailv_1,color='lightskyblue')
+    ax.plot(j_gailv_2, s_gailv_2, b_gailv_2,color='deepskyblue')
+    ax.plot(j_gailv_3, s_gailv_3, b_gailv_3,color='dodgerblue')
+    ax.plot(j_gailv_4, s_gailv_4, b_gailv_4,color='blue')
+    ax.plot(j_gailv_5, s_gailv_5, b_gailv_5,color='darkblue')
+    ax.plot(j_gailv_6, s_gailv_6, b_gailv_6,color='black')
+
+    # ax.plot(j_gailv_1, s_gailv_1, b_gailv_1, color='blue')
+    # ax.plot(j_gailv_2, s_gailv_2, b_gailv_2, color='blue')
+    # ax.plot(j_gailv_3, s_gailv_3, b_gailv_3, color='blue')
+    # ax.plot(j_gailv_4, s_gailv_4, b_gailv_4, color='blue')
+    # ax.plot(j_gailv_5, s_gailv_5, b_gailv_5, color='blue')
+    # ax.plot(j_gailv_6, s_gailv_6, b_gailv_6, color='blue')
+
     ax.legend()
 
     '''
